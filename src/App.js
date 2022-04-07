@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Первая страница React</h1>
-        
+        <h2>Настройка Git</h2>
       </header>
     </div>
   );
