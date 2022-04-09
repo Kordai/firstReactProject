@@ -1,8 +1,6 @@
-.n {
- 
- color: aqua;
+.m {
+  color: #282c34;
  height: 100%;
- grid-area: n;
  font-size: 25px;
  /* align-items: center;
 justify-content: center; */
@@ -10,7 +8,11 @@ text-align: center;
 
 display: grid;
 grid-gap:10px;
-grid-template-rows: 1fr 3fr 8fr;
+
 
 }
 
+.item {
+  background-color: aqua;
+  height: 40px;
+}

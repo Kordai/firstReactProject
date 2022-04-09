@@ -1,0 +1,8 @@
+.m {
+ background-color: white;
+ height: 100%;
+ grid-area: m;
+ align-items: center;
+justify-content: center;
+text-align: center;
+}

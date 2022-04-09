@@ -3,10 +3,10 @@ import s from './Header.module.css';
 
 const Header = () => {
   return (
-    <header className={s.h}>
-      
-      <h1>Первая страница React</h1>
-      <h2>Настройка Git</h2>
+    <header className={s.h}>      
+      <div>Новое сообщение</div>
+      <div>Новая заявка</div>
+      <div>Новая оплата</div>
     </header>
   );
 }

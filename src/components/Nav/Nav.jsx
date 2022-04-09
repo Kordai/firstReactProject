@@ -1,13 +1,16 @@
 import React from 'react';
+import Logo from './Logo/Logo';
+import Menu from './Menu/Menu';
 import s from './Nav.module.css';
 
 const Nav = () => {
   return (
     <nav className={s.n}>
-      <div>Меню</div>
-      <div>Кофе</div>
-      <div>Настройки</div>
-      <div>Контакты</div>
+      <Logo />
+      <Menu />
+      <div>
+        Footer
+      </div>
     </nav>
   );
 }

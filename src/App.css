@@ -10,8 +10,9 @@
   display: grid;
   grid-template-areas: 
   "n h"
-  "n h";
+  "n m";
   
   grid-template-columns: 2fr 10fr;
-  
+  grid-template-rows: 30px 11fr;
+  grid-gap: 10px;
 }
