@@ -1,0 +1,9 @@
+.n {
+ background-color: aqua;
+ height: 100%;
+ grid-area: n;
+ font-size: 25px;
+ align-items: center;
+justify-content: center;
+text-align: center;
+}
