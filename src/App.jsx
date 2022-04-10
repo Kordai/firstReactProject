@@ -8,10 +8,9 @@ import Main from './components/Main/Main';
 function App() {
   return (
     <div className="App">
-       <Nav />
+      <Nav />
       <Header />
       <Main />
-     
     </div>
   );
 }
