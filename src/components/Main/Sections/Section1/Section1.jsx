@@ -8,6 +8,7 @@ import Module4 from './Moduls/Module4/Module4'
 const Section1 = () => {
   return (
     <section className={s.s1}>
+      {/* Комент */}
       <Module1/>
       <Module2/>
       <Module3/>
