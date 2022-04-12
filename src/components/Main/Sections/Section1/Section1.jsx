@@ -1,18 +1,36 @@
 import React from 'react';
 import s from './Section1.module.css';
 import Module1 from './Moduls/Module1/Module1'
-import Module2 from './Moduls/Module2/Module2'
-import Module3 from './Moduls/Module3/Module3'
-import Module4 from './Moduls/Module4/Module4'
+
+const data = [
+  ["Task", "Hours per Day"],
+  ["АЗС 1", 200],
+  ["АЗС 2", 50],
+  ["Вкусмарт 1", 250],
+  ["Вкусмарт 2", 280],
+  ["Магазин", 320],
+];
+
+let titleCharts = "Продажи кофе с собой";
+
+const options = {
+  title: titleCharts,
+  is3D: true,
+  // colors: ['#FB7A21'],
+  backgroundColor: 'burlywood',
+  fontSize: '17',
+  legend:{position: 'bottom', textStyle: {color: 'blue', fontSize: 15}}
+};
+
 
 const Section1 = () => {
   return (
     <section className={s.s1}>
       {/* Комент */}
-      <Module1/>
-      <Module2/>
-      <Module3/>
-      <Module4/>
+      <Module1 data = {data} options = {options}/>
+      <Module1 data = {data} options = {options}/>
+      <Module1 data = {data} options = {options}/>
+      <Module1 data = {data} options = {options}/>
     </section>
   );
 }
