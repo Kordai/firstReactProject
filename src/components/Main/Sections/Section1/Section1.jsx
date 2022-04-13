@@ -2,35 +2,29 @@ import React from 'react';
 import s from './Section1.module.css';
 import Module1 from './Moduls/Module1/Module1'
 
-const data = [
-  ["Task", "Hours per Day"],
-  ["АЗС 1", 200],
-  ["АЗС 2", 50],
-  ["Вкусмарт 1", 250],
-  ["Вкусмарт 2", 280],
-  ["Магазин", 320],
-];
+const Section1 = (props) => {
 
-let titleCharts = "Продажи кофе с собой";
+  let dataOptions = props.state.map(
+    val => ({
+      options: {
+        title: val.titleCharts,
+        is3D: true,
+        // colors: ['#FB7A21'],
+        backgroundColor: 'burlywood',
+        fontSize: '17',
+        legend:{position: 'bottom', textStyle: {color: 'blue', fontSize: 15}}
+      },
+      data: val.data
+    })
+  )
 
-const options = {
-  title: titleCharts,
-  is3D: true,
-  // colors: ['#FB7A21'],
-  backgroundColor: 'burlywood',
-  fontSize: '17',
-  legend:{position: 'bottom', textStyle: {color: 'blue', fontSize: 15}}
-};
-
-
-const Section1 = () => {
+  let module1Elements = dataOptions.map(
+    val => <Module1 data = {val.data} options = {val.options}/>
+  )
+  
   return (
     <section className={s.s1}>
-      {/* Комент */}
-      <Module1 data = {data} options = {options}/>
-      <Module1 data = {data} options = {options}/>
-      <Module1 data = {data} options = {options}/>
-      <Module1 data = {data} options = {options}/>
+      {module1Elements}
     </section>
   );
 }

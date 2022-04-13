@@ -5,12 +5,12 @@ import './App.css';
 import Nav from './components/Nav/Nav';
 import Main from './components/Main/Main';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Nav />
       <Header />
-      <Main />
+      <Main state = {props.state}/>
     </div>
   );
 }
