@@ -7,7 +7,7 @@ const Main = (props) => {
   return (
     <main className={s.m}>
       <Section1 state = {props.state.section1}/>
-      <Section2/>
+      <Section2 state = {props.state.section2}/>
     </main>
   );
 }

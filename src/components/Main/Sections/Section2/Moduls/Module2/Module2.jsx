@@ -1,10 +1,17 @@
 import React from 'react';
 import s from './Module2.module.css';
+import { Chart } from "react-google-charts";
 
-const Module2 = () => {
+const Module2 = (props) => {
   return (
     <section className={s.m2}>
-      <h1>   Поступление денег   </h1>
+       <Chart
+      chartType="Bar"
+      width="100%"
+      height="400px"
+      data={props.state.data}
+      options={props.state.options}
+    />
     </section>
   );
 }

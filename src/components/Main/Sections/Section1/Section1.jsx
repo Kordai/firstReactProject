@@ -10,7 +10,6 @@ const Section1 = (props) => {
         title: val.titleCharts,
         is3D: true,
         // colors: ['#FB7A21'],
-        backgroundColor: 'burlywood',
         fontSize: '17',
         legend:{position: 'bottom', textStyle: {color: 'blue', fontSize: 15}}
       },
