@@ -4,10 +4,10 @@ import s from './Menu.module.css';
 const Menu = () => {
   return (
     <div className={s.m}>
-      <div className={s.item}>Меню</div>
-      <div className={s.item}>Кофе</div>
-      <div className={s.item}>Настройки</div>
-      <div className={s.item}>Контакты</div>
+      <div className={s.item}>Панель управления</div>
+      <div className={s.item}>Финансовый отчет</div>
+      <div className={s.item}>Заявки</div>
+      <div className={s.item}>Точки продаж</div>
     </div>
   );
 }
