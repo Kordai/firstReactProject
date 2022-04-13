@@ -7,7 +7,7 @@ import state from './Data/state'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App state = {state} />
+    <App state={state} />
   </React.StrictMode>,
   document.getElementById('root')
 );
