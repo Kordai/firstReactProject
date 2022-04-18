@@ -1,0 +1,7 @@
+.m {
+ background-color: #282c34;
+ height: 100%;
+ display: grid;
+ grid-template-rows: 1fr 1fr;
+ grid-gap: 10px;
+}
