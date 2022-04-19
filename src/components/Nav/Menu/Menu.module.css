@@ -12,7 +12,18 @@ grid-gap:10px;
 
 }
 
-.item {
+a{
   background-color: aqua;
   height: 40px;
+  text-decoration: none;
+  
+}
+
+a:hover {
+  color: white;
+  background-color: cornflowerblue;
+}
+
+a.active {
+  background-color: cornflowerblue;
 }
