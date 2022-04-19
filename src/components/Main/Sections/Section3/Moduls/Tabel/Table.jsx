@@ -2,8 +2,7 @@ import React from 'react';
 import TableRow from './TableRow'
 
 const Table = () => { 
-    return (
-       
+    return (       
           <TableRow />
     )
   }

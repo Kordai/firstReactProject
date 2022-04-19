@@ -1,11 +1,11 @@
 import React from 'react';
 import s from './MainMoney.module.css';
-import Table from './Sections/Section3/Moduls/Tabel/Table';
+import Section3 from './Sections/Section3/Section3';
 
 const MainMoney = (props) => {
   return (
     <main className={s.m}>
-      <Table/>
+      <Section3/>
     </main>
   );
 }
