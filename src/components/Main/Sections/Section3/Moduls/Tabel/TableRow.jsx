@@ -2,22 +2,22 @@ import React from 'react';
 import './TableRow.css';
 import TableCell from './TableCell'
 
-const TableRow = () => {
+const TableRow = (props) => {
+
+  let thTable = props.state.headTable.map(
+    val => <th>{val}</th>
+  );
+
+  let tableCell = props.state.data.map(
+    val => <TableCell state={val} />
+  );
+
   return (
     <table className="table">
       <tr>
-        <th>№ п/п</th>
-        <th>Наименование товара</th>
-        <th>Ед. изм.</th>
-        <th>Количество</th>
-        <th>Цена за ед. изм., руб.</th>
-        <th>Стоимость, руб.</th>
+        {thTable}
       </tr>
-      <TableCell />
-      <TableCell />
-      <TableCell />
-      <TableCell />
-      <TableCell />
+      {tableCell}
 
     </table>
   )

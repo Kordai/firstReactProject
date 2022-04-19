@@ -6,10 +6,10 @@ const Module = (props) => {
   return (
     <section className={s.m2}>
       <Chart
-        chartType="Bar"
+        chartType="AreaChart"
         width="100%"
-        height="400px"
-        data={props.state.data}
+        height="100%"
+        data={props.state.dataChart}
         options={props.state.options}
       />
     </section>

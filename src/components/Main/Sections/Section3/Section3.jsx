@@ -4,11 +4,10 @@ import Module from './Moduls/Module/Module'
 import Table from './Moduls/Tabel/Table';
 
 const Section2 = (props) => {
-
   return (
     <section className={s.s3}>
-      <Table/>
-      {/* <Module/> */}
+      <Table state={props.state}/>
+      <Module state={props.state}/>
     </section>
   );
 }

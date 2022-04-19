@@ -1,9 +1,9 @@
 import React from 'react';
 import TableRow from './TableRow'
 
-const Table = () => { 
+const Table = (props) => { 
     return (       
-          <TableRow />
+          <TableRow state={props.state}/>
     )
   }
 

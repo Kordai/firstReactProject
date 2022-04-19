@@ -14,9 +14,6 @@ function App(props) {
       <div className="App">
         <Nav />
         <Header />
-
-        {/* <Main state={props.state} /> */}
-
         <div className="app-wrapper-content">
           <Routes>
             <Route path="/panelcontrol" element={<Main state={props.state} />} />

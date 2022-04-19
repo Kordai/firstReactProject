@@ -2,11 +2,15 @@ import React from 'react';
 import './TableCell.css';
 
 
-const TableCell = () => {
+const TableCell = (props) => {
+  
+  let tableCell = props.state.map(
+    val => <td> {val} </td>
+  );
+
   return (
     <tr>
-      <td>1.</td>
-      <td>Томаты свежие</td><td>кг</td><td>15,20</td><td>69,00</td><td>1048,80</td>
+      {tableCell}
     </tr>
   )
 }
