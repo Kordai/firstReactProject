@@ -3,7 +3,7 @@ import s from './Section3.module.css';
 import Module from './Moduls/Module/Module'
 import Table from './Moduls/Tabel/Table';
 
-const Section2 = (props) => {
+const Section3 = (props) => {
   return (
     <section className={s.s3}>
       <Table state={props.state}/>
@@ -12,4 +12,4 @@ const Section2 = (props) => {
   );
 }
 
-export default Section2;
+export default Section3;

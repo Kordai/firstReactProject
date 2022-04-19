@@ -5,7 +5,7 @@ import Table from './Sections/Section3/Moduls/Tabel/Table';
 const MainApplications = (props) => {
   return (
     <main className={s.m}>
-      <Table/>
+      <Table state = {props.state.applications}/>
     </main>
   );
 }
