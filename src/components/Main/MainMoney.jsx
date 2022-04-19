@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './MainMoney.module.css';
-import Table from './Sections/Tabel1/Table';
+import Table from './Sections/Section3/Moduls/Tabel/Table';
 
 const MainMoney = (props) => {
   return (

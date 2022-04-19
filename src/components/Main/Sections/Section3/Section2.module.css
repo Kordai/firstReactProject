@@ -1,0 +1,8 @@
+.s2 {
+    background-color: #282c34;
+    height: 100%;
+    color: #282c34;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+}

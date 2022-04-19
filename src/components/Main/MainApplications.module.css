@@ -1,23 +1,9 @@
 .m {
- background-color: white;
+ background-color: #282c34;
  height: 100%;
  display: grid;
  grid-template-rows: 1fr 1fr;
  grid-gap: 10px;
- color: #282c34;
+ 
 }
 
-table {
-    border: 1px solid grey;
- }
- /* границы ячеек первого ряда таблицы */
- th {
-    border: 1px solid grey;
-    background-color: aqua;
- }
- /* границы ячеек тела таблицы */
- td {
-    border: 1px solid grey;
-    color: blueviolet;
-    font-size: 25px;
- }

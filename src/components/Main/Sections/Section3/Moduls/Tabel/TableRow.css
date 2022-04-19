@@ -1,0 +1,18 @@
+table {
+    border: 1px solid grey;
+}
+
+/* границы ячеек первого ряда таблицы */
+th {
+    border: 1px solid grey;
+    background-color: aqua;
+    color: #282c34;
+}
+
+/* границы ячеек тела таблицы */
+td {
+    background-color: white;
+    border: 1px solid grey;
+    color: blueviolet;
+    font-size: 25px;
+}
