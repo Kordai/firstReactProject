@@ -30,7 +30,7 @@ const Section3 = (props) => {
         <button onClick={openForm} className={s.openButton}>Add Payment</button>
         <div ref={form} className={s.formPopup}>
           <form action="#" className={s.formContainer}>
-            <h1>Подписаться</h1>            
+            <h1>Send payment</h1>            
             <input ref={pointName} type="text" placeholder="point" name="point" required />
             
             <input ref={customerName} type="text" placeholder="customer" name="customer" required />
@@ -39,8 +39,8 @@ const Section3 = (props) => {
             
             <input ref={month} type="text" placeholder="month" name="month" required />
 
-            <button onClick={sendForm} className={s.btn}>Отправить</button>
-            <button onClick={closeForm} className={s.btnCancel}>Закрыть</button>
+            <button onClick={sendForm} className={s.btn}>Send</button>
+            <button onClick={closeForm} className={s.btnCancel}>Close</button>
           </form>
         </div>
       </div>

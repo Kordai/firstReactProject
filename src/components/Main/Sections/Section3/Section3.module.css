@@ -19,15 +19,22 @@
 .formPopup {
     display: none;
     position: fixed;
+    justify-content: center;
     z-index: 10;
+    top: 33%;
+    left: 36%;
 }
 
 .formContainer {
-    max-width: 320px;
+    width: 500px;
+    height: 180px;
+    background-color: #61dafb;
+    justify-content: center;
+    text-align: center;
 }
 
 .formContainer input {
-    width: 100%;
+    width: 90%;
 }
 
 .formContainer input:focus {
