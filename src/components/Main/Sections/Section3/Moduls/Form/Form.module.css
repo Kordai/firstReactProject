@@ -1,0 +1,49 @@
+.openButton {
+    
+    height: 30px;
+    width: 290px;
+    z-index: 5;
+    background-color: forestgreen;
+    color: burlywood;
+}
+
+.formPopup {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    z-index: 10;
+    top: 33%;
+    left: 36%;
+    color: #282c34;;
+}
+
+.formContainer {
+    width: 500px;
+    height: auto;
+    background-color: #61dafb;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.formContainer input {
+    width: 90%;
+}
+
+.formContainer input:focus {
+    background-color: #ddd;
+}
+
+.formContainer .btn {
+    background-color: #1976D2;
+    opacity: 0.7;
+}
+
+.formContainer .cancel {
+    background-color: #448AFF;
+}
+
+.formContainer .btn:hover, .openButton:hover {
+    opacity: 1;
+}
+
