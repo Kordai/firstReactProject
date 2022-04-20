@@ -12,7 +12,6 @@ const Module1 = (props) => {
       width={"100%"}
       height={"90%"}      
     />
-    <div>123</div>
     </section>
   );
 }
