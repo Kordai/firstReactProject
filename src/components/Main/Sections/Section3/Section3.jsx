@@ -5,28 +5,42 @@ import Table from './Moduls/Tabel/Table';
 
 const Section3 = (props) => {
 
+  let pointName = React.createRef();
+  let customerName = React.createRef();
+  let payment = React.createRef();
+  let month = React.createRef();
+  let form = React.createRef();
+
   const openForm = () => {
-    document.getElementById("myForm").style.display = "block";
+    form.current.style.display = "block";
+  }
+
+  const sendForm = () => {
+    document.getElementById("myForm").style.display = "none";
   }
 
   const closeForm = () => {
-    document.getElementById("myForm").style.display = "none";
+    form.current.style.display = "none";
   }
 
   return (
     <section className={s.s3}>
       <Table state={props.state} />
       <div>
-        <button className={s.openButton}>Add Payment</button>
-        <div className={s.formPopup}>
+        <button onClick={openForm} className={s.openButton}>Add Payment</button>
+        <div ref={form} className={s.formPopup}>
           <form action="#" className={s.formContainer}>
-            <h1>Подписаться</h1>
-            <label for="name"><b>Имя</b></label>
-            <input type="text" placeholder="Ваше имя" name="name" required />
-            <label for="email"><b>Е-мейл</b></label>
-            <input type="text" placeholder="Ваш е-мейл" name="email" required />
-            <button className={s.btn}>Отправить</button>
-            <button className={s.btnCancel}>Закрыть</button>
+            <h1>Подписаться</h1>            
+            <input ref={pointName} type="text" placeholder="point" name="point" required />
+            
+            <input ref={customerName} type="text" placeholder="customer" name="customer" required />
+            
+            <input ref={payment} type="text" placeholder="payment" name="payment" required />
+            
+            <input ref={month} type="text" placeholder="month" name="month" required />
+
+            <button onClick={sendForm} className={s.btn}>Отправить</button>
+            <button onClick={closeForm} className={s.btnCancel}>Закрыть</button>
           </form>
         </div>
       </div>
