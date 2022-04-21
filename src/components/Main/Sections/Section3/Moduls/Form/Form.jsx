@@ -2,11 +2,11 @@ import React from 'react';
 import s from './Form.module.css';
 
 const Form = (props) => {
- 
-  let inputVal = props.state.headTable.filter((f) => { return f !== props.state.headTable[0]});
+
+  let inputVal = props.state.headTable.filter((f) => { return f !== props.state.headTable[0] });
   let inputRef = [];
 
-  
+
 
   // let pointName = React.createRef();
   // let customerName = React.createRef();
@@ -16,9 +16,14 @@ const Form = (props) => {
 
   let inputComponent = inputVal.map(
     (val) => {
-    let newRef = React.createRef(); 
-    inputRef.push(newRef);
-    return <input ref={newRef} type="text" placeholder={val} name={val} required />}
+      let newRef = React.createRef();
+      inputRef.push(newRef);
+      return (
+        <div>
+          <input ref={newRef} type="text" placeholder={val} name={val} required />
+        </div>
+      )
+    }
   );
 
   const openForm = () => {
@@ -26,7 +31,7 @@ const Form = (props) => {
   }
 
   const sendForm = () => {
-    console.log (inputRef.map(
+    console.log(inputRef.map(
       val => val.current.value
     ))
   }
@@ -38,15 +43,11 @@ const Form = (props) => {
   return (
     <div>
       <button onClick={openForm} className={s.openButton}>Add Payment</button>
-      <div ref={form} className={s.formPopup}>
-        <form action="#" className={s.formContainer}>
-          <h1>Send payment</h1>
-          
-          {inputComponent}
-
-          <button onClick={sendForm} className={s.btn}>Send</button>
-          <button onClick={closeForm} className={s.btnCancel}>Close</button>
-        </form>
+      <div ref={form} className={s.formPopup}>        
+        <h1>Send payment</h1>
+        {inputComponent}
+        <button onClick={sendForm} className={s.btn}>Send</button>
+        <button onClick={closeForm} className={s.btnCancel}>Close</button>        
       </div>
     </div>
   );
