@@ -14,7 +14,7 @@ const Form = (props) => {
   }
 
   const sendForm = () => {
-   //nnnn
+    //nnnn
   }
 
   const closeForm = () => {
@@ -23,23 +23,23 @@ const Form = (props) => {
 
   return (
     <div>
-        <button onClick={openForm} className={s.openButton}>Add Payment</button>
-        <div ref={form} className={s.formPopup}>
-          <form action="#" className={s.formContainer}>
-            <h1>Send payment</h1>            
-            <input ref={pointName} type="text" placeholder="point" name="point" required />
-            
-            <input ref={customerName} type="text" placeholder="customer" name="customer" required />
-            
-            <input ref={payment} type="text" placeholder="payment" name="payment" required />
-            
-            <input ref={month} type="text" placeholder="month" name="month" required />
+      <button onClick={openForm} className={s.openButton}>Add Payment</button>
+      <div ref={form} className={s.formPopup}>
+        <form action="#" className={s.formContainer}>
+          <h1>Send payment</h1>
+          <input ref={pointName} type="text" placeholder="point" name="point" required />
 
-            <button onClick={sendForm} className={s.btn}>Send</button>
-            <button onClick={closeForm} className={s.btnCancel}>Close</button>
-          </form>
-        </div>
+          <input ref={customerName} type="text" placeholder="customer" name="customer" required />
+
+          <input ref={payment} type="text" placeholder="payment" name="payment" required />
+
+          <input ref={month} type="text" placeholder="month" name="month" required />
+
+          <button onClick={sendForm} className={s.btn}>Send</button>
+          <button onClick={closeForm} className={s.btnCancel}>Close</button>
+        </form>
       </div>
+    </div>
   );
 }
 
