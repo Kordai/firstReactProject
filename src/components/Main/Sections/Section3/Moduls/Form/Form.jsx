@@ -5,13 +5,6 @@ const Form = (props) => {
 
   let inputVal = props.state.headTable.filter((f) => { return f !== props.state.headTable[0] });
   let inputRef = [];
-
-
-
-  // let pointName = React.createRef();
-  // let customerName = React.createRef();
-  // let payment = React.createRef();
-  // let month = React.createRef();
   let form = React.createRef();
 
   let inputComponent = inputVal.map(
@@ -20,7 +13,7 @@ const Form = (props) => {
       inputRef.push(newRef);
       return (
         <div>
-          <input ref={newRef} type="text" placeholder={val} name={val} required />
+          <input ref={newRef} type="text" placeholder={val} name={val}/>
         </div>
       )
     }
@@ -31,9 +24,9 @@ const Form = (props) => {
   }
 
   const sendForm = () => {
-    console.log(inputRef.map(
+    let inputValue = inputRef.map(
       val => val.current.value
-    ))
+    )
   }
 
   const closeForm = () => {
