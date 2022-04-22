@@ -10,7 +10,7 @@ const Section3 = (props) => {
   return (
     <section className={s.s3}>
       <Table state={props.state} />
-      <Form state={props.state}/>
+      <Form state={props.state} inputUpdate = {props.inputUpdate}/>
       <Module state={props.state} />
     </section>
   );

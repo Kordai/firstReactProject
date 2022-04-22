@@ -8,7 +8,7 @@ import store from './Data/state'
 let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state= {state} />
+      <App state= {state} inputUpdate = {store.inputUpdate} />
     </React.StrictMode>,
     document.getElementById('root')
   );

@@ -172,14 +172,20 @@ let store = {
 
     },
     inputUpdate: (name, value, idForm) => {
-        if (idForm === state.section3.formName) {
-            updatePayment(name, value);
-        } else if (idForm === state.applications.formName) {
-            updateApplication(name, value);
+        if (idForm === this.state.section3.formName) {
+            this.updatePayment(name, value);
+        } else if (idForm === this.state.applications.formName) {
+            this.updateApplication(name, value);
         }
     },
     updatePayment: (name, value) => {
-
+        let obj = this.state.section3.inputPayment;
+        for (let i in obj) {
+            if (i === name) {
+                obj[i] = value;
+            }
+          }
+          console.log(obj);
     },
     updateApplication: (name, value) => {
 
