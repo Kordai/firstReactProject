@@ -97,11 +97,11 @@ let store = {
         ],
         section3: {
             formName: "Payment",
-            inputPayment: {
-                Point: "",
-                Customer: "",
-                Payment: "",
-                Month: ""
+            inputMark: {
+                Point: "1",
+                Customer: "2",
+                Payment: "3",
+                Month: "4"
             },
             headTable: ["Naber", "Point", "Customer", "Payment", "Month"],
             data: [
@@ -142,13 +142,13 @@ let store = {
         },
         applications: {
             formName: "Application",
-            inputApplication: {
-                Point: "",
-                Coffee: "",
-                Milk: "",
-                Cups: "",
-                Sugar: "",
-                Data: ""
+            inputMark: {
+                Point: "9",
+                Coffee: "8",
+                Milk: "7",
+                Cups: "6",
+                Sugar: "5",
+                Data: "4"
             },
             headTable: ["Naber", "Point", "Coffee", "Milk", "Cups", "Sugar", "Data"],
             data: [
@@ -181,7 +181,7 @@ export let inputUpdate = (name, value, idForm) => {
     }
 };
 let updatePayment = (name, value) => {
-    let obj = store.state.section3.inputPayment;
+    let obj = store.state.section3.inputMark;
     for (let i in obj) {
         if (i === name) {
             obj[i] = value;
@@ -190,7 +190,7 @@ let updatePayment = (name, value) => {
       console.log(obj);
 };
 let updateApplication = (name, value) => {
-    let obj = store.state.applications.inputApplication;
+    let obj = store.state.applications.inputMark;
     for (let i in obj) {
         if (i === name) {
             obj[i] = value;
