@@ -170,27 +170,33 @@ let store = {
             ]
         }
 
-    },
-    inputUpdate: (name, value, idForm) => {
-        if (idForm === this.state.section3.formName) {
-            this.updatePayment(name, value);
-        } else if (idForm === this.state.applications.formName) {
-            this.updateApplication(name, value);
-        }
-    },
-    updatePayment: (name, value) => {
-        let obj = this.state.section3.inputPayment;
-        for (let i in obj) {
-            if (i === name) {
-                obj[i] = value;
-            }
-          }
-          console.log(obj);
-    },
-    updateApplication: (name, value) => {
-
     }
+}
 
+export let inputUpdate = (name, value, idForm) => {
+    if (idForm === store.state.section3.formName) {
+        updatePayment(name, value);
+    } else if (idForm === store.state.applications.formName) {
+        updateApplication(name, value);
+    }
+};
+let updatePayment = (name, value) => {
+    let obj = store.state.section3.inputPayment;
+    for (let i in obj) {
+        if (i === name) {
+            obj[i] = value;
+        }
+      }
+      console.log(obj);
+};
+let updateApplication = (name, value) => {
+    let obj = store.state.applications.inputApplication;
+    for (let i in obj) {
+        if (i === name) {
+            obj[i] = value;
+        }
+      }
+      console.log(obj);
 }
 
 export default store;

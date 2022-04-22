@@ -18,7 +18,7 @@ function App(props) {
           <Routes>
             <Route path="/panelcontrol" element={<Main state={props.state} />} />
             <Route path="/panelmoney" element={<MainMoney state={props.state} inputUpdate = {props.inputUpdate} />} />
-            <Route path="/panelapplications" element={<MainApplications state={props.state} />} />
+            <Route path="/panelapplications" element={<MainApplications state={props.state} inputUpdate = {props.inputUpdate} />} />
             <Route path="/panelpoints" element={<MainPoints state={props.state} />} />
           </Routes>
         </div>

@@ -7,7 +7,7 @@ const MainApplications = (props) => {
   return (
     <main className={s.m}>
       <Table state = {props.state.applications}/>
-      <Form state = {props.state.applications}/>
+      <Form state = {props.state.applications} inputUpdate = {props.inputUpdate}/>
     </main>
   );
 }

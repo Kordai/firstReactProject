@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './Data/state'
+import store from './Data/state';
+import {inputUpdate} from './Data/state';
 
 let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state= {state} inputUpdate = {store.inputUpdate} />
+      <App state= {state} inputUpdate = {inputUpdate} />
     </React.StrictMode>,
     document.getElementById('root')
   );
