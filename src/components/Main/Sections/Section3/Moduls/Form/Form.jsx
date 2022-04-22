@@ -7,17 +7,24 @@ const Form = (props) => {
   let inputRef = [];
   let form = React.createRef();
 
+  const inputUpdateVal = (name1) => {
+    let idForm = inputRef.length;
+    console.log(name1.target.name, name1.target.value, idForm);
+  }
+
   let inputComponent = inputVal.map(
     (val) => {
       let newRef = React.createRef();
       inputRef.push(newRef);
       return (
         <div>
-          <input ref={newRef} type="text" placeholder={val} name={val}/>
+          <input ref={newRef} type="text" placeholder={val} name={val} onChange={inputUpdateVal} />
         </div>
       )
     }
   );
+
+  
 
   const openForm = () => {
     form.current.style.display = "block";
@@ -36,11 +43,11 @@ const Form = (props) => {
   return (
     <div>
       <button onClick={openForm} className={s.openButton}>Add Payment</button>
-      <div ref={form} className={s.formPopup}>        
+      <div ref={form} className={s.formPopup}>
         <h1>Send payment</h1>
         {inputComponent}
         <button onClick={sendForm} className={s.btn}>Send</button>
-        <button onClick={closeForm} className={s.btnCancel}>Close</button>        
+        <button onClick={closeForm} className={s.btnCancel}>Close</button>
       </div>
     </div>
   );
