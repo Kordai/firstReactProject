@@ -98,10 +98,10 @@ let store = {
         section3: {
             formName: "Payment",
             inputMark: {
-                Point: "1",
-                Customer: "2",
-                Payment: "3",
-                Month: "4"
+                Point: "",
+                Customer: "",
+                Payment: "",
+                Month: ""
             },
             headTable: ["Naber", "Point", "Customer", "Payment", "Month"],
             data: [
@@ -143,12 +143,12 @@ let store = {
         applications: {
             formName: "Application",
             inputMark: {
-                Point: "9",
-                Coffee: "8",
-                Milk: "7",
-                Cups: "6",
-                Sugar: "5",
-                Data: "4"
+                Point: "",
+                Coffee: "",
+                Milk: "",
+                Cups: "",
+                Sugar: "",
+                Data: ""
             },
             headTable: ["Naber", "Point", "Coffee", "Milk", "Cups", "Sugar", "Data"],
             data: [
