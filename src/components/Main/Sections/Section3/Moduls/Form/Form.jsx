@@ -4,36 +4,28 @@ import s from './Form.module.css';
 const Form = (props) => {
 
   let inputVal = props.state.headTable.filter((f) => { return f !== props.state.headTable[0] });
-  let inputRef = [];
   let form = React.createRef();
 
   const inputUpdateVal = (name1) => {
-    let idForm = inputRef.length;
+    let idForm = inputVal.length;
     console.log(name1.target.name, name1.target.value, idForm);
   }
 
   let inputComponent = inputVal.map(
     (val) => {
-      let newRef = React.createRef();
-      inputRef.push(newRef);
       return (
         <div>
-          <input ref={newRef} type="text" placeholder={val} name={val} onChange={inputUpdateVal} />
+          <input type="text" placeholder={val} name={val} onChange={inputUpdateVal} />
         </div>
       )
     }
-  );
-
-  
+  );  
 
   const openForm = () => {
     form.current.style.display = "block";
   }
 
   const sendForm = () => {
-    let inputValue = inputRef.map(
-      val => val.current.value
-    )
   }
 
   const closeForm = () => {
