@@ -7,8 +7,7 @@ const Form = (props) => {
   let form = React.createRef();
 
   const inputUpdateVal = (name1) => {
-    let idForm = inputVal.length;
-    console.log(name1.target.name, name1.target.value, idForm);
+    console.log(name1.target.name, name1.target.value, props.state.formName);
   }
 
   let inputComponent = inputVal.map(
@@ -19,7 +18,7 @@ const Form = (props) => {
         </div>
       )
     }
-  );  
+  );
 
   const openForm = () => {
     form.current.style.display = "block";
@@ -34,9 +33,9 @@ const Form = (props) => {
 
   return (
     <div>
-      <button onClick={openForm} className={s.openButton}>Add Payment</button>
+      <button onClick={openForm} className={s.openButton}>Add {props.state.formName}</button>
       <div ref={form} className={s.formPopup}>
-        <h1>Send payment</h1>
+        <h1>Add {props.state.formName}</h1>
         {inputComponent}
         <button onClick={sendForm} className={s.btn}>Send</button>
         <button onClick={closeForm} className={s.btnCancel}>Close</button>
