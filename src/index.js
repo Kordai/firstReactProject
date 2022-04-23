@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './Data/state';
-import {inputUpdate, subscribe} from './Data/state';
+import {inputUpdate, subscribe, addValue} from './Data/state';
 
 let rerenderEntireTree = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state= {store.state} inputUpdate = {inputUpdate} />
+      <App state= {store.state} inputUpdate = {inputUpdate} addValue = {addValue} />
     </React.StrictMode>,
     document.getElementById('root')
   );

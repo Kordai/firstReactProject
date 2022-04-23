@@ -26,7 +26,8 @@ const Form = (props) => {
   }
 
   const sendForm = () => {
-
+    props.addValue(props.state.formName);
+    form.current.style.display = "none";
   }
 
   const closeForm = () => {

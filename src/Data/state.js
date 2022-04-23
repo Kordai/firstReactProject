@@ -209,4 +209,28 @@ export const subscribe = (observer) =>{
     rerenderEntireTree = observer;
 };
 
+export let addValue = (idForm) => {
+    if (idForm === store.state.section3.formName) {
+        updatePaymentValue();
+    } else if (idForm === store.state.applications.formName) {
+        updateApplicationValue();
+    }
+};
+
+const updatePaymentValue = () =>{
+    let val = store.state.section3.data;
+    let obj = store.state.section3.inputMark;
+    val.push([val.length + 1, obj.Point, obj.Customer, obj.Payment, obj.Month]);
+    store.state.section3.data = val;
+    rerenderEntireTree();
+}
+
+const updateApplicationValue = () =>{
+    let val = store.state.applications.data;
+    let obj = store.state.applications.inputMark;
+    val.push([val.length + 1, obj.Point, obj.Coffee, obj.Milk, obj.Cups, obj.Sugar, obj.Data]);
+    store.state.applications.data = val;
+    rerenderEntireTree();
+}
+
 export default store;
