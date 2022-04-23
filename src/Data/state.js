@@ -1,3 +1,7 @@
+let rerenderEntireTree = () =>{
+    console.log("test");
+}
+
 let store = {
     state: {
         section1: [
@@ -187,7 +191,8 @@ let updatePayment = (name, value) => {
             obj[i] = value;
         }
       }
-      console.log(obj);
+      store.state.section3.inputMark = obj;
+      rerenderEntireTree();
 };
 let updateApplication = (name, value) => {
     let obj = store.state.applications.inputMark;
@@ -196,7 +201,12 @@ let updateApplication = (name, value) => {
             obj[i] = value;
         }
       }
-      console.log(obj);
-}
+      store.state.applications.inputMark =  obj;
+      rerenderEntireTree();
+};
+
+export const subscribe = (observer) =>{
+    rerenderEntireTree = observer;
+};
 
 export default store;
