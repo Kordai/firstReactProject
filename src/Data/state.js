@@ -1,4 +1,4 @@
-let rerenderEntireTree = () =>{
+let rerenderEntireTree = () => {
     console.log("test");
 }
 
@@ -190,9 +190,9 @@ let updatePayment = (name, value) => {
         if (i === name) {
             obj[i] = value;
         }
-      }
-      store.state.section3.inputMark = obj;
-      rerenderEntireTree();
+    }
+    store.state.section3.inputMark = obj;
+    rerenderEntireTree();
 };
 let updateApplication = (name, value) => {
     let obj = store.state.applications.inputMark;
@@ -200,12 +200,12 @@ let updateApplication = (name, value) => {
         if (i === name) {
             obj[i] = value;
         }
-      }
-      store.state.applications.inputMark =  obj;
-      rerenderEntireTree();
+    }
+    store.state.applications.inputMark = obj;
+    rerenderEntireTree();
 };
 
-export const subscribe = (observer) =>{
+export const subscribe = (observer) => {
     rerenderEntireTree = observer;
 };
 
@@ -217,19 +217,33 @@ export let addValue = (idForm) => {
     }
 };
 
-const updatePaymentValue = () =>{
+const updatePaymentValue = () => {
     let val = store.state.section3.data;
     let obj = store.state.section3.inputMark;
     val.push([val.length + 1, obj.Point, obj.Customer, obj.Payment, obj.Month]);
     store.state.section3.data = val;
+    store.state.section3.inputMark = {
+        Point: "",
+        Customer: "",
+        Payment: "",
+        Month: ""
+    }
     rerenderEntireTree();
 }
 
-const updateApplicationValue = () =>{
+const updateApplicationValue = () => {
     let val = store.state.applications.data;
     let obj = store.state.applications.inputMark;
     val.push([val.length + 1, obj.Point, obj.Coffee, obj.Milk, obj.Cups, obj.Sugar, obj.Data]);
     store.state.applications.data = val;
+    store.state.applications.inputMark = {
+        Point: "",
+        Coffee: "",
+        Milk: "",
+        Cups: "",
+        Sugar: "",
+        Data: ""
+    }
     rerenderEntireTree();
 }
 
