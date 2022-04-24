@@ -1,9 +1,10 @@
-let rerenderEntireTree = () => {
-    console.log("test");
-}
+
 
 let store = {
-    state: {
+    _rerenderEntireTree() {
+        console.log("test");
+    },
+    _state: {
         section1: [
             {
                 titleCharts: "Продажи кофе с собой",
@@ -174,77 +175,75 @@ let store = {
             ]
         }
 
-    }
-}
-
-export let inputUpdate = (name, value, idForm) => {
-    if (idForm === store.state.section3.formName) {
-        updatePayment(name, value);
-    } else if (idForm === store.state.applications.formName) {
-        updateApplication(name, value);
-    }
-};
-let updatePayment = (name, value) => {
-    let obj = store.state.section3.inputMark;
-    for (let i in obj) {
-        if (i === name) {
-            obj[i] = value;
+    },
+    getState() {
+        return this._state;
+    },
+    inputUpdate(name, value, idForm) {
+        if (idForm === this._state.section3.formName) {
+            _updatePayment(name, value);
+        } else if (idForm === this._state.applications.formName) {
+            _updateApplication(name, value);
         }
-    }
-    store.state.section3.inputMark = obj;
-    rerenderEntireTree();
-};
-let updateApplication = (name, value) => {
-    let obj = store.state.applications.inputMark;
-    for (let i in obj) {
-        if (i === name) {
-            obj[i] = value;
+    },
+    _updatePayment(name, value) {
+        let obj = this.state.section3.inputMark;
+        for (let i in obj) {
+            if (i === name) {
+                obj[i] = value;
+            }
         }
+        this._state.section3.inputMark = obj;
+        _rerenderEntireTree();
+    },
+    _updateApplication(name, value) {
+        let obj = this._state.applications.inputMark;
+        for (let i in obj) {
+            if (i === name) {
+                obj[i] = value;
+            }
+        }
+        this._state.applications.inputMark = obj;
+        _rerenderEntireTree();
+    },
+    subscribe(observer) {
+        _rerenderEntireTree = observer;
+    },
+    addValue(idForm) {
+        if (idForm === this._state.section3.formName) {
+            _updatePaymentValue();
+        } else if (idForm === this._state.applications.formName) {
+            _updateApplicationValue();
+        }
+    },
+    _updatePaymentValue(){
+        let val = this._state.section3.data;
+        let obj = this._state.section3.inputMark;
+        val.push([val.length + 1, obj.Point, obj.Customer, obj.Payment, obj.Month]);
+        this._state.section3.data = val;
+        this._state.section3.inputMark = {
+            Point: "",
+            Customer: "",
+            Payment: "",
+            Month: ""
+        }
+        _rerenderEntireTree();
+    },
+    _updateApplicationValue(){
+        let val = this._state.applications.data;
+        let obj = this._state.applications.inputMark;
+        val.push([val.length + 1, obj.Point, obj.Coffee, obj.Milk, obj.Cups, obj.Sugar, obj.Data]);
+        this._state.applications.data = val;
+        this._state.applications.inputMark = {
+            Point: "",
+            Coffee: "",
+            Milk: "",
+            Cups: "",
+            Sugar: "",
+            Data: ""
+        }
+        _rerenderEntireTree();
     }
-    store.state.applications.inputMark = obj;
-    rerenderEntireTree();
-};
-
-export const subscribe = (observer) => {
-    rerenderEntireTree = observer;
-};
-
-export let addValue = (idForm) => {
-    if (idForm === store.state.section3.formName) {
-        updatePaymentValue();
-    } else if (idForm === store.state.applications.formName) {
-        updateApplicationValue();
-    }
-};
-
-const updatePaymentValue = () => {
-    let val = store.state.section3.data;
-    let obj = store.state.section3.inputMark;
-    val.push([val.length + 1, obj.Point, obj.Customer, obj.Payment, obj.Month]);
-    store.state.section3.data = val;
-    store.state.section3.inputMark = {
-        Point: "",
-        Customer: "",
-        Payment: "",
-        Month: ""
-    }
-    rerenderEntireTree();
-}
-
-const updateApplicationValue = () => {
-    let val = store.state.applications.data;
-    let obj = store.state.applications.inputMark;
-    val.push([val.length + 1, obj.Point, obj.Coffee, obj.Milk, obj.Cups, obj.Sugar, obj.Data]);
-    store.state.applications.data = val;
-    store.state.applications.inputMark = {
-        Point: "",
-        Coffee: "",
-        Milk: "",
-        Cups: "",
-        Sugar: "",
-        Data: ""
-    }
-    rerenderEntireTree();
 }
 
 export default store;
