@@ -181,20 +181,20 @@ let store = {
     },
     inputUpdate(name, value, idForm) {
         if (idForm === this._state.section3.formName) {
-            _updatePayment(name, value);
+            this._updatePayment(name, value);
         } else if (idForm === this._state.applications.formName) {
-            _updateApplication(name, value);
+            this._updateApplication(name, value);
         }
     },
     _updatePayment(name, value) {
-        let obj = this.state.section3.inputMark;
+        let obj = this._state.section3.inputMark;
         for (let i in obj) {
             if (i === name) {
                 obj[i] = value;
             }
         }
         this._state.section3.inputMark = obj;
-        _rerenderEntireTree();
+        this._rerenderEntireTree();
     },
     _updateApplication(name, value) {
         let obj = this._state.applications.inputMark;
@@ -204,16 +204,16 @@ let store = {
             }
         }
         this._state.applications.inputMark = obj;
-        _rerenderEntireTree();
+        this._rerenderEntireTree();
     },
     subscribe(observer) {
-        _rerenderEntireTree = observer;
+        this._rerenderEntireTree = observer;
     },
     addValue(idForm) {
         if (idForm === this._state.section3.formName) {
-            _updatePaymentValue();
+            this._updatePaymentValue();
         } else if (idForm === this._state.applications.formName) {
-            _updateApplicationValue();
+            this._updateApplicationValue();
         }
     },
     _updatePaymentValue(){
@@ -227,7 +227,7 @@ let store = {
             Payment: "",
             Month: ""
         }
-        _rerenderEntireTree();
+        this._rerenderEntireTree();
     },
     _updateApplicationValue(){
         let val = this._state.applications.data;
@@ -242,7 +242,7 @@ let store = {
             Sugar: "",
             Data: ""
         }
-        _rerenderEntireTree();
+        this._rerenderEntireTree();
     }
 }
 
