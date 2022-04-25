@@ -3,12 +3,6 @@ import section2Reducer from './section2Reducer';
 import section3Reducer from './section3Reducer';
 import applicationsReducer from './applicationsReducer';
 
-
-const UPDATE_PAYMENT = 'UPDATE_PAYMENT';
-const UPDATE_PAYMENT_DATA = 'UPDATE_PAYMENT_DATA';
-const UPDATE_APPLICATION = 'UPDATE_APPLICATION';
-const UPDATE_APPLICATION_DATA = 'UPDATE_APPLICATION_DATA';
-
 let store = {
     _rerenderEntireTree() {
         console.log("test");
@@ -198,27 +192,6 @@ let store = {
         this._state.applications = applicationsReducer(this._state.applications, action);
         this._rerenderEntireTree();
     }
-}
-
-export const uPActionCreator = (name, value) => {
-    return {
-        type: UPDATE_PAYMENT,
-        nameMark: name,
-        textMark: value
-    }
-}
-export const uAActionCreator = (name, value) => {
-    return {
-        type: UPDATE_APPLICATION,
-        nameMark: name,
-        textMark: value
-    }
-}
-export const uPDActionCreator = () => {
-    return { type: UPDATE_PAYMENT_DATA }
-}
-export const uADActionCreator = () => {
-    return { type: UPDATE_APPLICATION_DATA }
 }
 
 export default store;

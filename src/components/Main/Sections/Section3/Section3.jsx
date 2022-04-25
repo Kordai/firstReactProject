@@ -3,7 +3,7 @@ import s from './Section3.module.css';
 import Module from './Moduls/Module/Module'
 import Table from './Moduls/Tabel/Table';
 import Form from './Moduls/Form/Form';
-import { uPActionCreator, uPDActionCreator } from '../../../../Redux/state';
+import { uPActionCreator, uPDActionCreator } from '../../../../Redux/section3Reducer';
 
 const Section3 = (props) => {
 

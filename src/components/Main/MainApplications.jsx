@@ -2,7 +2,7 @@ import React from 'react';
 import s from './MainApplications.module.css';
 import Form from './Sections/Section3/Moduls/Form/Form';
 import Table from './Sections/Section3/Moduls/Tabel/Table';
-import { uAActionCreator, uADActionCreator } from '../../Redux/state';
+import { uAActionCreator, uADActionCreator } from '../../Redux/applicationsReducer';
 
 const MainApplications = (props) => {
   const addUAction = (name, value) =>{
