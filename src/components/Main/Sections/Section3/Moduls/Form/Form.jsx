@@ -7,8 +7,7 @@ const Form = (props) => {
   let form = React.createRef();
 
   const inputUpdateVal = (name1) => {
-    props.inputUpdate(name1.target.name, name1.target.value, props.state.formName);
-    console.log(name1.target.name, name1.target.value, props.state.formName);
+    props.addUAction(name1.target.name, name1.target.value);
   }
 
   let inputComponent = inputVal.map(
@@ -26,7 +25,7 @@ const Form = (props) => {
   }
 
   const sendForm = () => {
-    props.addValue(props.state.formName);
+    props.addUDAction();
     form.current.style.display = "none";
   }
 
