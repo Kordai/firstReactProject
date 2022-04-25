@@ -16,7 +16,7 @@ function App(props) {
         <Header />
         <div className="app-wrapper-content">
           <Routes>
-            <Route path="/panelcontrol" element={<Main state={props.state} />} />
+            <Route path="/" element={<Main state={props.state} />} />
             <Route path="/panelmoney" element={<MainMoney state={props.state} dispatch = {props.dispatch} />} />
             <Route path="/panelapplications" element={<MainApplications state={props.state} dispatch = {props.dispatch}/>} />
             <Route path="/panelpoints" element={<MainPoints state={props.state} />} />
