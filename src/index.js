@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './Redux/store';
+import store from './Redux/reduxStore';
 
 let rerenderEntireTree = () => {
   ReactDOM.render(
