@@ -179,11 +179,21 @@ let store = {
     getState() {
         return this._state;
     },
+    subscribe(observer) {
+        this._rerenderEntireTree = observer;
+    },
     inputUpdate(name, value, idForm) {
         if (idForm === this._state.section3.formName) {
             this._updatePayment(name, value);
         } else if (idForm === this._state.applications.formName) {
             this._updateApplication(name, value);
+        }
+    },
+    addValue(idForm) {
+        if (idForm === this._state.section3.formName) {
+            this._updatePaymentValue();
+        } else if (idForm === this._state.applications.formName) {
+            this._updateApplicationValue();
         }
     },
     _updatePayment(name, value) {
@@ -205,17 +215,7 @@ let store = {
         }
         this._state.applications.inputMark = obj;
         this._rerenderEntireTree();
-    },
-    subscribe(observer) {
-        this._rerenderEntireTree = observer;
-    },
-    addValue(idForm) {
-        if (idForm === this._state.section3.formName) {
-            this._updatePaymentValue();
-        } else if (idForm === this._state.applications.formName) {
-            this._updateApplicationValue();
-        }
-    },
+    },    
     _updatePaymentValue(){
         let val = this._state.section3.data;
         let obj = this._state.section3.inputMark;
