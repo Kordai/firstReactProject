@@ -1,3 +1,9 @@
+import section1Reducer from './section1Reducer';
+import section2Reducer from './section2Reducer';
+import section3Reducer from './section3Reducer';
+import applicationsReducer from './applicationsReducer';
+
+
 const UPDATE_PAYMENT = 'UPDATE_PAYMENT';
 const UPDATE_PAYMENT_DATA = 'UPDATE_PAYMENT_DATA';
 const UPDATE_APPLICATION = 'UPDATE_APPLICATION';
@@ -185,64 +191,11 @@ let store = {
     subscribe(observer) {
         this._rerenderEntireTree = observer;
     },
-    dispatch(action){
-        if (action.type === UPDATE_PAYMENT) {
-            this._updatePayment(action.nameMark,action.textMark);
-        } else if (action.type === UPDATE_APPLICATION) {
-            this._updateApplication(action.nameMark,action.textMark);
-        } else if (action.type === UPDATE_PAYMENT_DATA) {
-            this._updatePaymentData();
-        } else if (action.type === UPDATE_APPLICATION_DATA) {
-            this._updateApplicationData();
-        }
-    },
-
-    _updatePayment(name, value) {
-        let obj = this._state.section3.inputMark;
-        for (let i in obj) {
-            if (i === name) {
-                obj[i] = value;
-            }
-        }
-        this._state.section3.inputMark = obj;
-        this._rerenderEntireTree();
-    },
-    _updateApplication(name, value) {
-        let obj = this._state.applications.inputMark;
-        for (let i in obj) {
-            if (i === name) {
-                obj[i] = value;
-            }
-        }
-        this._state.applications.inputMark = obj;
-        this._rerenderEntireTree();
-    },    
-    _updatePaymentData(){
-        let val = this._state.section3.data;
-        let obj = this._state.section3.inputMark;
-        val.push([val.length + 1, obj.Point, obj.Customer, obj.Payment, obj.Month]);
-        this._state.section3.data = val;
-        this._state.section3.inputMark = {
-            Point: "",
-            Customer: "",
-            Payment: "",
-            Month: ""
-        }
-        this._rerenderEntireTree();
-    },
-    _updateApplicationData(){
-        let val = this._state.applications.data;
-        let obj = this._state.applications.inputMark;
-        val.push([val.length + 1, obj.Point, obj.Coffee, obj.Milk, obj.Cups, obj.Sugar, obj.Data]);
-        this._state.applications.data = val;
-        this._state.applications.inputMark = {
-            Point: "",
-            Coffee: "",
-            Milk: "",
-            Cups: "",
-            Sugar: "",
-            Data: ""
-        }
+    dispatch(action) {
+        this._state.section1 = section1Reducer(this._state.section1, action);
+        this._state.section2 = section2Reducer(this._state.section2, action);
+        this._state.section3 = section3Reducer(this._state.section3, action);
+        this._state.applications = applicationsReducer(this._state.applications, action);
         this._rerenderEntireTree();
     }
 }
@@ -262,10 +215,10 @@ export const uAActionCreator = (name, value) => {
     }
 }
 export const uPDActionCreator = () => {
-    return {type: UPDATE_PAYMENT_DATA}
+    return { type: UPDATE_PAYMENT_DATA }
 }
 export const uADActionCreator = () => {
-    return {type: UPDATE_APPLICATION_DATA}
+    return { type: UPDATE_APPLICATION_DATA }
 }
 
 export default store;
