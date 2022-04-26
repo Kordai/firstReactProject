@@ -9,17 +9,18 @@ import MainApplications from './components/Main/MainApplications';
 import MainPoints from './components/Main/MainPoints';
 
 function App(props) {
-  return (
+ 
+  return (    
     <BrowserRouter>
       <div className="App">
         <Nav />
         <Header />
         <div className="app-wrapper-content">
           <Routes>
-            <Route path="/" element={<Main state={props.state} />} />
-            <Route path="/panelmoney" element={<MainMoney state={props.state} dispatch = {props.dispatch} />} />
-            <Route path="/panelapplications" element={<MainApplications state={props.state} dispatch = {props.dispatch}/>} />
-            <Route path="/panelpoints" element={<MainPoints state={props.state} />} />
+            <Route path="/" element = {<Main state={props.store.getState()} />} />
+            <Route path="/panelmoney" element = {<MainMoney store = {props.store} />} />
+            <Route path="/panelapplications" element = {<MainApplications state={props.state} dispatch = {props.dispatch}/>} />
+            <Route path="/panelpoints" element = {<MainPoints state={props.state} />} />
           </Routes>
         </div>
       </div>

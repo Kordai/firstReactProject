@@ -3,7 +3,6 @@ import s from './Section1.module.css';
 import Module1 from './Moduls/Module1/Module1'
 
 const Section1 = (props) => {
-
   let dataOptions = props.state.map(
     val => ({
       options: {
