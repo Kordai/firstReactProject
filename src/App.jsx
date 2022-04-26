@@ -5,7 +5,7 @@ import Nav from './components/Nav/Nav';
 import Main from './components/Main/Main';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainMoney from './components/Main/MainMoney';
-import MainApplications from './components/Main/MainApplications';
+import MainApplicationsContainer from './components/Main/MainApplicationsContainer';
 import MainPoints from './components/Main/MainPoints';
 
 function App(props) {
@@ -19,7 +19,7 @@ function App(props) {
           <Routes>
             <Route path="/" element = {<Main state={props.store.getState()} />} />
             <Route path="/panelmoney" element = {<MainMoney store = {props.store} />} />
-            <Route path="/panelapplications" element = {<MainApplications store = {props.store}/>} />
+            <Route path="/panelapplications" element = {<MainApplicationsContainer store = {props.store}/>} />
             <Route path="/panelpoints" element = {<MainPoints />} />
           </Routes>
         </div>
