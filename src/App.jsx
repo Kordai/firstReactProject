@@ -19,8 +19,8 @@ function App(props) {
           <Routes>
             <Route path="/" element = {<Main state={props.store.getState()} />} />
             <Route path="/panelmoney" element = {<MainMoney store = {props.store} />} />
-            <Route path="/panelapplications" element = {<MainApplications state={props.state} dispatch = {props.dispatch}/>} />
-            <Route path="/panelpoints" element = {<MainPoints state={props.state} />} />
+            <Route path="/panelapplications" element = {<MainApplications store = {props.store}/>} />
+            <Route path="/panelpoints" element = {<MainPoints />} />
           </Routes>
         </div>
       </div>
