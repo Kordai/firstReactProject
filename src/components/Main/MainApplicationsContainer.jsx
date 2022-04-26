@@ -1,19 +1,24 @@
-import React from 'react';
 import MainApplications from './MainApplications';
 import { uAActionCreator, uADActionCreator } from '../../Redux/applicationsReducer';
+import { connect } from 'react-redux';
 
-const MainApplicationsContainer = (props) => {
-
-  let state = props.store.getState().applications;
-
-  const addUAction = (name, value) => {
-    props.store.dispatch(uAActionCreator(name, value));
+const mapStateToProps = (state) => {
+  return {
+    state: state.applications
   }
-  const addUDAction = () => {
-    props.store.dispatch(uADActionCreator());
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addUAction: (name, value) => {
+      dispatch(uAActionCreator(name, value));
+    },
+    addUDAction: () => {
+      dispatch(uADActionCreator());
+    }
   }
-  return <MainApplications state={state} addUAction={addUAction} addUDAction={addUDAction} />
-    
 }
+
+const MainApplicationsContainer = connect(mapStateToProps, mapDispatchToProps)(MainApplications);
 
 export default MainApplicationsContainer;
