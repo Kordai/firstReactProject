@@ -33,30 +33,31 @@ let initialState = {
 
 const applicationsReducer = (state = initialState, action) => {
 
-    let obj = state.inputMark;
-    let val = state.data;
-
     switch (action.type) {
         case UPDATE_APPLICATION:
-            for (let i in obj) {
-                if (i === action.nameMark) {
-                    obj[i] = action.textMark;
-                }
-            }
-            state.inputMark = obj;
-            return state;
-        case UPDATE_APPLICATION_DATA:
-            val.push([val.length + 1, obj.Point, obj.Coffee, obj.Milk, obj.Cups, obj.Sugar, obj.Data]);
-            state.data = val;
-            state.inputMark = {
-                Point: "",
-                Coffee: "",
-                Milk: "",
-                Cups: "",
-                Sugar: "",
-                Data: ""
+            return {
+                ...state,
+                inputMark:{ ...state.inputMark, [action.nameMark]: action.textMark}
             };
-            return state;
+        case UPDATE_APPLICATION_DATA:            
+            return {
+                ...state,
+                data: [...state.data, [state.data.length + 1, 
+                                       state.inputMark.Point, 
+                                       state.inputMark.Coffee, 
+                                       state.inputMark.Milk, 
+                                       state.inputMark.Cups, 
+                                       state.inputMark.Sugar, 
+                                       state.inputMark.Data]],
+                inputMark: {
+                    Point: "",
+                    Coffee: "",
+                    Milk: "",
+                    Cups: "",
+                    Sugar: "",
+                    Data: ""    
+                }
+            };
         default:
             return state;
     }
