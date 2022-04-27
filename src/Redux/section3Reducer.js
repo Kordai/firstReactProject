@@ -48,28 +48,32 @@ let initialState = {
 };
 
 const section3Reducer = (state = initialState, action) => {
-    let obj = state.inputMark;
-    let val = state.data;
+    // let obj = state.inputMark;
+    // let val = state.data;
 
     switch (action.type) {
         case UPDATE_PAYMENT:
-            for (let i in obj) {
-                if (i === action.nameMark) {
-                    obj[i] = action.textMark;
-                }
-            }
-            state.inputMark = obj
-            return state;
-        case UPDATE_PAYMENT_DATA:
-            val.push([val.length + 1, obj.Point, obj.Customer, obj.Payment, obj.Month]);
-            state.data = val;
-            state.inputMark = {
-                Point: "",
-                Customer: "",
-                Payment: "",
-                Month: ""
+            // for (let i in obj) {
+            //     if (i === action.nameMark) {
+            //         obj[i] = action.textMark;
+            //     }
+            // }
+            // state.inputMark = obj
+            return {
+                ...state,
+                inputMark:{ ...state.inputMark, [action.nameMark]: action.textMark}
             };
-            return state;
+        case UPDATE_PAYMENT_DATA:
+            return {
+                ...state,
+                data: [...state.data, [state.data.length + 1, state.inputMark.Point, state.inputMark.Customer, state.inputMark.Payment, state.inputMark.Month]],
+                inputMark: {
+                    Point: "",
+                    Customer: "",
+                    Payment: "",
+                    Month: ""
+                }
+            };
         default:
             return state;
     }
