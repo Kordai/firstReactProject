@@ -37,25 +37,25 @@ const applicationsReducer = (state = initialState, action) => {
         case UPDATE_APPLICATION:
             return {
                 ...state,
-                inputMark:{ ...state.inputMark, [action.nameMark]: action.textMark}
+                inputMark: { ...state.inputMark, [action.nameMark]: action.textMark }
             };
-        case UPDATE_APPLICATION_DATA:            
+        case UPDATE_APPLICATION_DATA:
             return {
                 ...state,
-                data: [...state.data, [state.data.length + 1, 
-                                       state.inputMark.Point, 
-                                       state.inputMark.Coffee, 
-                                       state.inputMark.Milk, 
-                                       state.inputMark.Cups, 
-                                       state.inputMark.Sugar, 
-                                       state.inputMark.Data]],
+                data: [...state.data, [state.data.length + 1,
+                state.inputMark.Point,
+                state.inputMark.Coffee,
+                state.inputMark.Milk,
+                state.inputMark.Cups,
+                state.inputMark.Sugar,
+                state.inputMark.Data]],
                 inputMark: {
                     Point: "",
                     Coffee: "",
                     Milk: "",
                     Cups: "",
                     Sugar: "",
-                    Data: ""    
+                    Data: ""
                 }
             };
         default:
