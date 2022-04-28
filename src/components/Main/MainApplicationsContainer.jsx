@@ -3,6 +3,7 @@ import { uAActionCreator, uADActionCreator } from '../../Redux/applicationsReduc
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
+  console.log("container application");  
   return {
     state: state.applications
   }

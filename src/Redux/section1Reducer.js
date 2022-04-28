@@ -2,8 +2,9 @@ const SET_SEC1 = 'SET_SEC1';
 
 let initialState = [];
 
-const section1Reducer = (state = initialState, action) => {   
-    
+const section1Reducer = (state = initialState, action) => { 
+    console.log("reducer");  
+    console.log(state);
     switch (action.type) {
         case SET_SEC1:
             return [

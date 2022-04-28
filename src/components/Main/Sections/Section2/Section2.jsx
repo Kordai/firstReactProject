@@ -5,7 +5,7 @@ import Module2 from './Moduls/Module2/Module2'
 const Section2 = (props) => {
 
   let dataOptions = props.state.map(
-    val => <Module2 state={val} />
+    val => <Module2 key = {val.id} state={val} />
   );
 
   return (
