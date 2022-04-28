@@ -3,8 +3,8 @@ import s from './Section1.module.css';
 import Module1 from './Moduls/Module1/Module1'
 
 const Section1 = (props) => {
-
-  if (props.state.lenght === 0) {
+  
+  if (props.state.length === 0) {    
     props.addSec1(
       [
         {
@@ -44,6 +44,7 @@ const Section1 = (props) => {
           ]
       },
       {
+          id:3,
           titleCharts: "Отгружено Кофе",
           data: [
               ["Name", "Sales"],

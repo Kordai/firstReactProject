@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {setSec1AC} from '../../../../Redux/section1Reducer';
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     state: state.section1
   }
