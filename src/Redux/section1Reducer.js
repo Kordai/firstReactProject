@@ -1,55 +1,22 @@
+const SET_SEC1 = 'SET_SEC1';
 
-let initialState = [
-    {
-        titleCharts: "Продажи кофе с собой",
-        data: [
-            ["Name", "Sales"],
-            ["АЗС 1", 200],
-            ["АЗС 2", 50],
-            ["Вкусмарт 1", 250],
-            ["Вкусмарт 2", 280],
-            ["Магазин", 320],
-        ]
-    },
-    {
-        titleCharts: "Поступление оплаты",
-        data: [
-            ["Name", "Sales"],
-            ["АЗС 1", 80000],
-            ["АЗС 2", 35000],
-            ["Вкусмарт 1", 90000],
-            ["Вкусмарт 2", 95000],
-            ["Магазин", 93000],
-        ]
-    },
-    {
-        titleCharts: "Отгружено ингредиентов",
-        data: [
-            ["Name", "Sales"],
-            ["Молоко", 5000],
-            ["Шоколад", 3000],
-            ["Сахар", 6000],
-            ["Размешиватель", 4000],
-            ["Стаканчик", 1000],
-        ]
-    },
-    {
-        titleCharts: "Отгружено Кофе",
-        data: [
-            ["Name", "Sales"],
-            ["АЗС 1", 2000],
-            ["АЗС 2", 500],
-            ["Вкусмарт 1", 1500],
-            ["Вкусмарт 2", 1500],
-            ["Магазин", 2000],
-        ]
-    }
-];
+let initialState = [];
 
 const section1Reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case SET_SEC1:
+            return {
+                ...state, 
+                section1: [...state.section1, ...action.newSec1]
+            }
 
+        default:
+            return state;
+    } 
+}
 
-    return state;
+export const setSec1AC = (newSec1) => {
+    return { type: SET_SEC1, newSec1: newSec1 }
 }
 
 export default section1Reducer;
