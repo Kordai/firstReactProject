@@ -4,9 +4,6 @@ import Module1 from './Moduls/Module1/Module1'
 
 const Section1 = (props) => {
   if (props.state.length === 0) {    
-    console.log("add");  
-    console.log(props);  
-    console.log(props.state.length); 
     props.addSec1(
       [
         {
