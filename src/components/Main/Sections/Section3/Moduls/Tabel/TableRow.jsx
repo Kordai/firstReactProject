@@ -5,20 +5,21 @@ import TableCell from './TableCell'
 const TableRow = (props) => {
 
   let thTable = props.state.headTable.map(
-    val => <th>{val}</th>
+    val => <th key={props.state.headTable.indexOf(val)}>{val}</th>
   );
 
   let tableCell = props.state.data.map(
-    val => <TableCell state={val} />
+    val => <TableCell state={val} key={val[0]} />
   );
 
   return (
     <table className="table">
-      <tr>
-        {thTable}
-      </tr>
-      {tableCell}
-
+      <tbody>
+        <tr>
+          {thTable}
+        </tr>
+        {tableCell}
+      </tbody>
     </table>
   )
 }

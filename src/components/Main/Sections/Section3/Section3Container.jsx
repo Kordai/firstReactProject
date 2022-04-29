@@ -1,5 +1,5 @@
 import Section3 from './Section3'
-import { uPActionCreator, uPDActionCreator } from '../../../../Redux/section3Reducer';
+import { uPActionCreator, uPDActionCreator, setPaymentCA } from '../../../../Redux/section3Reducer';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -15,6 +15,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     addUDAction: () => {
       dispatch(uPDActionCreator());
+    },
+    setNewPayments: (newPayments) => {
+      dispatch(setPaymentCA(newPayments));
     }
   }
 }
