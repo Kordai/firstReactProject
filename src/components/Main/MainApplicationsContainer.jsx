@@ -1,5 +1,5 @@
 import MainApplications from './MainApplications';
-import { uAActionCreator, uADActionCreator } from '../../Redux/applicationsReducer';
+import { uAActionCreator, uADActionCreator, setApplicationCA } from '../../Redux/applicationsReducer';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -16,6 +16,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     addUDAction: () => {
       dispatch(uADActionCreator());
+    },
+    setNewApplications: (newApplications) => {
+      dispatch(setApplicationCA(newApplications));
     }
   }
 }
