@@ -9,7 +9,6 @@ import MainApplicationsContainer from './components/Main/MainApplicationsContain
 import MainPoints from './components/Main/MainPoints';
 
 function App(props) {
-
   return (
     <div className="App">
       <Nav />
