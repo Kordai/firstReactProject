@@ -1,15 +1,24 @@
 .u {
     background-color: white;
-    height: 100%;        
+    width: 100%;
+    height: 250px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
    }
 
 .info {
     height: 50%;
     text-align: left;
+    padding-left: 10px;
+}
+
+.h {
+    font-style: bold;
 }
 
 .img {
-    height: 50%;
+    height: 100px;
+    width: 100px;
     text-align: right;
 }
 
