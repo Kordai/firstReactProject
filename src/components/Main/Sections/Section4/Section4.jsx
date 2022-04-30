@@ -4,9 +4,9 @@ import s from './Section4.module.css';
 const Section4 = (props) => {  
 
   return (
-    <main className={s.u}>
+    <section className={s.u}>
 
-    </main>
+    </section>
   );
 }
 
