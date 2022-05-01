@@ -3,16 +3,14 @@ import s from './Section4.module.css';
 import User from './Moduls/User'
 
 const Section4 = (props) => {  
-  
+  let userPage = props.state.map(
+    val => {
+      <User state = {val} key = {val.id} />
+    }
+  );
   return (
     <section className={s.u}>
-      <User/>
-      <User/>
-      <User/>
-      <User/>
-      <User/>
-      <User/>
-      <User/>
+     {userPage}
     </section>
   );
 }

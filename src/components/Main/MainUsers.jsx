@@ -33,7 +33,7 @@ const MainUsers = (props) => {
       }
     }
   );
-  console.log(admin, meneger, service);
+  
   return (
     <main className={s.u}>
 
