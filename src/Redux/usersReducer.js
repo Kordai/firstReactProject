@@ -7,7 +7,7 @@ const usersReducer = (state = initialState, action) => {
         case SET_USERS:
             return [
                 ...state, 
-                ...action.newUsers
+                ...action.users
             ]
 
         default:
@@ -18,7 +18,7 @@ const usersReducer = (state = initialState, action) => {
 export const setUsersAC = (data) => {
     return { 
         type: SET_USERS, 
-        newUsers: data 
+        users: data 
     }
 }
 

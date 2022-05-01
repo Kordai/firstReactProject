@@ -7,7 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import MainMoney from './components/Main/MainMoney';
 import MainApplicationsContainer from './components/Main/MainApplicationsContainer';
 import MainPoints from './components/Main/MainPoints';
-import MainUsers from './components/Main/MainUsers';
+import MainUsersContainer from './components/Main/MainUsersContainer';
 
 function App(props) {
   return (
@@ -20,7 +20,7 @@ function App(props) {
           <Route path="/panelmoney" element={<MainMoney />} />
           <Route path="/panelapplications" element={<MainApplicationsContainer />} />
           <Route path="/panelpoints" element={<MainPoints />} />
-          <Route path="/panelusers" element={<MainUsers />} />
+          <Route path="/panelusers" element={<MainUsersContainer />} />
         </Routes>
       </div>
     </div>

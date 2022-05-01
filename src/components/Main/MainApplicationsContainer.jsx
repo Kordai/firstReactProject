@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
     state: state.applications
   }
 };
-
+ 
 const mapDispatchToProps = (dispatch) => {
   return {
     addUAction: (name, value) => {
