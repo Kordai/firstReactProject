@@ -12,7 +12,6 @@ class MainUsers extends React.Component {
     axios.get("https://hotcoffee.kz/get_users.php").then(responce => { this.props.setNewUsers(responce.data.users); });
     }
   }
-debager;
   render() {
     return (
       <main className={s.u}>
