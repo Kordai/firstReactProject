@@ -5,13 +5,12 @@ import Section4 from './Sections/Section4/Section4'
 
 class MainUsers extends React.Component {
 
-  constructor(props) {
-
-    super(props);
-    if (props.state.length === 0){
-    axios.get("https://hotcoffee.kz/get_users.php").then(responce => { this.props.setNewUsers(responce.data.users); });
+  componentDidMount() {
+    if (this.props.state.length === 0) {
+      axios.get("https://hotcoffee.kz/get_users.php").then(responce => { this.props.setNewUsers(responce.data.users); });
     }
   }
+
   render() {
     return (
       <main className={s.u}>
