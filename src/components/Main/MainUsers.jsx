@@ -1,30 +1,38 @@
+import { render } from '@testing-library/react';
 import * as axios from 'axios';
 import React from 'react';
 import s from './MainUsers.module.css';
 import Section4 from './Sections/Section4/Section4'
 
-const MainUsers = (props) => {
-  if (props.state.length === 0) {
+class MainUsers extends React.Component {
+
+  constructor(props){
+    
+    super(props);
     axios.get("https://hotcoffee.kz/get_users.php").then(responce => {
-      props.setNewUsers(responce.data.users);
+      this.props.setNewUsers(responce.data.users);
     });
+    
   }
-  let admin = [];//"Admin"
-  let meneger = [];//"Meneger"
-  let service = [];//"Service"
-  let qqq = props.state.map(
+  admin = [];//"Admin"
+  meneger = [];//"Meneger"
+  service = [];//"Service"
+  
+    
+  
+  qqq = this.props.state.map(
     val => {
       switch (val.team) {
         case "Admin":
-          admin.push(val);
+          this.admin.push(val);
           return val;
           break;
         case "Meneger":
-          meneger.push(val);
+          this.meneger.push(val);
           return val;
           break;
         case "Service":
-          service.push(val);
+          this.service.push(val);
           return val;
           break;
         default:
@@ -34,14 +42,16 @@ const MainUsers = (props) => {
     }
   );
   
-  return (
-    <main className={s.u}>
-
-      <Section4 state={service} />
-      <Section4 state={meneger} />
-      <Section4 state={admin} />
-    </main>
-  );
+  render() {
+    return (
+      <main className={s.u}>
+        <Section4 state={this.service} />
+        <Section4 state={this.meneger} />
+        <Section4 state={this.admin} />
+      </main>
+    )
+  }
+  
 }
 
 export default MainUsers;
