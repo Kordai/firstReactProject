@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import * as axios from 'axios';
 import React from 'react';
 import s from './MainUsers.module.css';
