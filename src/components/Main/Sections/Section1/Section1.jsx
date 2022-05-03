@@ -4,7 +4,7 @@ import Module1 from './Moduls/Module1/Module1'
 
 const Section1 = (props) => {
   if (props.state.length === 0) {    
-    props.addSec1(
+    props.setSec1(
       [
         {
           id:0,
