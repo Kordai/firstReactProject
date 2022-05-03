@@ -41,7 +41,7 @@ const applicationsReducer = (state = initialState, action) => {
     }
 }
 
-export const uAActionCreator = (name, value) => {
+export const addUpdate = (name, value) => {
     return {
         type: UPDATE_APPLICATION,
         nameMark: name,
@@ -49,11 +49,11 @@ export const uAActionCreator = (name, value) => {
     }
 }
 
-export const uADActionCreator = () => {
+export const addUpdateText = () => {
     return { type: UPDATE_APPLICATION_DATA }
 }
 
-export const setApplicationCA = (newApplications) => {
+export const setApplication = (newApplications) => {
     return { type: SET_APPLICATIONS, applications: newApplications }
 }
 

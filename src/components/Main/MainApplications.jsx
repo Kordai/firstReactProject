@@ -5,7 +5,7 @@ import Table from './Sections/Section3/Moduls/Tabel/Table';
 
 const MainApplications = (props) => {  
   if (Object.keys(props.state).length === 0 && props.state.constructor === Object) {
-    props.setNewApplications({
+    props.setApplication({
       formName: "Application",
       inputMark: {
           Point: "",
@@ -38,7 +38,7 @@ const MainApplications = (props) => {
   return (
     <main className={s.m}>
       <Table state = {props.state}/>
-      <Form state = {props.state} addUAction = {props.addUAction} addUDAction = {props.addUDAction}/>
+      <Form state = {props.state} addUpdate = {props.addUpdate} addUpdateText = {props.addUpdateText}/>
     </main>
   );
 }
