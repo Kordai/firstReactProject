@@ -6,7 +6,7 @@ import Form from './Moduls/Form/Form';
 
 const Section3 = (props) => {  
   if (Object.keys(props.state).length === 0 && props.state.constructor === Object) {
-    props.setNewPayments({
+    props.setPayment({
       formName: "Payment",
       inputMark: {
           Point: "",
@@ -55,7 +55,7 @@ const Section3 = (props) => {
   return (
     <section className={s.s3}>
       <Table state={props.state} />
-      <Form state={props.state} addUAction = {props.addUAction} addUDAction = {props.addUDAction}/>
+      <Form state={props.state} addUpdate = {props.addUpdate} addUpdateText = {props.addUpdateText}/>
       <Module state={props.state} />
     </section>
   );

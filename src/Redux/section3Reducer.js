@@ -37,7 +37,7 @@ const section3Reducer = (state = initialState, action) => {
     }
 }
 
-export const uPActionCreator = (name, value) => {
+export const addUpdate = (name, value) => {
     return {
         type: UPDATE_PAYMENT,
         nameMark: name,
@@ -45,11 +45,11 @@ export const uPActionCreator = (name, value) => {
     }
 }
 
-export const uPDActionCreator = () => {
+export const addUpdateText = () => {
     return { type: UPDATE_PAYMENT_DATA }
 }
 
-export const setPaymentCA = (newPayments) => {
+export const setPayment = (newPayments) => {
     return { type: SET_PAYMENT, payments: newPayments }
 }
 
