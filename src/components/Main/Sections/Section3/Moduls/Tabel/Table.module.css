@@ -1,7 +1,7 @@
 .t {
-    width: 200px;
-    height: 100%;
-    display: contents;
+    width: 1110px;
+    height: 445px;
+    display: inline-grid;
     
     border: 1px solid #C1C1C1;
     /* размер и цвет границы блока */
