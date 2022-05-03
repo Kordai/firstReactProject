@@ -1,6 +1,6 @@
 import Section2 from './Section2';
 import { connect } from 'react-redux';
-import {setSec2AC} from '../../../../Redux/section2Reducer';
+import {setSec2} from '../../../../Redux/section2Reducer';
 
 
 const mapStateToProps = (state) => {
@@ -9,10 +9,6 @@ const mapStateToProps = (state) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return { addSec2: (newSec2) => {dispatch(setSec2AC(newSec2))}}
-}
-
-const Section2Container = connect(mapStateToProps, mapDispatchToProps)(Section2);
+const Section2Container = connect(mapStateToProps, {setSec2})(Section2);
 
 export default Section2Container;
