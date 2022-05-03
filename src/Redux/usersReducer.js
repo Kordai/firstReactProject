@@ -15,7 +15,7 @@ const usersReducer = (state = initialState, action) => {
     } 
 }
 
-export const setUsersAC = (data) => {
+export const setNewUsers = (data) => {
     return { 
         type: SET_USERS, 
         users: data 
