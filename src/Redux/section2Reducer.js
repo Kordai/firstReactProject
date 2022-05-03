@@ -15,7 +15,7 @@ const section2Reducer = (state = initialState, action) => {
     } 
 }
 
-export const setSec2AC = (newSec) => {
+export const setSec2 = (newSec) => {
     return { 
         type: SET_SEC2, 
         newSec2: newSec 
