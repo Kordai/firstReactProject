@@ -5,20 +5,23 @@ import Table from './Moduls/Tabel/Table';
 import Form from './Moduls/Form/Form';
 import * as axios from 'axios';
 
-const Section3 = (props) => {
+class Section3 extends React.Component {
 
-  console.log(props);
-  if (props.state.data.length === 0) {
-    axios.get("https://hotcoffee.kz/get_payments.php").then(responce => { props.setPayments(responce.data.payments); });
+  componentDidMount() {
+    if (this.props.state.data.length === 0) {
+      axios.get("https://hotcoffee.kz/get_payments.php").then(responce => { this.props.setPayments(responce.data.payments); });
+    }
   }
 
-  return (
-    <section className={s.s3}>
-      <Table state={props.state} />
-      <Form state={props.state} addUpdate={props.addUpdate} addUpdateText={props.addUpdateText} />
-      <Module state={props.state} />
-    </section>
-  )
+  render() {
+    return (
+      <section className={s.s3} >
+        <Table state={this.props.state} />
+        <Form state={this.props.state} addUpdate={this.props.addUpdate} addUpdateText={this.props.addUpdateText} />
+        <Module state={this.props.state} />
+      </section>
+    )
+  }
 }
 
 
