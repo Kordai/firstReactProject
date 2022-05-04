@@ -5,7 +5,6 @@ const SET_PAYMENT = 'SET_PAYMENT';
 let initialState = {};
 
 const section3Reducer = (state = initialState, action) => {
-
     switch (action.type) {
         case UPDATE_PAYMENT:
             return {
@@ -49,8 +48,8 @@ export const addUpdateText = () => {
     return { type: UPDATE_PAYMENT_DATA }
 }
 
-export const setPayment = (newPayments) => {   
-    return { type: SET_PAYMENT, payments: newPayments }
+export const setPayment = (payments) => {   
+    return { type: SET_PAYMENT, payments}
 }
 
 export default section3Reducer;
