@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MainUsers from './MainUsers';
-import { setNewUsers } from '../../Redux/usersReducer';
+import { setNewUsers, toggleIsFetching } from '../../Redux/usersReducer';
 
 const mapStateToProps = (state) => {
   return {
@@ -8,6 +8,6 @@ const mapStateToProps = (state) => {
   }
 };
 
-const MainUsersContainer = connect(mapStateToProps, { setNewUsers })(MainUsers);
+const MainUsersContainer = connect(mapStateToProps, { setNewUsers, toggleIsFetching })(MainUsers);
 
 export default MainUsersContainer;
