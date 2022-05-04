@@ -22,9 +22,9 @@ let initialState = {
       Point: "",
       Customer: "",
       Payment: "",
-      Month: ""
+      Data: ""
     },
-    headTable: ["Namber", "Point", "Customer", "Payment", "Month"],
+    headTable: ["Namber", "Point", "Customer", "Payment", "Data"],
     data: [],        
     dataChart: [
       ["Month", "Payment"],
@@ -64,12 +64,12 @@ const section3Reducer = (state = initialState, action) => {
                 state.inputMark.Point,
                 state.inputMark.Customer,
                 state.inputMark.Payment,
-                state.inputMark.Month]],
+                state.inputMark.Data]],
                 inputMark: {
                     Point: "",
                     Customer: "",
                     Payment: "",
-                    Month: ""
+                    Data: ""
                 }
             };
         case SET_PAYMENT:
