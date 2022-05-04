@@ -1,14 +1,17 @@
 const SET_USERS = 'SET_USERS';
 
-let initialState = [];
+let initialState = {
+    users: [],
+    isFetching: true
+};
 
 const usersReducer = (state = initialState, action) => { 
     switch (action.type) {
         case SET_USERS:
-            return [
+            return {
                 ...state, 
-                ...action.users
-            ]
+                users: [...state.users, ...action.users]
+            }
 
         default:
             return state;
