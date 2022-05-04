@@ -14,7 +14,7 @@ const Form = (props) => {
     (val) => {
       return (
         <div>
-          <input value={props.state.inputMark[val]} type="text" placeholder={val} name={val} onChange={inputUpdateVal} key = {inputVal.indexOf(val)}/>
+          <input value={props.state.inputMark[val]} type="text" placeholder={val} name={val} onChange={inputUpdateVal} key = {inputVal[val]}/>
         </div>
       )
     }
