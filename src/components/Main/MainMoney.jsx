@@ -5,7 +5,7 @@ import Section3Container from './Sections/Section3/Section3Container';
 const MainMoney = (props) => {
   return (
     <main className={s.m}>
-      <Section3Container store = {props.store}/>
+      <Section3Container />
     </main>
   );
 }

@@ -49,7 +49,7 @@ export const addUpdateText = () => {
     return { type: UPDATE_PAYMENT_DATA }
 }
 
-export const setPayment = (newPayments) => {
+export const setPayment = (newPayments) => {   
     return { type: SET_PAYMENT, payments: newPayments }
 }
 
