@@ -61,7 +61,7 @@
     opacity: 1;
 }
 
-.spanPagination {
+.paginationPanel span {
     color: aqua;
     width: 20px;
     height: 20px;
@@ -77,11 +77,13 @@
     margin-right: 15px;
 }
 
-.spanPagination:hover {
+.paginationPanel span:hover {
     color: white;
     background-color: cornflowerblue;
   }
   
-.spanPagination.active {
+.active {
+    color: black;
     background-color: cornflowerblue;
+    
 }

@@ -9,8 +9,15 @@ class Section3 extends React.Component {
 
   componentDidMount() {
     if (this.props.state.data.length === 0) {
-      axios.get("https://hotcoffee.kz/get_payments.php").then(responce => { this.props.setPayments(responce.data.payments); });
+      axios.get(`https://hotcoffee.kz/get_payments.php?page=${this.props.state.currentPage}&count=${this.props.state.pageSize}`)
+      .then(responce => { this.props.setPayments(responce.data.payments); this.props.setTotalPaymentsCount(responce.data.total); });
+    
     }
+  }
+
+  onPageChenged = (pageNumber) =>{
+      axios.get(`https://hotcoffee.kz/get_payments.php?page=${pageNumber}&count=${this.props.state.pageSize}`)
+      .then(responce => { this.props.setPayments(responce.data.payments); console.log(responce); });
   }
 
   render() {
@@ -18,7 +25,7 @@ class Section3 extends React.Component {
     return (
       <section className={s.s3} >
         <Table state={this.props.state} />
-        <Form state={this.props.state} addUpdate={this.props.addUpdate} addUpdateText={this.props.addUpdateText} />
+        <Form state={this.props.state} onPageChenged = {this.onPageChenged} setCurrentPage = {this.props.setCurrentPage} addUpdate={this.props.addUpdate} addUpdateText={this.props.addUpdateText} />
         <Module state={this.props.state} />
       </section>
     )

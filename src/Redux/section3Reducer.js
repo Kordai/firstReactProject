@@ -1,6 +1,8 @@
 const UPDATE_PAYMENT = 'UPDATE_PAYMENT';
 const UPDATE_PAYMENT_DATA = 'UPDATE_PAYMENT_DATA';
 const SET_PAYMENT = 'SET_PAYMENT';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_PAYMENTS_COUNT = 'SET_TOTAL_PAYMENTS_COUNT';
 
 // [
         //     ["1", "Mart1", "LLC MART1", 75000, "January"],
@@ -20,6 +22,7 @@ let initialState = {
     pagesCount: 5,
     pageSize: 10,
     totalPaymentsCount: 0,
+    currentPage: 1,
     formName: "Payment",
     inputMark: {
       Point: "",
@@ -78,8 +81,18 @@ const section3Reducer = (state = initialState, action) => {
         case SET_PAYMENT:
             return {
                 ...state, 
-                data: [...state.data, ...action.payments]
-            }
+                data: action.payments
+            };
+        case SET_CURRENT_PAGE:
+            return {
+                ...state, 
+                currentPage: action.currentPage
+            };
+        case SET_TOTAL_PAYMENTS_COUNT:
+            return {
+                ...state, 
+                totalPaymentsCount: action.totalPaymentsCount
+            };
         default:
             return state;
     }
@@ -91,6 +104,14 @@ export const addUpdate = (name, value) => {
         nameMark: name,
         textMark: value
     }
+}
+
+export const setCurrentPage = (currentPage) => {
+    return { type: SET_CURRENT_PAGE, currentPage }
+}
+
+export const setTotalPaymentsCount = (totalPaymentsCount) => {
+    return { type: SET_TOTAL_PAYMENTS_COUNT, totalPaymentsCount }
 }
 
 export const addUpdateText = () => {

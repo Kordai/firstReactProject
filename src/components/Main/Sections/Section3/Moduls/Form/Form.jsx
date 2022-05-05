@@ -33,7 +33,12 @@ const Form = (props) => {
     form.current.style.display = "none";
   }
 
-  
+  let pageCount = Math.ceil(props.state.totalPaymentsCount / props.state.pageSize);
+
+let pages = [];
+for (let i=1; i<= pageCount; i++) {
+  pages.push(i);
+}  
 
 
   return (
@@ -43,11 +48,11 @@ const Form = (props) => {
 
         <div className={s.paginationPanel}>
           <span className={s.page}>&lt;PAGE</span>
-          <span className={s.spanPagination}>1</span>
-          <span className={s.spanPagination}>2</span>
-          <span className={s.spanPagination}>3</span>
-          <span className={s.spanPagination}>4</span>
-          <span className={s.spanPagination}>5</span>
+
+          {pages.map(p => {
+            return <span onClick={() => {props.setCurrentPage(p); props.onPageChenged(p)}} className={props.state.currentPage === p && s.active}>{p}</span>
+          })}
+
           <span className={s.page}>PAGE&gt;</span>
         </div>
 
