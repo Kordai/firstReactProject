@@ -33,6 +33,9 @@ const Form = (props) => {
     form.current.style.display = "none";
   }
 
+  
+
+
   return (
     <div>
       <div className={s.controlPanel}>

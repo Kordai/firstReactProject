@@ -17,6 +17,9 @@ const SET_PAYMENT = 'SET_PAYMENT';
         //   ],
 
 let initialState = {
+    pagesCount: 5,
+    pageSize: 10,
+    totalPaymentsCount: 0,
     formName: "Payment",
     inputMark: {
       Point: "",

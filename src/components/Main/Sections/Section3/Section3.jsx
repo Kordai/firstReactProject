@@ -14,6 +14,7 @@ class Section3 extends React.Component {
   }
 
   render() {
+     
     return (
       <section className={s.s3} >
         <Table state={this.props.state} />

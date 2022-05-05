@@ -77,3 +77,11 @@
     margin-right: 15px;
 }
 
+.spanPagination:hover {
+    color: white;
+    background-color: cornflowerblue;
+  }
+  
+.spanPagination.active {
+    background-color: cornflowerblue;
+}
