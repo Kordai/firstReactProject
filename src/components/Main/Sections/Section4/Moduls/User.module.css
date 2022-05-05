@@ -2,13 +2,31 @@
     background-color: white;
     width: 250px;
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-areas:
+      "i i"
+      "c c"
+      "l l";
+  
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
    }
 
 .info {
     height: 50%;
     text-align: left;
     padding-left: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-area: i;
+}
+
+.contact {
+    height: 50%;
+    text-align: left;
+    padding-left: 10px;
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-area: c;
 }
 
 .h {
@@ -24,4 +42,5 @@
 .level {
     height: 100%;
     text-align: center;
+    grid-area: l;
 }
