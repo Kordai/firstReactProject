@@ -7,6 +7,14 @@
     color: burlywood;
 }
 
+.deleteButton {
+    height: 30px;
+    width: 290px;
+    z-index: 5;
+    background-color: red;
+    color: burlywood;
+}
+
 .formPopup {
     display: none;
     position: fixed;
@@ -21,6 +29,15 @@
     justify-content: center;
     text-align: center;
     padding: 10px;
+}
+
+.controlPanel {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+}
+
+.paginationPanel{
+    text-align: center;
 }
 
 .formPopup input {
@@ -42,5 +59,21 @@
 
 .formPopup .btn:hover, .openButton:hover {
     opacity: 1;
+}
+
+.spanPagination {
+    color: aqua;
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    cursor: pointer;
+    border: 2px solid aqua;
+    margin: 3px;
+}
+
+.page {
+    color: aqua;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
