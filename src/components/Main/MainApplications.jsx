@@ -1,7 +1,6 @@
 import React from 'react';
 import s from './MainApplications.module.css';
-import Form from './Sections/Section3/Moduls/Form/Form';
-import Table from './Sections/Section3/Moduls/Tabel/Table';
+
 
 const MainApplications = (props) => {  
   if (Object.keys(props.state).length === 0 && props.state.constructor === Object) {
