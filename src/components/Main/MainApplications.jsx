@@ -37,8 +37,7 @@ const MainApplications = (props) => {
   }
   return (
     <main className={s.m}>
-      {/* <Table state = {props.state}/>
-      <Form state = {props.state} addUpdate = {props.addUpdate} addUpdateText = {props.addUpdateText}/> */}
+      
     </main>
   );
 }
