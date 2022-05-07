@@ -6,7 +6,7 @@ const Table = (props) => {
       return (
             <div className={s.t}>
                   <TableRow state={props.state} />
-            </div>
+            </div>            
       )
 }
 
