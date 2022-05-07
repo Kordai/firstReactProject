@@ -9,7 +9,7 @@ const TableCell = (props) => {
   );
 
   return (
-    <tr>
+    <tr className='tdCell'>
       {tableCell}
     </tr>
   )

@@ -2,8 +2,10 @@
     /* width: 1110px; */
     height: 445px;
     display: inline-grid;
-    
+background-color: white;
     border: 1px solid #C1C1C1;
     /* размер и цвет границы блока */
     overflow: auto;
+    margin: 0px;
+    padding: 0px;
 }

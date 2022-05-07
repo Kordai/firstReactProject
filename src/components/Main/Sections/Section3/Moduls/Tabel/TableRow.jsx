@@ -15,7 +15,7 @@ const TableRow = (props) => {
   return (
     <table className="table">
       <tbody>
-        <tr>
+        <tr className='thTable'>
           {thTable}
         </tr>
         {tableCell}

@@ -1,12 +1,15 @@
 table {
     border: 1px solid grey;
+    border-color: currentColor;
+
 }
 
 /* границы ячеек первого ряда таблицы */
-th {
+.thTable {
     border: 1px solid grey;
     background-color: aqua;
     color: #282c34;
+    border-color: currentColor;
 }
 
 /* границы ячеек тела таблицы */
