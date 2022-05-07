@@ -34,6 +34,7 @@
 .controlPanel {
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
+    margin-top: 5px;
 }
 
 .paginationPanel{

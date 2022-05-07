@@ -3,6 +3,7 @@
     height: 100%;
     color: #282c34;
     display: grid;
-    grid-template-rows: 1fr 30px 1fr;
+    grid-template-rows: 1fr 35px 1fr;
     grid-gap: 5px;
+    
 }
