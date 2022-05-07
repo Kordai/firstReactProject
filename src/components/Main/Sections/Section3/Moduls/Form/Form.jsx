@@ -13,8 +13,14 @@ const Form = (props) => {
   let inputComponent = inputVal.map(
     (val) => {
       return (
-        <div>
-          <input value={props.state.inputMark[val]} type="text" placeholder={val} name={val} onChange={inputUpdateVal} key={inputVal[val]} />
+        <div key={inputVal.indexOf(val)}>
+          <input 
+          value={props.state.inputMark[val]} 
+          type="text" 
+          placeholder={val} 
+          name={val} 
+          onChange={inputUpdateVal} 
+          key={inputVal.indexOf(val)} />
         </div>
       )
     }
@@ -50,7 +56,10 @@ for (let i=1; i<= pageCount; i++) {
           <span className={s.page}>&lt;PAGE</span>
 
           {pages.map(p => {
-            return <span onClick={() => {props.setCurrentPage(p); props.onPageChenged(p)}} className={props.state.currentPage === p && s.active}>{p}</span>
+            return <span 
+            onClick={() => {props.setCurrentPage(p); props.onPageChenged(p)}} 
+            className={props.state.currentPage === p ? s.active:null}
+            key = {p}>{p}</span>
           })}
 
           <span className={s.page}>PAGE&gt;</span>
