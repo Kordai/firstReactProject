@@ -9,17 +9,18 @@ justify-content: center; */
   grid-gap: 10px;
 }
 
-a {
-  background-color: aqua;
-  height: 40px;
-  text-decoration: none;
-}
-
-a:hover {
+.decarationNone:hover {
   color: white;
   background-color: cornflowerblue;
 }
 
 a.active {
   background-color: cornflowerblue;
+  text-decoration: none;
+}
+
+.decarationNone {
+  text-decoration: none;
+  background-color: aqua;
+  height: 40px;
 }
