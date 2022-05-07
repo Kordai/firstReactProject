@@ -1,9 +1,6 @@
 .m {
- background-color: #282c34;
+ background-color: white;
  height: 100%;
- display: grid;
- grid-template-rows: 9fr 1fr;
- grid-gap: 10px;
- 
+ padding: 20px;
 }
 
