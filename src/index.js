@@ -9,18 +9,21 @@ import { createRoot } from 'react-dom/client';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { CookiesProvider } from 'react-cookie';
 
 
 const container = document.getElementById('root');
 const root = createRoot(container);
-  root.render(
+root.render(
+  <CookiesProvider>
     <BrowserRouter>
       {/* <React.StrictMode> */}
-        <Provider store={store} >
-          <App />
-        </Provider>
+      <Provider store={store} >
+        <App />
+      </Provider>
       {/* </React.StrictMode> */}
-    </BrowserRouter>);
+    </BrowserRouter>
+  </CookiesProvider>);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

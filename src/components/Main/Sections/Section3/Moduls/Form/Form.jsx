@@ -1,7 +1,11 @@
 import React from 'react';
+import { useCookies } from 'react-cookie';
 import s from './Form.module.css';
 
 const Form = (props) => {
+
+  const [cookies, setCookie] = useCookies(["name"]);
+ // console.log(cookies.name);
 
   let inputVal = props.state.headTable.filter((f) => { return f !== props.state.headTable[0] });
   let form = React.createRef();
@@ -35,6 +39,12 @@ const Form = (props) => {
     form.current.style.display = "none";
   }
 
+  const setCookieAlex = () => {    
+    setCookie("name", "Alex123", { 
+      path: "/",
+      maxAge: 100000  });
+  }
+
   const closeForm = () => {
     form.current.style.display = "none";
   }
@@ -65,7 +75,7 @@ for (let i=1; i<= pageCount; i++) {
           <span className={s.page}>PAGE&gt;</span>
         </div>
 
-        <button className={s.deleteButton}>Delete {props.state.formName}</button>
+        <button onClick={setCookieAlex} className={s.deleteButton}>Delete {props.state.formName}</button>
       </div>
 
       <div ref={form} className={s.formPopup}>

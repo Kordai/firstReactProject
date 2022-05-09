@@ -12,6 +12,7 @@ class Section3Container extends React.Component {
       this.props.toggleIsFetching(true);
       ConnectToServer.getPayments(this.props.state.currentPage, this.props.state.pageSize)
         .then(data => { 
+          console.log(data);
           this.props.setPayments(data.payments); 
           this.props.setTotalPaymentsCount(data.total);
           this.props.toggleIsFetching(false);
