@@ -7,6 +7,9 @@ const instance = axios.create({
  const ConnectToServer = {
     getUsers(){
         return instance.get("get_users.php").then(response => response.data);
+    },
+    getPayments(currentPage, pageSize){
+        return instance.get(`get_payments.php?page=${currentPage}&count=${pageSize}`).then(response => response.data);
     }
 }
 

@@ -1,28 +1,30 @@
 import { addUpdate, addUpdateText, setPayments, setCurrentPage, setTotalPaymentsCount, toggleIsFetching } from '../../../../Redux/section3Reducer';
 import { connect } from 'react-redux';
 import Section3 from './Section3'
-import * as axios from 'axios';
 import React from 'react';
 import PreLoader from '../../Moduls/PreLoader';
+import ConnectToServer from '../../../../APIConnect/ConnectToServer';
 
 class Section3Container extends React.Component {
 
   componentDidMount() {
     if (this.props.state.data.length === 0) {
       this.props.toggleIsFetching(true);
-      axios.get(`https://hotcoffee.kz/get_payments.php?page=${this.props.state.currentPage}&count=${this.props.state.pageSize}`)
-        .then(responce => { 
-          this.props.setPayments(responce.data.payments); 
-          this.props.setTotalPaymentsCount(responce.data.total);
+      ConnectToServer.getPayments(this.props.state.currentPage, this.props.state.pageSize)
+        .then(data => { 
+          this.props.setPayments(data.payments); 
+          this.props.setTotalPaymentsCount(data.total);
           this.props.toggleIsFetching(false);
          });
-
     }
   }
 
   onPageChenged = (pageNumber) => {
-    axios.get(`https://hotcoffee.kz/get_payments.php?page=${pageNumber}&count=${this.props.state.pageSize}`)
-      .then(responce => { this.props.setPayments(responce.data.payments); console.log(responce); });
+    this.props.toggleIsFetching(true);
+    ConnectToServer.getPayments(pageNumber, this.props.state.pageSize)
+      .then(data => { 
+        this.props.setPayments(data.payments); 
+        this.props.toggleIsFetching(false); });
   }
 
   render() {
