@@ -1,0 +1,14 @@
+.l {
+    background-color: white;
+    height: 350px;
+    width: 350px;
+    left: 40%;
+    top: 30%;
+    position: absolute;
+    display: flex;
+}
+
+.l img{
+    left: -85px;
+    position: relative;
+}
