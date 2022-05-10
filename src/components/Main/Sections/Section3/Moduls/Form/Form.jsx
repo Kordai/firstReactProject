@@ -1,12 +1,8 @@
 import React from 'react';
-import { useCookies } from 'react-cookie';
 import s from './Form.module.css';
 
 const Form = (props) => {
-
-  const [cookies, setCookie] = useCookies(["name1"]);
- console.log(cookies);
-
+ 
   let inputVal = props.state.headTable.filter((f) => { return f !== props.state.headTable[0] });
   let form = React.createRef();
 
@@ -40,13 +36,7 @@ const Form = (props) => {
   }
 
   const setCookieAlex = () => {    
-    setCookie("name1", "Alex123", { 
-      path: "/",
-      maxAge: 100000,
-      secure: true  
-    });
-    //removeCookie("name");
-    console.log(cookies);
+    
   }
 
   const closeForm = () => {
