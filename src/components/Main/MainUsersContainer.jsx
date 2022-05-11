@@ -2,17 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MainUsers from './MainUsers';
 import PreLoader from './Moduls/PreLoader';
-import { setNewUsers, toggleIsFetching } from '../../Redux/usersReducer';
-import ConnectToServer from '../../APIConnect/ConnectToServer';
+import {getUsers} from '../../Redux/usersReducer';
 
 class MainUsersContainer extends React.Component {
 
   componentDidMount() {
+
     if (this.props.state.users.length === 0) {
-      this.props.toggleIsFetching(true);
-      ConnectToServer.getUsers().then(data => 
-      { this.props.setNewUsers(data.users);
-        this.props.toggleIsFetching(false); });      
+      this.props.getUsers()
     } 
   }
 
@@ -31,5 +28,5 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps, { setNewUsers, toggleIsFetching })(MainUsersContainer);
+export default connect(mapStateToProps, {getUsers})(MainUsersContainer);
 

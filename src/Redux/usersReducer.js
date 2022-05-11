@@ -1,11 +1,15 @@
+import ConnectToServer from "../APIConnect/ConnectToServer";
+
 const SET_USERS = 'SET_USERS';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
+//Started props
 let initialState = {
     users: [],
     isFetching: false
 };
 
+//Reducers functions
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USERS:
@@ -24,6 +28,7 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
+//Action Creators functions
 export const setNewUsers = (data) => {
     return {
         type: SET_USERS,
@@ -37,5 +42,17 @@ export const toggleIsFetching = (isFetching) => {
         isFetching
     }
 }
+
+//Thunk functions
+export const getUsers = () => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true));
+        ConnectToServer.getUsers().then(data => {
+            dispatch(setNewUsers(data.users))
+            dispatch(toggleIsFetching(false))
+        });
+    }
+}
+
 
 export default usersReducer;
