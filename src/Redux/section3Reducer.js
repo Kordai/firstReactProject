@@ -1,3 +1,5 @@
+import ConnectToServer from "../APIConnect/ConnectToServer";
+
 const UPDATE_PAYMENT = 'UPDATE_PAYMENT';
 const UPDATE_PAYMENT_DATA = 'UPDATE_PAYMENT_DATA';
 const SET_PAYMENT = 'SET_PAYMENT';
@@ -5,20 +7,7 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_PAYMENTS_COUNT = 'SET_TOTAL_PAYMENTS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
-// [
-//     ["1", "Mart1", "LLC MART1", 75000, "January"],
-//     ["2", "Mart2", "LLC MART2", 90000, "January"],
-//     ["3", "GasStation1", "LLC GAS", 75000, "January"],
-//     ["4", "GasStation2", "LLC GAS", 60000, "January"],
-//     ["5", "Mart1", "LLC MART1", 79000, "March"],
-//     ["6", "Mart2", "LLC MART2", 100000, "March"],
-//     ["7", "GasStation1", "LLC GAS", 57000, "March"],
-//     ["8", "GasStation2", "LLC GAS", 85000, "March"],
-//     ["9", "Mart1", "LLC MART1", 79000, "May"],
-//     ["10", "Mart2", "LLC MART2", 100000, "May"],
-//     ["11", "GasStation1", "LLC GAS", 57000, "May"]
-//   ],
-
+//Started props
 let initialState = {
     isFetching: false,
     pagesCount: 5,
@@ -58,6 +47,7 @@ let initialState = {
 
 };
 
+//Reducers functions
 const section3Reducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_PAYMENT:
@@ -105,6 +95,7 @@ const section3Reducer = (state = initialState, action) => {
     }
 }
 
+//Action Creators functions
 export const addUpdate = (name, value) => {
     return {
         type: UPDATE_PAYMENT,
@@ -117,7 +108,7 @@ export const setCurrentPage = (currentPage) => {
     return { type: SET_CURRENT_PAGE, currentPage }
 }
 
-export const setTotalPaymentsCount = (totalPaymentsCount) => {
+const setTotalPaymentsCount = (totalPaymentsCount) => {
     return { type: SET_TOTAL_PAYMENTS_COUNT, totalPaymentsCount }
 }
 
@@ -125,14 +116,27 @@ export const addUpdateText = () => {
     return { type: UPDATE_PAYMENT_DATA }
 }
 
-export const setPayments = (payments) => {
+const setPayments = (payments) => {
     return { type: SET_PAYMENT, payments }
 }
 
-export const toggleIsFetching = (isFetching) => {
+const toggleIsFetching = (isFetching) => {
     return {
         type: TOGGLE_IS_FETCHING,
         isFetching
+    }
+}
+
+//Thunk functions
+export const getPayments = (currentPage, pageSize) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true))
+        ConnectToServer.getPayments(currentPage, pageSize)
+            .then(data => {
+                dispatch(setPayments(data.payments));
+                dispatch(setTotalPaymentsCount(data.total));
+                dispatch(toggleIsFetching(false));
+            });
     }
 }
 
