@@ -1,8 +1,10 @@
 const UPDATE_APPLICATION = 'UPDATE_APPLICATION';
 const UPDATE_APPLICATION_DATA = 'UPDATE_APPLICATION_DATA';
 const SET_APPLICATIONS = 'SET_APPLICATIONS';
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
+    isFetching: false,
     formName: "Application",
     inputMark: {
         Point: "",
@@ -48,6 +50,11 @@ const applicationsReducer = (state = initialState, action) => {
                 ...state,
                 data: action.applications
             }
+        case TOGGLE_IS_FETCHING:
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
         default:
             return state;
     }
@@ -67,6 +74,13 @@ export const addUpdateText = () => {
 
 export const setApplication = (newApplications) => {
     return { type: SET_APPLICATIONS, applications: newApplications }
+}
+
+export const toggleIsFetching = (isFetching) => {
+    return {
+        type: TOGGLE_IS_FETCHING,
+        isFetching
+    }
 }
 
 export default applicationsReducer;
