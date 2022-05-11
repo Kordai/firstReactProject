@@ -1,8 +1,20 @@
 const UPDATE_APPLICATION = 'UPDATE_APPLICATION';
 const UPDATE_APPLICATION_DATA = 'UPDATE_APPLICATION_DATA';
-const SET_APPLICATIONS ='SET_APPLICATIONS';
+const SET_APPLICATIONS = 'SET_APPLICATIONS';
 
-let initialState = {};
+let initialState = {
+    formName: "Application",
+    inputMark: {
+        Point: "",
+        Coffee: "",
+        Milk: "",
+        Cups: "",
+        Sugar: "",
+        Data: ""
+    },
+    headTable: ["Naber", "Point", "Coffee", "Milk", "Cups", "Sugar", "Data"],
+    data: []
+};
 
 const applicationsReducer = (state = initialState, action) => {
 
@@ -33,8 +45,8 @@ const applicationsReducer = (state = initialState, action) => {
             };
         case SET_APPLICATIONS:
             return {
-                ...state, 
-                ...action.applications
+                ...state,
+                data: action.applications
             }
         default:
             return state;

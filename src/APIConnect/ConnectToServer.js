@@ -14,8 +14,10 @@ const instance = axios.create({
 
         return instance.get(`get_payments.php?page=${currentPage}&count=${pageSize}`)
         .then(response => {
-            console.log(response)
             return response.data;});
+    },
+    getApplications() {
+        
     }
 }
 
