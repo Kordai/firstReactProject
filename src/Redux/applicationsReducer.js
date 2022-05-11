@@ -1,8 +1,11 @@
+import ConnectToServer from "../APIConnect/ConnectToServer";
+
 const UPDATE_APPLICATION = 'UPDATE_APPLICATION';
 const UPDATE_APPLICATION_DATA = 'UPDATE_APPLICATION_DATA';
 const SET_APPLICATIONS = 'SET_APPLICATIONS';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
+//Started props
 let initialState = {
     isFetching: false,
     formName: "Application",
@@ -18,6 +21,7 @@ let initialState = {
     data: []
 };
 
+//Reducers functions
 const applicationsReducer = (state = initialState, action) => {
 
     switch (action.type) {
@@ -60,6 +64,7 @@ const applicationsReducer = (state = initialState, action) => {
     }
 }
 
+//Action Creators functions
 export const addUpdate = (name, value) => {
     return {
         type: UPDATE_APPLICATION,
@@ -68,18 +73,29 @@ export const addUpdate = (name, value) => {
     }
 }
 
-export const addUpdateText = () => {
-    return { type: UPDATE_APPLICATION_DATA }
-}
+// export const addUpdateText = () => {
+//     return { type: UPDATE_APPLICATION_DATA }
+// }
 
-export const setApplication = (newApplications) => {
+const setApplication = (newApplications) => {
     return { type: SET_APPLICATIONS, applications: newApplications }
 }
 
-export const toggleIsFetching = (isFetching) => {
+const toggleIsFetching = (isFetching) => {
     return {
         type: TOGGLE_IS_FETCHING,
         isFetching
+    }
+}
+
+//Thunk functions
+export const getApplications = () => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true));
+        ConnectToServer.getApplications().then(data => {
+            dispatch(setApplication(data.applications))
+            dispatch(toggleIsFetching(false))
+        });
     }
 }
 

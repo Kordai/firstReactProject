@@ -29,14 +29,14 @@ const usersReducer = (state = initialState, action) => {
 }
 
 //Action Creators functions
-export const setNewUsers = (data) => {
+const setNewUsers = (data) => {
     return {
         type: SET_USERS,
         users: data
     }
 }
 
-export const toggleIsFetching = (isFetching) => {
+const toggleIsFetching = (isFetching) => {
     return {
         type: TOGGLE_IS_FETCHING,
         isFetching
