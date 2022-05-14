@@ -1,7 +1,7 @@
 import React from 'react';
-import s from './Form.module.css';
+import s from './TableActionForm.module.css';
 
-const Form = (props) => {
+const TableActionForm = (props) => {
  
   let inputVal = props.state.headTable.filter((f) => { return f !== props.state.headTable[0] });
   let form = React.createRef();
@@ -82,4 +82,4 @@ for (let i=1; i<= pageCount; i++) {
   );
 }
 
-export default Form;
+export default TableActionForm;
