@@ -16,7 +16,7 @@
 }
 
 .formPopup {
-    display: none;
+    display: block;
     position: fixed;
     justify-content: center;
     z-index: 10;

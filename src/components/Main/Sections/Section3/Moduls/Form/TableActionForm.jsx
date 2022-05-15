@@ -75,7 +75,6 @@ const TableActionForm = (props) => {
 
       <TableEditForm
         formName={props.state.formName}
-        form={form}
         inputComponent={inputComponent}
         sendForm={sendForm}
         closeForm={closeForm} />
