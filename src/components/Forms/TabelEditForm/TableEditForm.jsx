@@ -19,9 +19,9 @@ const TableEditForm = (props) => {
             )
         }
     );
-//className={props.state.currentPage === p ? s.active : null}
+
     return <>    
-        <form className={s.formPopup}>
+        <form className={props.activeForm? s.formPopup : null}>
             <h1>Add {name}</h1>
             {inputComponent}
             <button onClick={props.sendForm} className={s.btn}>Send</button>
