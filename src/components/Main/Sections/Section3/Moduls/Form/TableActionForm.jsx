@@ -11,21 +11,7 @@ const TableActionForm = (props) => {
     props.addUpdate(name1.target.name, name1.target.value);
   }
 
-  let inputComponent = inputVal.map(
-    (val) => {
-      return (
-        <div key={inputVal.indexOf(val)}>
-          <input
-            value={props.state.inputMark[val]}
-            type="text"
-            placeholder={val}
-            name={val}
-            onChange={inputUpdateVal}
-            key={inputVal.indexOf(val)} />
-        </div>
-      )
-    }
-  );
+  
 
   const openForm = () => {
     form.current.style.display = "block";
@@ -75,7 +61,7 @@ const TableActionForm = (props) => {
 
       <TableEditForm
         formName={props.state.formName}
-        inputComponent={inputComponent}
+        inputVal={inputVal}
         sendForm={sendForm}
         closeForm={closeForm} />
         
