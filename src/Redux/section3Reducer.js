@@ -1,7 +1,5 @@
 import ConnectToServer from "../APIConnect/ConnectToServer";
 
-const UPDATE_PAYMENT = 'UPDATE_PAYMENT';
-const UPDATE_PAYMENT_DATA = 'UPDATE_PAYMENT_DATA';
 const SET_PAYMENT = 'SET_PAYMENT';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_PAYMENTS_COUNT = 'SET_TOTAL_PAYMENTS_COUNT';
@@ -15,12 +13,6 @@ let initialState = {
     totalPaymentsCount: 0,
     currentPage: 1,
     formName: "Payment",
-    inputMark: {
-        Point: "",
-        Customer: "",
-        Payment: "",
-        Data: ""
-    },
     headTable: ["Namber", "Point", "Customer", "Payment", "Data"],
     data: [],
     dataChart: [
@@ -51,21 +43,6 @@ let initialState = {
 const section3Reducer = (state = initialState, action) => {
     switch (action.type){
             
-        case UPDATE_PAYMENT_DATA:
-            return {
-                ...state,
-                data: [...state.data, [state.data.length + 1,
-                state.inputMark.Point,
-                state.inputMark.Customer,
-                state.inputMark.Payment,
-                state.inputMark.Data]],
-                inputMark: {
-                    Point: "",
-                    Customer: "",
-                    Payment: "",
-                    Data: ""
-                }
-            };
         case SET_PAYMENT:
             return {
                 ...state,
@@ -99,10 +76,6 @@ export const setCurrentPage = (currentPage) => {
 
 const setTotalPaymentsCount = (totalPaymentsCount) => {
     return { type: SET_TOTAL_PAYMENTS_COUNT, totalPaymentsCount }
-}
-
-export const addUpdateText = () => {
-    return { type: UPDATE_PAYMENT_DATA }
 }
 
 const setPayments = (payments) => {

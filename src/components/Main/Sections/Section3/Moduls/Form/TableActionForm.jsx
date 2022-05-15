@@ -11,17 +11,8 @@ const TableActionForm = (props) => {
     form.current.style.display = "block";
   }
 
-  const sendForm = () => {
-    props.addUpdateText();
-    form.current.style.display = "none";
-  }
-
   const setCookieAlex = () => {
 
-  }
-
-  const closeForm = () => {
-    form.current.style.display = "none";
   }
 
   let pageCount = Math.ceil(props.state.totalPaymentsCount / props.state.pageSize);
@@ -55,9 +46,7 @@ const TableActionForm = (props) => {
 
       <TableEditForm
         formName={props.state.formName}
-        inputVal={inputVal}
-        sendForm={sendForm}
-        closeForm={closeForm} />
+        inputVal={inputVal} />
         
     </div>
   );
