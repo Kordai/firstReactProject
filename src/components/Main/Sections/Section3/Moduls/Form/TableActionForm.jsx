@@ -44,9 +44,9 @@ const TableActionForm = (props) => {
         <button onClick={setCookieAlex} className={s.deleteButton}>Delete {props.state.formName}</button>
       </div>
 
-      <TableEditForm
+      {/* <TableEditForm
         formName={props.state.formName}
-        inputVal={inputVal} />
+        inputVal={inputVal} /> */}
         
     </div>
   );

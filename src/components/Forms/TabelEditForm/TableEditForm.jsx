@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { Field } from 'redux-form';
-import { reduxForm } from 'redux-form';
+import {Field, reduxForm } from 'redux-form';
 import s from './TableEditForm.module.css';
 
 const TableEditForm = (props) => {
@@ -20,8 +19,8 @@ const TableEditForm = (props) => {
             )
         }
     );
-
-    return <>
+//className={props.state.currentPage === p ? s.active : null}
+    return <>    
         <form className={s.formPopup}>
             <h1>Add {name}</h1>
             {inputComponent}
