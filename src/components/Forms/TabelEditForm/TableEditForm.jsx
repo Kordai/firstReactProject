@@ -11,18 +11,15 @@ const TableEditForm = (props) => {
 
     let inputComponent = props.inputVal.map(
         (val) => {
-          return (
-            <div key={props.inputVal.indexOf(val)}>
-              <Field
-                component="input"
-                type="text"
-                placeholder={val}
-                name={val}
-                key={props.inputVal.indexOf(val)} />
-            </div>
-          )
+            return (
+                <Field
+                    component="input"
+                    placeholder={val}
+                    name={val}
+                    key={props.inputVal.indexOf(val)} />
+            )
         }
-      );
+    );
 
     return <>
         <form className={s.formPopup}>
@@ -41,10 +38,9 @@ const TableEditForm = (props) => {
 
 const mapStateToProps = (state, ownProps) => ({
     form: ownProps.formName,
-  });
-  
-  export default compose(
+});
+
+export default compose(
     connect(mapStateToProps),
     reduxForm(),
-  )(TableEditForm);
-  
+)(TableEditForm);

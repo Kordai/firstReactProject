@@ -49,12 +49,8 @@ let initialState = {
 
 //Reducers functions
 const section3Reducer = (state = initialState, action) => {
-    switch (action.type) {
-        case UPDATE_PAYMENT:
-            return {
-                ...state,
-                inputMark: { ...state.inputMark, [action.nameMark]: action.textMark }
-            };
+    switch (action.type){
+            
         case UPDATE_PAYMENT_DATA:
             return {
                 ...state,
@@ -96,13 +92,6 @@ const section3Reducer = (state = initialState, action) => {
 }
 
 //Action Creators functions
-export const addUpdate = (name, value) => {
-    return {
-        type: UPDATE_PAYMENT,
-        nameMark: name,
-        textMark: value
-    }
-}
 
 export const setCurrentPage = (currentPage) => {
     return { type: SET_CURRENT_PAGE, currentPage }

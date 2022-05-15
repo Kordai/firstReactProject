@@ -7,12 +7,6 @@ const TableActionForm = (props) => {
   let inputVal = props.state.headTable.filter((f) => { return f !== props.state.headTable[0] });
   let form = React.createRef();
 
-  const inputUpdateVal = (name1) => {
-    props.addUpdate(name1.target.name, name1.target.value);
-  }
-
-  
-
   const openForm = () => {
     form.current.style.display = "block";
   }

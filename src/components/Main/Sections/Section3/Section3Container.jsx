@@ -40,7 +40,6 @@ export default connect(mapStateToProps,
   {
     getPayments,
     addUpdateText,
-    addUpdate,
     setCurrentPage
   })(Section3Container);
 
