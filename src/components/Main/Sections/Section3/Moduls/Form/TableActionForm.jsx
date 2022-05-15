@@ -1,8 +1,9 @@
 import React from 'react';
+import TableEditForm from '../../../../../Forms/TabelEditForm/TableEditForm';
 import s from './TableActionForm.module.css';
 
 const TableActionForm = (props) => {
- 
+
   let inputVal = props.state.headTable.filter((f) => { return f !== props.state.headTable[0] });
   let form = React.createRef();
 
@@ -14,13 +15,13 @@ const TableActionForm = (props) => {
     (val) => {
       return (
         <div key={inputVal.indexOf(val)}>
-          <input 
-          value={props.state.inputMark[val]} 
-          type="text" 
-          placeholder={val} 
-          name={val} 
-          onChange={inputUpdateVal} 
-          key={inputVal.indexOf(val)} />
+          <input
+            value={props.state.inputMark[val]}
+            type="text"
+            placeholder={val}
+            name={val}
+            onChange={inputUpdateVal}
+            key={inputVal.indexOf(val)} />
         </div>
       )
     }
@@ -35,8 +36,8 @@ const TableActionForm = (props) => {
     form.current.style.display = "none";
   }
 
-  const setCookieAlex = () => {    
-    
+  const setCookieAlex = () => {
+
   }
 
   const closeForm = () => {
@@ -45,10 +46,10 @@ const TableActionForm = (props) => {
 
   let pageCount = Math.ceil(props.state.totalPaymentsCount / props.state.pageSize);
 
-let pages = [];
-for (let i=1; i<= pageCount; i++) {
-  pages.push(i);
-}  
+  let pages = [];
+  for (let i = 1; i <= pageCount; i++) {
+    pages.push(i);
+  }
 
 
   return (
@@ -60,10 +61,10 @@ for (let i=1; i<= pageCount; i++) {
           <span className={s.page}>&lt;PAGE</span>
 
           {pages.map(p => {
-            return <span 
-            onClick={() => {props.setCurrentPage(p); props.onPageChenged(p)}} 
-            className={props.state.currentPage === p ? s.active:null}
-            key = {p}>{p}</span>
+            return <span
+              onClick={() => { props.setCurrentPage(p); props.onPageChenged(p) }}
+              className={props.state.currentPage === p ? s.active : null}
+              key={p}>{p}</span>
           })}
 
           <span className={s.page}>PAGE&gt;</span>
@@ -72,12 +73,13 @@ for (let i=1; i<= pageCount; i++) {
         <button onClick={setCookieAlex} className={s.deleteButton}>Delete {props.state.formName}</button>
       </div>
 
-      <div ref={form} className={s.formPopup}>
-        <h1>Add {props.state.formName}</h1>
-        {inputComponent}
-        <button onClick={sendForm} className={s.btn}>Send</button>
-        <button onClick={closeForm} className={s.btnCancel}>Close</button>
-      </div>
+      <TableEditForm
+        formName={props.state.formName}
+        form={form}
+        inputComponent={inputComponent}
+        sendForm={sendForm}
+        closeForm={closeForm} />
+        
     </div>
   );
 }
