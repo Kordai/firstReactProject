@@ -14,7 +14,10 @@ class MainApplicationsContainer extends React.Component {
   render() {
     return (<>
       {this.props.state.isFetching ? <PreLoader/> : null}
-      <MainApplications state={this.props.state.data}/>
+      <MainApplications 
+      state={this.props.state.data}
+      headTable = {this.props.state.headTable}
+      formName = {this.props.state.formName}/>
     </>)
   }
 }
