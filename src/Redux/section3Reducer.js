@@ -7,7 +7,7 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 //Started props
 let initialState = {
-    activeForm: false,
+    activeForm: true,
     isFetching: false,
     pagesCount: 5,
     pageSize: 10,
