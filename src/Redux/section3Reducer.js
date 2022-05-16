@@ -4,10 +4,11 @@ const SET_PAYMENT = 'SET_PAYMENT';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_PAYMENTS_COUNT = 'SET_TOTAL_PAYMENTS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_BE_FORM = 'TOGGLE_BE_FORM';
 
 //Started props
 let initialState = {
-    activeForm: true,
+    activeForm: false,
     isFetching: false,
     pagesCount: 5,
     pageSize: 10,
@@ -63,7 +64,12 @@ const section3Reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: action.isFetching
-            }
+            };
+        case TOGGLE_BE_FORM:
+            return {
+                ...state,
+                activeForm: action.activeForm
+            };
         default:
             return state;
     }
@@ -89,6 +95,14 @@ const toggleIsFetching = (isFetching) => {
         isFetching
     }
 }
+
+export const toggleBeForm = (activeForm) => {
+    return {
+        type: TOGGLE_BE_FORM,
+        activeForm
+    }
+}
+
 
 //Thunk functions
 export const getPayments = (currentPage, pageSize) => {

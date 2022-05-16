@@ -8,6 +8,10 @@ const TableEditForm = (props) => {
 
     const name = props.formName;
 
+    const closeForm = () => {
+        props.toggleBeForm(false)
+    }
+
     let inputComponent = props.inputVal.map(
         (val) => {
             return (
@@ -25,7 +29,7 @@ const TableEditForm = (props) => {
             <h1>Add {name}</h1>
             {inputComponent}
             <button onClick={props.sendForm} className={s.btn}>Send</button>
-            <button onClick={props.closeForm} className={s.cancel}>Close</button>
+            <button onClick={closeForm} className={s.cancel}>Close</button>
         </form>
     </>
 

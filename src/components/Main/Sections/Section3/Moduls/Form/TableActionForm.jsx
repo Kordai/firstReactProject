@@ -5,10 +5,9 @@ import s from './TableActionForm.module.css';
 const TableActionForm = (props) => {
 
   let inputVal = props.state.headTable.filter((f) => { return f !== props.state.headTable[0] });
-  let form = React.createRef();
-
+  
   const openForm = () => {
-    form.current.style.display = "block";
+    props.toggleBeForm(true);
   }
 
   const setCookieAlex = () => {
@@ -47,7 +46,8 @@ const TableActionForm = (props) => {
        <TableEditForm
         activeForm = {props.state.activeForm}
         formName={props.state.formName}
-        inputVal={inputVal} />
+        inputVal={inputVal} 
+        toggleBeForm = {props.toggleBeForm}/>
         
     </div>
   );

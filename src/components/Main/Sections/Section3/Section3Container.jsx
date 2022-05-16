@@ -1,4 +1,4 @@
-import { getPayments, setCurrentPage } from '../../../../Redux/section3Reducer';
+import { getPayments, setCurrentPage, toggleBeForm } from '../../../../Redux/section3Reducer';
 import { connect } from 'react-redux';
 import Section3 from './Section3'
 import React from 'react';
@@ -23,6 +23,7 @@ class Section3Container extends React.Component {
         state={this.props.state}
         onPageChenged={this.onPageChenged}
         setCurrentPage={this.props.setCurrentPage}
+        toggleBeForm = {this.props.toggleBeForm}
          />
     </>
   }
@@ -38,6 +39,7 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps,
   {
     getPayments,
-    setCurrentPage
+    setCurrentPage,
+    toggleBeForm
   })(Section3Container);
 
