@@ -19,12 +19,16 @@ const TableActionForm = (props) => {
       Date: "0",
       Payment: 0,
       Point: "0"
-    }
+    }    
     
-    console.log(formData)
     newPayment = {...newPayment, ...formData}
-    console.log(newPayment)
-    ConnectToServer.addNewPayment(newPayment)
+    //Необходимо переделать в BLL
+    ConnectToServer.addNewPayment(newPayment).then(data => {
+      if (data.success === 1) {
+        props.getPayments(1, 10);
+      }
+    })
+
     props.toggleBeForm(false)
   }
 

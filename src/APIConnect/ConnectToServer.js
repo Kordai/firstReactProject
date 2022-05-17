@@ -20,10 +20,9 @@ const ConnectToServer = {
     getApplications() {
         return instance.get("get_applications.php").then(response => response.data);
     },
-    addNewPayment(obj) {
-        console.log(obj)        
+    addNewPayment(obj) {    
           return instance.post('add_payment.php', obj)
-          .then(response => console.log(response))
+          .then(response => response.data)
           .catch(error => console.log(error))
     }
 }

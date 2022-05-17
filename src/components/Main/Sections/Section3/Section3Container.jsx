@@ -20,11 +20,12 @@ class Section3Container extends React.Component {
     return <>
       {this.props.state.isFetching ? <PreLoader /> : null}
       <Section3
+        getPayments={this.props.getPayments}
         state={this.props.state}
         onPageChenged={this.onPageChenged}
         setCurrentPage={this.props.setCurrentPage}
-        toggleBeForm = {this.props.toggleBeForm}
-         />
+        toggleBeForm={this.props.toggleBeForm}
+      />
     </>
   }
 }

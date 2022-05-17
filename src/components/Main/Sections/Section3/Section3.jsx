@@ -8,14 +8,16 @@ import TableActionForm from './Moduls/Form/TableActionForm';
 const Section3 = (props) => {
 
   return (
-      <section className={s.s3} >
-        <Table state={props.state} />
-        <TableActionForm state={props.state} 
-              onPageChenged = {props.onPageChenged} 
-              setCurrentPage = {props.setCurrentPage} 
-              toggleBeForm = {props.toggleBeForm}/>
-        <Module state={props.state} />
-      </section>
-    )  
+    <section className={s.s3} >
+      <Table state={props.state} />
+      <TableActionForm
+        getPayments={props.getPayments}
+        state={props.state}
+        onPageChenged={props.onPageChenged}
+        setCurrentPage={props.setCurrentPage}
+        toggleBeForm={props.toggleBeForm} />
+      <Module state={props.state} />
+    </section>
+  )
 }
 export default Section3;
