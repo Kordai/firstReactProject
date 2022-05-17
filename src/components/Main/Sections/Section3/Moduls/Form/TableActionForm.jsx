@@ -20,14 +20,16 @@ const TableActionForm = (props) => {
       Payment: "0",
       Point: "0"
     }
+    
     console.log(formData)
     newPayment = {...newPayment, ...formData}
     console.log(newPayment)
+    ConnectToServer.addNewPayment(newPayment)
     props.toggleBeForm(false)
   }
 
   const setCookieAlex = () => {
-    ConnectToServer.addNewPayment({ id: 0 })
+    
   }
   //count pages
   let pageCount = Math.ceil(props.state.totalPaymentsCount / props.state.pageSize);

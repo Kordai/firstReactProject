@@ -21,7 +21,13 @@ const ConnectToServer = {
         return instance.get("get_applications.php").then(response => response.data);
     },
     addNewPayment(obj) {
-        return instance.post('add_payment.php', obj)
+        console.log(obj)
+        return axios.post('https://hotcoffee.kz/add_payment.php', {
+            Customer:"QQQQ",
+            Date: "0",
+            Payment: "50000",
+            Point: "WWW"
+        })
           .then(response => console.log(response))
           .catch(error => console.log(error))
     }
