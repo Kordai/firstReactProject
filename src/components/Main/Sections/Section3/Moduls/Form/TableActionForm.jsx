@@ -17,7 +17,7 @@ const TableActionForm = (props) => {
     let newPayment = {
       Customer: "0",
       Date: "0",
-      Payment: "0",
+      Payment: 0,
       Point: "0"
     }
     
