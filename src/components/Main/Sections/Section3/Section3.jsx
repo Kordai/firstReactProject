@@ -13,8 +13,6 @@ const Section3 = (props) => {
         <TableActionForm state={props.state} 
               onPageChenged = {props.onPageChenged} 
               setCurrentPage = {props.setCurrentPage} 
-              addUpdate={props.addUpdate} 
-              addUpdateText={props.addUpdateText} 
               toggleBeForm = {props.toggleBeForm}/>
         <Module state={props.state} />
       </section>
