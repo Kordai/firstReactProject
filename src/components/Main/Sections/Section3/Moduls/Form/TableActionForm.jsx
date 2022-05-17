@@ -15,10 +15,10 @@ const TableActionForm = (props) => {
   //Submitting form data
   const onSubmitForm = (formData) => {
     let newPayment = {
-      Customer: "",
-      Data: "",
-      Payment: "",
-      Point: ""
+      Customer: "0",
+      Data: "0",
+      Payment: "0",
+      Point: "0"
     }
     console.log(formData)
     newPayment = {...newPayment, ...formData}
