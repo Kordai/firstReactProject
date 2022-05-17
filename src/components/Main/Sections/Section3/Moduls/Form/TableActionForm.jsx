@@ -6,10 +6,12 @@ const TableActionForm = (props) => {
 
   let inputVal = props.state.headTable.filter((f) => { return f !== props.state.headTable[0] });
 
+  //Open form submit new data
   const openForm = () => {
     props.toggleBeForm(true)
   }
 
+  //Submitting form data
   const onSubmitForm = (formData) => {
     console.log(formData)
     props.toggleBeForm(false)
@@ -18,7 +20,7 @@ const TableActionForm = (props) => {
   const setCookieAlex = () => {
 
   }
-
+   //count pages
   let pageCount = Math.ceil(props.state.totalPaymentsCount / props.state.pageSize);
 
   let pages = [];
