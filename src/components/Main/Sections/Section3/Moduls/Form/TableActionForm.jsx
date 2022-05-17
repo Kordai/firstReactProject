@@ -16,7 +16,7 @@ const TableActionForm = (props) => {
   const onSubmitForm = (formData) => {
     let newPayment = {
       Customer: "0",
-      Data: "0",
+      Date: "0",
       Payment: "0",
       Point: "0"
     }

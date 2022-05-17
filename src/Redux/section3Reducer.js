@@ -15,7 +15,7 @@ let initialState = {
     totalPaymentsCount: 0,
     currentPage: 1,
     formName: "Payment",
-    headTable: ["Namber", "Point", "Customer", "Payment", "Data"],
+    headTable: ["Namber", "Point", "Customer", "Payment", "Date"],
     data: [],
     dataChart: [
         ["Month", "Payment"],
