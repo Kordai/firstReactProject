@@ -5,9 +5,14 @@ import s from './TableActionForm.module.css';
 const TableActionForm = (props) => {
 
   let inputVal = props.state.headTable.filter((f) => { return f !== props.state.headTable[0] });
-  
+
   const openForm = () => {
-    props.toggleBeForm(true);
+    props.toggleBeForm(true)
+  }
+
+  const onSubmitForm = (formData) => {
+    console.log(formData)
+    props.toggleBeForm(false)
   }
 
   const setCookieAlex = () => {
@@ -43,12 +48,13 @@ const TableActionForm = (props) => {
         <button onClick={setCookieAlex} className={s.deleteButton}>Delete {props.state.formName}</button>
       </div>
 
-       <TableEditForm
-        activeForm = {props.state.activeForm}
+      <TableEditForm
+        onSubmit={onSubmitForm}
+        activeForm={props.state.activeForm}
         formName={props.state.formName}
-        inputVal={inputVal} 
-        toggleBeForm = {props.toggleBeForm}/>
-        
+        inputVal={inputVal}
+        toggleBeForm={props.toggleBeForm} />
+
     </div>
   );
 }
