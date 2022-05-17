@@ -1,4 +1,5 @@
 import React from 'react';
+import ConnectToServer from '../../../../../../APIConnect/ConnectToServer';
 import TableEditForm from '../../../../../Forms/TabelEditForm/TableEditForm';
 import s from './TableActionForm.module.css';
 
@@ -13,14 +14,22 @@ const TableActionForm = (props) => {
 
   //Submitting form data
   const onSubmitForm = (formData) => {
+    let newPayment = {
+      Customer: "",
+      Data: "",
+      Payment: "",
+      Point: ""
+    }
     console.log(formData)
+    newPayment = {...newPayment, ...formData}
+    console.log(newPayment)
     props.toggleBeForm(false)
   }
 
   const setCookieAlex = () => {
-
+    ConnectToServer.addNewPayment({ id: 0 })
   }
-   //count pages
+  //count pages
   let pageCount = Math.ceil(props.state.totalPaymentsCount / props.state.pageSize);
 
   let pages = [];

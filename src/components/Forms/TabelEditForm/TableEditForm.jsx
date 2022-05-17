@@ -19,7 +19,8 @@ const TableEditForm = (props) => {
                     component="input"
                     placeholder={val}
                     name={val}
-                    key={props.inputVal.indexOf(val)} />
+                    key={props.inputVal.indexOf(val)}
+                     />
             )
         }
     );
