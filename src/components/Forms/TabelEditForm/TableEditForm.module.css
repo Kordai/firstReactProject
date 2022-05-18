@@ -10,6 +10,14 @@
     color: burlywood;
 }
 
+.noneLabel{
+    display: none;
+}
+
+.activeLabel{
+    display: block;
+}
+
 .formPopup {
     display: block;
     position: fixed;
