@@ -9,6 +9,7 @@ const TableActionForm = (props) => {
 
   //Open form submit new data
   const openForm = () => {
+    props.toggleBeNameForm("Add");
     props.toggleBeForm(true)
   }
 
@@ -64,6 +65,7 @@ const TableActionForm = (props) => {
       </div>
 
       <TableEditForm
+        nameAction = {props.state.nameFormAction}
         onSubmit={onSubmitForm}
         activeForm={props.state.activeForm}
         formName={props.state.formName}

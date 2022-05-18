@@ -5,9 +5,11 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_PAYMENTS_COUNT = 'SET_TOTAL_PAYMENTS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const TOGGLE_BE_FORM = 'TOGGLE_BE_FORM';
+const TOGGLE_BE_NAME_FORM = 'TOGGLE_BE_NAME_FORM';
 
 //Started props
 let initialState = {
+    nameFormAction: "",
     activeForm: false,
     isFetching: false,
     pagesCount: 5,
@@ -65,6 +67,11 @@ const section3Reducer = (state = initialState, action) => {
                 ...state,
                 isFetching: action.isFetching
             };
+        case TOGGLE_BE_NAME_FORM:
+            return {
+                ...state,
+                nameFormAction: action.nameFormAction
+            }
         case TOGGLE_BE_FORM:
             return {
                 ...state,
@@ -93,6 +100,13 @@ const toggleIsFetching = (isFetching) => {
     return {
         type: TOGGLE_IS_FETCHING,
         isFetching
+    }
+}
+
+export const toggleBeNameForm = (nameFormAction) => {
+    return {
+        type: TOGGLE_BE_NAME_FORM,
+        nameFormAction
     }
 }
 

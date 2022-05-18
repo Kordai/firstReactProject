@@ -1,15 +1,10 @@
-.openButton {
-    
-    height: 30px;
-    width: 290px;
+.btn {
     z-index: 5;
     background-color: forestgreen;
     color: burlywood;
 }
 
-.deleteButton {
-    height: 30px;
-    width: 290px;
+.deleteButton {    
     z-index: 5;
     background-color: red;
     color: burlywood;
@@ -39,13 +34,14 @@
     background-color: #ddd;
 }
 
-.formPopup .btn {
+/* .formPopup .btn {
     background-color: #1976D2;
     opacity: 0.7;
-}
+} */
 
 .formPopup .cancel {
     background-color: #448AFF;
+    color: burlywood;
 }
 
 .formPopup .btn:hover, .openButton:hover {

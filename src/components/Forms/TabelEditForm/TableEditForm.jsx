@@ -27,9 +27,11 @@ const TableEditForm = (props) => {
 
     return <>    
         <form onSubmit={props.handleSubmit} className={props.activeForm? s.formPopup : null}>
-            <h1>Add {name}</h1>
+            <h1>{props.nameAction} {name}</h1>
+            <label >ID: 101</label>
             {inputComponent}
             <button className={s.btn}>Send</button>
+            <button className={s.deleteButton}>Delete</button>
             <button onClick={closeForm} className={s.cancel} type="button">Close</button>
         </form>
     </>

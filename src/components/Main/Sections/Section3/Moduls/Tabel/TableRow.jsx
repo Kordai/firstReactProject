@@ -9,7 +9,12 @@ const TableRow = (props) => {
   );
 
   let tableCell = props.state.data.map(
-    val => <TableCell state={val} key={val[0]} cellKey = {val[0]}/>
+    val => <TableCell
+      state={val}
+      key={val[0]}
+      cellKey={val[0]}
+      toggleBeForm={props.toggleBeForm}
+      toggleBeNameForm={props.toggleBeNameForm}/>
   );
 
   return (

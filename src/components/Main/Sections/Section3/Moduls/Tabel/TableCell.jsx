@@ -4,8 +4,14 @@ import './TableCell.css';
 
 const TableCell = (props) => {
   let tableCell = props.state.map(
-    val => <td className="tdCell" key={props.cellKey + props.state.indexOf(val)}> {val} </td>
+    val => <td onDoubleClick={() => openEditForm(props.state)}   className="tdCell" key={props.cellKey + props.state.indexOf(val)}> {val} </td>
   );
+
+  const openEditForm = (obj) => {
+    props.toggleBeNameForm("Edit")
+    props.toggleBeForm(true)
+    
+  }
 
   return (
     <tr >
