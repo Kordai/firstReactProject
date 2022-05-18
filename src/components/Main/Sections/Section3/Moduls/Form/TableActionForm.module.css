@@ -62,6 +62,10 @@
     opacity: 1;
 }
 
+.count {
+    color: #61dafb;
+}
+
 .paginationPanel span {
     color: aqua;
     width: 20px;

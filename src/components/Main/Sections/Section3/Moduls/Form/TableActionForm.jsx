@@ -32,9 +32,7 @@ const TableActionForm = (props) => {
     props.toggleBeForm(false)
   }
 
-  const setCookieAlex = () => {
-    
-  }
+  
   //count pages
   let pageCount = Math.ceil(props.state.totalPaymentsCount / props.state.pageSize);
 
@@ -62,7 +60,7 @@ const TableActionForm = (props) => {
           <span className={s.page}>PAGE&gt;</span>
         </div>
 
-        <button onClick={setCookieAlex} className={s.deleteButton}>Delete {props.state.formName}</button>
+        <label className={s.count}>Records count: {props.state.totalPaymentsCount}</label>
       </div>
 
       <TableEditForm
