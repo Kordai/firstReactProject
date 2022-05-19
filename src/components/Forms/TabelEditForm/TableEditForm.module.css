@@ -2,14 +2,14 @@
     z-index: 5;
     background-color: forestgreen;
     color: burlywood;
-    width: 60px;
+    width: 70px;
 }
 
 .deleteButton {    
     z-index: 5;
     background-color: red;
     color: burlywood;
-    width: 60px;
+    width: 70px;
 }
 
 .noneLabel{
@@ -52,7 +52,7 @@
 .formPopup .cancel {
     background-color: #448AFF;
     color: burlywood;
-    width: 60px;
+    width: 70px;
 }
 
 .formPopup .btn:hover, .openButton:hover {

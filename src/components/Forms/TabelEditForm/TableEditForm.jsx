@@ -30,7 +30,7 @@ const TableEditForm = (props) => {
             <h1>{props.nameAction} {name}</h1>
             <label className={props.nameAction==="Add"? s.noneLabel:s.activeLabel} >ID: 101</label>
             {inputComponent}
-            <button className={s.btn}>{props.nameAction==="Add"? "Send":"Edit"}</button>
+            <button className={s.btn}>{props.nameAction==="Add"? "Submit":"Update"}</button>
             <button className={props.nameAction==="Add"? s.noneLabel:s.deleteButton} type="button">Delete</button>
             <button onClick={closeForm} className={s.cancel} type="button">Close</button>
         </form>
