@@ -15,7 +15,7 @@ const TableCell = (props) => {
       Payment: obj[3],
       Date: obj[4]
     }
-    console.log(initialValues)
+    
     props.setinitialValues(initialValues)
     props.toggleBeNameForm("Edit")
     props.toggleBeForm(true)

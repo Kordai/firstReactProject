@@ -32,8 +32,7 @@ const TableActionForm = (props) => {
 
     props.toggleBeForm(false)
   }
-
-  console.log(props.state.initialValuesPaymentForm)
+  
   //count pages
   let pageCount = Math.ceil(props.state.totalPaymentsCount / props.state.pageSize);
 
@@ -70,8 +69,7 @@ const TableActionForm = (props) => {
         onSubmit={onSubmitForm}
         activeForm={props.state.activeForm}
         formName={props.state.formName}
-        inputVal={inputVal}
-        setinitialValues={props.setinitialValues}
+        inputVal={inputVal}        
         toggleBeForm={props.toggleBeForm} />
 
     </div>

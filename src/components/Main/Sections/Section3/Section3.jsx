@@ -17,8 +17,7 @@ const Section3 = (props) => {
 
       <TableActionForm
         getPayments={props.getPayments}
-        state={props.state}
-        setinitialValues={props.setinitialValues}
+        state={props.state}        
         onPageChenged={props.onPageChenged}
         setCurrentPage={props.setCurrentPage}
         toggleBeForm={props.toggleBeForm}
