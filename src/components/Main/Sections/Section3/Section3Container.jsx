@@ -21,6 +21,7 @@ class Section3Container extends React.Component {
       {this.props.state.isFetching ? <PreLoader /> : null}
       <Section3
         getPayments={this.props.getPayments}
+        form={this.props.form}
         state={this.props.state}
         onPageChenged={this.onPageChenged}
         setCurrentPage={this.props.setCurrentPage}
@@ -34,7 +35,8 @@ class Section3Container extends React.Component {
 const mapStateToProps = (state) => {
 
   return {
-    state: state.section3
+    state: state.section3,
+    form: state.form
   }
 };
 

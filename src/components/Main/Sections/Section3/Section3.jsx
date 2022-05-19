@@ -9,14 +9,19 @@ const Section3 = (props) => {
 
   return (
     <section className={s.s3} >
-      <Table state={props.state} toggleBeForm={props.toggleBeForm} toggleBeNameForm={props.toggleBeNameForm} />
+      <Table
+        state={props.state}
+        form={props.form}
+        toggleBeForm={props.toggleBeForm}
+        toggleBeNameForm={props.toggleBeNameForm} />
       <TableActionForm
         getPayments={props.getPayments}
         state={props.state}
+
         onPageChenged={props.onPageChenged}
         setCurrentPage={props.setCurrentPage}
-        toggleBeForm={props.toggleBeForm} 
-        toggleBeNameForm={props.toggleBeNameForm}/>
+        toggleBeForm={props.toggleBeForm}
+        toggleBeNameForm={props.toggleBeNameForm} />
       <Module state={props.state} />
     </section>
   )

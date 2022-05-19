@@ -5,8 +5,12 @@ import s from './Table.module.css';
 const Table = (props) => {
       return (
             <div className={s.t}>
-                  <TableRow state={props.state} toggleBeForm={props.toggleBeForm} toggleBeNameForm={props.toggleBeNameForm} />
-            </div>            
+                  <TableRow
+                        state={props.state}
+                        form={props.form}
+                        toggleBeForm={props.toggleBeForm}
+                        toggleBeNameForm={props.toggleBeNameForm} />
+            </div>
       )
 }
 

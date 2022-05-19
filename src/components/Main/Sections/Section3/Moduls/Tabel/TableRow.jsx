@@ -10,11 +10,12 @@ const TableRow = (props) => {
 
   let tableCell = props.state.data.map(
     val => <TableCell
+      form={props.form}
       state={val}
       key={val[0]}
       cellKey={val[0]}
       toggleBeForm={props.toggleBeForm}
-      toggleBeNameForm={props.toggleBeNameForm}/>
+      toggleBeNameForm={props.toggleBeNameForm} />
   );
 
   return (

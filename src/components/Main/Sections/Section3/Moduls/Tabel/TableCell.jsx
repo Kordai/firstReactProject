@@ -10,7 +10,11 @@ const TableCell = (props) => {
   const openEditForm = (obj) => {
     props.toggleBeNameForm("Edit")
     props.toggleBeForm(true)
-    
+    console.log(props.form)
+    props.form.Payment.values.Point = obj[1]
+    props.form.Payment.values.Customer = obj[2]
+    props.form.Payment.values.Payment = obj[3]
+    props.form.Payment.values.Date = obj[4]   
   }
 
   return (
