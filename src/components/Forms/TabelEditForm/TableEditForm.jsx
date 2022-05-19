@@ -6,12 +6,23 @@ import s from './TableEditForm.module.css';
 
 const TableEditForm = (props) => {
 
+    const {
+        favoriteColorValue,
+        fullName,
+        handleSubmit,
+        hasEmailValue,
+        pristine,
+        reset,
+        submitting
+      } = props
+
     const name = props.formName;
 
-    const closeForm = () => {       
+    const closeForm = () => {    
+           
         props.toggleBeForm(false)
     }
-
+    
     let inputComponent = props.inputVal.map(
         (val) => {
             return (
@@ -33,7 +44,7 @@ const TableEditForm = (props) => {
             {inputComponent}
             <button className={s.btn}>{props.nameAction==="Add"? "Submit":"Update"}</button>
             <button className={props.nameAction==="Add"? s.noneLabel:s.deleteButton} type="button">Delete</button>
-            <button onClick={closeForm} className={s.cancel} type="button">Close</button>
+            <button onClick={reset} className={s.cancel} type="button">Close</button>
         </form>
     </>
 
