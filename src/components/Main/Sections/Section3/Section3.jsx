@@ -11,13 +11,14 @@ const Section3 = (props) => {
     <section className={s.s3} >
       <Table
         state={props.state}
-        form={props.form}
         toggleBeForm={props.toggleBeForm}
-        toggleBeNameForm={props.toggleBeNameForm} />
+        toggleBeNameForm={props.toggleBeNameForm}
+        setinitialValues={props.setinitialValues} />
+
       <TableActionForm
         getPayments={props.getPayments}
         state={props.state}
-
+        setinitialValues={props.setinitialValues}
         onPageChenged={props.onPageChenged}
         setCurrentPage={props.setCurrentPage}
         toggleBeForm={props.toggleBeForm}

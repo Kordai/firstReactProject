@@ -6,9 +6,16 @@ const SET_TOTAL_PAYMENTS_COUNT = 'SET_TOTAL_PAYMENTS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const TOGGLE_BE_FORM = 'TOGGLE_BE_FORM';
 const TOGGLE_BE_NAME_FORM = 'TOGGLE_BE_NAME_FORM';
+const SET_INITIAL_VALUES_PAYMENT_FORM = 'SET_INITIAL_VALUES_PAYMENT_FORM';
 
 //Started props
 let initialState = {
+    initialValuesPaymentForm: {
+        Customer: "",
+        Date: "",
+        Payment: "",
+        Point: ""
+      },
     nameFormAction: "",
     activeForm: false,
     isFetching: false,
@@ -77,6 +84,11 @@ const section3Reducer = (state = initialState, action) => {
                 ...state,
                 activeForm: action.activeForm
             };
+        case SET_INITIAL_VALUES_PAYMENT_FORM:
+            return {
+                ...state,
+                initialValuesPaymentForm: action.initialValuesPaymentForm
+            }
         default:
             return state;
     }
@@ -86,6 +98,10 @@ const section3Reducer = (state = initialState, action) => {
 
 export const setCurrentPage = (currentPage) => {
     return { type: SET_CURRENT_PAGE, currentPage }
+}
+
+export const setinitialValues = (initialValuesPaymentForm) => {
+    return { type: SET_INITIAL_VALUES_PAYMENT_FORM, initialValuesPaymentForm }
 }
 
 const setTotalPaymentsCount = (totalPaymentsCount) => {

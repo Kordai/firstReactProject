@@ -7,7 +7,7 @@ const Table = (props) => {
             <div className={s.t}>
                   <TableRow
                         state={props.state}
-                        form={props.form}
+                        setinitialValues={props.setinitialValues}
                         toggleBeForm={props.toggleBeForm}
                         toggleBeNameForm={props.toggleBeNameForm} />
             </div>

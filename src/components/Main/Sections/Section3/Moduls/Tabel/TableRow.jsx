@@ -11,6 +11,7 @@ const TableRow = (props) => {
   let tableCell = props.state.data.map(
     val => <TableCell
       form={props.form}
+      setinitialValues={props.setinitialValues}
       state={val}
       key={val[0]}
       cellKey={val[0]}

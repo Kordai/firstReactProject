@@ -12,7 +12,7 @@ const TableActionForm = (props) => {
     props.toggleBeNameForm("Add");
     props.toggleBeForm(true)
   }
-
+  
   //Submitting form data
   const onSubmitForm = (formData) => {
     let newPayment = {
@@ -33,7 +33,7 @@ const TableActionForm = (props) => {
     props.toggleBeForm(false)
   }
 
-  
+  console.log(props.state.initialValuesPaymentForm)
   //count pages
   let pageCount = Math.ceil(props.state.totalPaymentsCount / props.state.pageSize);
 
@@ -66,10 +66,12 @@ const TableActionForm = (props) => {
 
       <TableEditForm
         nameAction = {props.state.nameFormAction}
+        initialValues={props.state.initialValuesPaymentForm}
         onSubmit={onSubmitForm}
         activeForm={props.state.activeForm}
         formName={props.state.formName}
         inputVal={inputVal}
+        setinitialValues={props.setinitialValues}
         toggleBeForm={props.toggleBeForm} />
 
     </div>

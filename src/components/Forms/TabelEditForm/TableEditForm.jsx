@@ -9,6 +9,15 @@ const TableEditForm = (props) => {
     const name = props.formName;
 
     const closeForm = () => {
+       //не сработала
+        props.setinitialValues(
+            {
+                Customer: "",
+                Date: "",
+                Payment: "",
+                Point: ""
+              }
+        )
         props.toggleBeForm(false)
     }
 

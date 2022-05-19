@@ -1,4 +1,4 @@
-import { getPayments, setCurrentPage, toggleBeForm, toggleBeNameForm } from '../../../../Redux/section3Reducer';
+import { getPayments, setCurrentPage, toggleBeForm, toggleBeNameForm, setinitialValues } from '../../../../Redux/section3Reducer';
 import { connect } from 'react-redux';
 import Section3 from './Section3'
 import React from 'react';
@@ -21,8 +21,8 @@ class Section3Container extends React.Component {
       {this.props.state.isFetching ? <PreLoader /> : null}
       <Section3
         getPayments={this.props.getPayments}
-        form={this.props.form}
         state={this.props.state}
+        setinitialValues={this.props.setinitialValues}
         onPageChenged={this.onPageChenged}
         setCurrentPage={this.props.setCurrentPage}
         toggleBeForm={this.props.toggleBeForm}
@@ -35,8 +35,7 @@ class Section3Container extends React.Component {
 const mapStateToProps = (state) => {
 
   return {
-    state: state.section3,
-    form: state.form
+    state: state.section3
   }
 };
 
@@ -45,6 +44,7 @@ export default connect(mapStateToProps,
     getPayments,
     setCurrentPage,
     toggleBeForm,
-    toggleBeNameForm
+    toggleBeNameForm,
+    setinitialValues
   })(Section3Container);
 
