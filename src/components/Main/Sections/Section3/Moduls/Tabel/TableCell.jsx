@@ -10,6 +10,7 @@ const TableCell = (props) => {
   //убрать в редьюсер
   const openEditForm = (obj) => {
     let initialValues = {
+      Id: obj[0],
       Point: obj[1],
       Customer: obj[2],
       Payment: obj[3],

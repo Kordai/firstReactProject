@@ -70,7 +70,7 @@ const TableActionForm = (props) => {
         activeForm={props.state.activeForm}
         formName={props.state.formName}
         inputVal={inputVal}        
-        toggleBeForm={props.toggleBeForm} />
+        toggleBeForm={props.toggleBeForm}/>
 
     </div>
   );

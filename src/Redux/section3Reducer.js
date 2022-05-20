@@ -11,6 +11,7 @@ const SET_INITIAL_VALUES_PAYMENT_FORM = 'SET_INITIAL_VALUES_PAYMENT_FORM';
 //Started props
 let initialState = {
     initialValuesPaymentForm: {
+        Id:"",
         Customer: "",
         Date: "",
         Payment: "",
