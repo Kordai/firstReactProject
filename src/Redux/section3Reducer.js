@@ -11,12 +11,12 @@ const SET_INITIAL_VALUES_PAYMENT_FORM = 'SET_INITIAL_VALUES_PAYMENT_FORM';
 //Started props
 let initialState = {
     initialValuesPaymentForm: {
-        Id:"",
+        Id: "",
         Customer: "",
         Date: "",
         Payment: "",
         Point: ""
-      },
+    },
     nameFormAction: "",
     activeForm: false,
     isFetching: false,
@@ -53,8 +53,8 @@ let initialState = {
 
 //Reducers functions
 const section3Reducer = (state = initialState, action) => {
-    switch (action.type){
-            
+    switch (action.type) {
+
         case SET_PAYMENT:
             return {
                 ...state,
@@ -139,12 +139,28 @@ export const toggleBeForm = (activeForm) => {
 export const getPayments = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true))
+        dispatch(setCurrentPage(currentPage))
         ConnectToServer.getPayments(currentPage, pageSize)
             .then(data => {
                 dispatch(setPayments(data.payments));
                 dispatch(setTotalPaymentsCount(data.total));
                 dispatch(toggleIsFetching(false));
             });
+    }
+}
+
+export const openEditForm = (obj) => {
+    return (dispatch) => {
+        let initialValues = {
+            Id: obj[0],
+            Point: obj[1],
+            Customer: obj[2],
+            Payment: obj[3],
+            Date: obj[4]
+        }
+        dispatch(setinitialValues(initialValues))
+        dispatch(toggleBeNameForm("Edit"))
+        dispatch(toggleBeForm(true))
     }
 }
 

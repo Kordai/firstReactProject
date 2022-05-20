@@ -52,7 +52,7 @@ const TableActionForm = (props) => {
 
           {pages.map(p => {
             return <span
-              onClick={() => { props.setCurrentPage(p); props.onPageChenged(p) }}
+              onClick={() => {props.onPageChenged(p)}}
               className={props.state.currentPage === p ? s.active : null}
               key={p}>{p}</span>
           })}
