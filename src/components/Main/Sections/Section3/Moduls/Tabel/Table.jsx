@@ -6,11 +6,8 @@ const Table = (props) => {
       return (
             <div className={s.t}>
                   <TableRow
-                   changeFieldValue={props.changeFieldValue}
                         state={props.state}
-                        setinitialValues={props.setinitialValues}
-                        toggleBeForm={props.toggleBeForm}
-                        toggleBeNameForm={props.toggleBeNameForm} />
+                        openEditForm={props.openEditForm} />
             </div>
       )
 }

@@ -10,14 +10,10 @@ const TableRow = (props) => {
 
   let tableCell = props.state.data.map(
     val => <TableCell
-    changeFieldValue={props.changeFieldValue}
-      form={props.form}
-      setinitialValues={props.setinitialValues}
       state={val}
       key={val[0]}
-      cellKey={val[0]}
-      toggleBeForm={props.toggleBeForm}
-      toggleBeNameForm={props.toggleBeNameForm} />
+      cellKey={val[0]}       
+      openEditForm={props.openEditForm}/>
   );
 
   return (
