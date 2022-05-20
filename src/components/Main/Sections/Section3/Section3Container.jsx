@@ -14,10 +14,13 @@ class Section3Container extends React.Component {
 
   onPageChenged = (pageNumber) => {
     this.props.getPayments(pageNumber, this.props.state.pageSize)
+   
   }
-
+  
+ 
   render() {
     return <>
+    
       {this.props.state.isFetching ? <PreLoader /> : null}
       <Section3
         getPayments={this.props.getPayments}
@@ -27,13 +30,14 @@ class Section3Container extends React.Component {
         setCurrentPage={this.props.setCurrentPage}
         toggleBeForm={this.props.toggleBeForm}
         toggleBeNameForm={this.props.toggleBeNameForm}
+
       />
     </>
   }
 }
 
 const mapStateToProps = (state) => {
-
+ 
   return {
     state: state.section3
   }
@@ -45,6 +49,7 @@ export default connect(mapStateToProps,
     setCurrentPage,
     toggleBeForm,
     toggleBeNameForm,
-    setinitialValues
-  })(Section3Container);
+    setinitialValues   
+}
+  )(Section3Container);
 

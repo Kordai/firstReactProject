@@ -10,6 +10,7 @@ const TableRow = (props) => {
 
   let tableCell = props.state.data.map(
     val => <TableCell
+    changeFieldValue={props.changeFieldValue}
       form={props.form}
       setinitialValues={props.setinitialValues}
       state={val}

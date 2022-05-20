@@ -1,20 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import {Field, reduxForm } from 'redux-form';
+import {Field, reduxForm, change } from 'redux-form';
 import s from './TableEditForm.module.css';
 
 const TableEditForm = (props) => {
-
-    const {
-        favoriteColorValue,
-        fullName,
-        handleSubmit,
-        hasEmailValue,
-        pristine,
-        reset,
-        submitting
-      } = props
 
     const name = props.formName;
 
@@ -37,14 +27,20 @@ const TableEditForm = (props) => {
         }
     );
 
+    const update = () => {
+    change(props.form, "Point", "1234567")
+    
+
+    }
+
     return <>    
         <form onSubmit={props.handleSubmit} className={props.activeForm? s.formPopup : null}>
             <h1>{props.nameAction} {name}</h1>
             <label className={props.nameAction==="Add"? s.noneLabel:s.activeLabel} >ID: 101</label>
             {inputComponent}
             <button className={s.btn}>{props.nameAction==="Add"? "Submit":"Update"}</button>
-            <button className={props.nameAction==="Add"? s.noneLabel:s.deleteButton} type="button">Delete</button>
-            <button onClick={reset} className={s.cancel} type="button">Close</button>
+            <button onClick={update} className={props.nameAction==="Add"? s.noneLabel:s.deleteButton} type="button">Delete</button>
+            <button onClick={closeForm} className={s.cancel} type="button">Close</button>
         </form>
     </>
 
@@ -56,6 +52,7 @@ const TableEditForm = (props) => {
 
 const mapStateToProps = (state, ownProps) => ({
     form: ownProps.formName,
+    enableReinitialize: true
 });
 
 export default compose(

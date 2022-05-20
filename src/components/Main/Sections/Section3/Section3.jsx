@@ -11,6 +11,7 @@ const Section3 = (props) => {
     <section className={s.s3} >
       <Table
         state={props.state}
+        changeFieldValue={props.changeFieldValue}
         toggleBeForm={props.toggleBeForm}
         toggleBeNameForm={props.toggleBeNameForm}
         setinitialValues={props.setinitialValues} />
