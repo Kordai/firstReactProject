@@ -1,4 +1,4 @@
-import { getPayments, toggleBeForm, toggleBeNameForm, setinitialValues, openEditForm } from '../../../../Redux/section3Reducer';
+import { getPayments, toggleBeForm, toggleBeNameForm, openEditForm, onSubmitForm, openForm } from '../../../../Redux/section3Reducer';
 import { connect } from 'react-redux';
 import Section3 from './Section3'
 import React from 'react';
@@ -15,7 +15,10 @@ class Section3Container extends React.Component {
   onPageChenged = (pageNumber) => {
     this.props.getPayments(pageNumber, this.props.state.pageSize)
   }
-  
+ 
+  closeForm = () => {
+    this.props.toggleBeForm(false)
+}
  
   render() {
     return <>
@@ -23,10 +26,10 @@ class Section3Container extends React.Component {
       {this.props.state.isFetching ? <PreLoader /> : null}
       <Section3        
         state={this.props.state}
-        setinitialValues={this.props.setinitialValues}
-        onPageChenged={this.onPageChenged}
-        toggleBeForm={this.props.toggleBeForm}
-        toggleBeNameForm={this.props.toggleBeNameForm}
+        closeForm={this.closeForm}
+        onSubmitForm={this.props.onSubmitForm}
+        openForm = {this.props.openForm}
+        onPageChenged={this.onPageChenged}        
         openEditForm={this.props.openEditForm}
       />
     </>
@@ -43,10 +46,11 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps,
   {
     getPayments,
-    toggleBeForm,//удалить
-    toggleBeNameForm,//удалить
-    setinitialValues,//удалить
-    openEditForm   
+    toggleBeForm,
+    toggleBeNameForm,
+    openEditForm,
+    onSubmitForm,
+    openForm   
 }
   )(Section3Container);
 

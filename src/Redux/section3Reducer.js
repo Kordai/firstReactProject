@@ -97,11 +97,11 @@ const section3Reducer = (state = initialState, action) => {
 
 //Action Creators functions
 
-export const setCurrentPage = (currentPage) => {
+const setCurrentPage = (currentPage) => {
     return { type: SET_CURRENT_PAGE, currentPage }
 }
 
-export const setinitialValues = (initialValuesPaymentForm) => {
+const setinitialValues = (initialValuesPaymentForm) => {
     return { type: SET_INITIAL_VALUES_PAYMENT_FORM, initialValuesPaymentForm }
 }
 
@@ -160,6 +160,49 @@ export const openEditForm = (obj) => {
         }
         dispatch(setinitialValues(initialValues))
         dispatch(toggleBeNameForm("Edit"))
+        dispatch(toggleBeForm(true))
+    }
+}
+
+export const onSubmitForm = (formData) => {
+    return (dispatch) => {
+        let newPayment = {
+            Customer: "0",
+            Date: "0",
+            Payment: 0,
+            Point: "0"
+        }
+
+        newPayment = { ...newPayment, ...formData }
+        
+        ConnectToServer.addNewPayment(newPayment).then(data => {
+            if (data.success === 1) {
+                dispatch(getPayments(1, 10))
+            }
+        })
+        let initialValues = {
+            Id: "",
+            Point: "",
+            Customer: "",
+            Payment: "",
+            Date: ""
+        }
+        dispatch(setinitialValues(initialValues)) 
+        dispatch(toggleBeForm(false))
+    }
+}
+
+export const openForm = () => {
+    return (dispatch) => {
+        let initialValues = {
+            Id: "",
+            Point: "",
+            Customer: "",
+            Payment: "",
+            Date: ""
+        }
+        dispatch(setinitialValues(initialValues))      
+        dispatch(toggleBeNameForm("Add"))
         dispatch(toggleBeForm(true))
     }
 }

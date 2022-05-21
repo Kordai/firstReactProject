@@ -14,7 +14,10 @@ const Section3 = (props) => {
         openEditForm={props.openEditForm}/>
 
       <TableActionForm       
-        state={props.state}        
+        state={props.state}
+        onSubmitForm={props.onSubmitForm}
+        openForm = {props.openForm}        
+        closeForm={props.closeForm}
         onPageChenged={props.onPageChenged}
         toggleBeForm={props.toggleBeForm}
         toggleBeNameForm={props.toggleBeNameForm} />
