@@ -207,4 +207,16 @@ export const openAddForm = () => {
     }
 }
 
+export const onUdatePayment = () => {
+    return (dispatch) => {
+
+    }
+}
+
+export const onDeletePayment = () => {
+    return (dispatch) => {
+        
+    }
+}
+
 export default section3Reducer;

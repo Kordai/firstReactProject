@@ -1,4 +1,4 @@
-import { getPayments, toggleBeForm, openEditForm, onSubmitForm, openAddForm } from '../../../../Redux/section3Reducer';
+import { getPayments, toggleBeForm, openEditForm, onSubmitForm, openAddForm, onUdatePayment, onDeletePayment } from '../../../../Redux/section3Reducer';
 import { connect } from 'react-redux';
 import Section3 from './Section3'
 import React from 'react';
@@ -31,6 +31,8 @@ class Section3Container extends React.Component {
         openForm = {this.props.openAddForm}
         onPageChenged={this.onPageChenged}        
         openEditForm={this.props.openEditForm}
+        onUdatePayment={this.props.onUdatePayment}
+        onDeletePayment={this.props.onDeletePayment}        
       />
     </>
   }
@@ -49,7 +51,9 @@ export default connect(mapStateToProps,
     toggleBeForm,
     openEditForm,
     onSubmitForm,
-    openAddForm   
+    openAddForm,
+    onUdatePayment,
+    onDeletePayment   
 }
   )(Section3Container);
 

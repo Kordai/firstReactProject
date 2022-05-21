@@ -21,10 +21,7 @@ const TableEditForm = (props) => {
                 />
             )
         }
-    );
-
-    const update = () => {
-    }
+    );    
 
     return <>
         <form onSubmit={props.handleSubmit} className={props.activeForm ? s.formPopup : null}>
@@ -32,7 +29,7 @@ const TableEditForm = (props) => {
             <label className={props.nameAction === "Add" ? s.noneLabel : s.activeLabel} >ID: {props.initialValues.Id}</label>
             {inputComponent}
             <button className={s.btn}>{props.nameAction === "Add" ? "Submit" : "Update"}</button>
-            <button onClick={update} className={props.nameAction === "Add" ? s.noneLabel : s.deleteButton} type="button">Delete</button>
+            <button onClick={props.onDeletePayment} className={props.nameAction === "Add" ? s.noneLabel : s.deleteButton} type="button">Delete</button>
             <button onClick={props.closeForm} className={s.cancel} type="button">Close</button>
         </form>
     </>

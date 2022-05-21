@@ -10,13 +10,15 @@ const Section3 = (props) => {
   return (
     <section className={s.s3} >
       <Table
-        state={props.state}         
-        openEditForm={props.openEditForm}/>
+        state={props.state}
+        openEditForm={props.openEditForm} />
 
-      <TableActionForm       
+      <TableActionForm
+        onUdatePayment={props.onUdatePayment}
+        onDeletePayment={props.onDeletePayment}
         state={props.state}
         onSubmitForm={props.onSubmitForm}
-        openForm = {props.openForm}        
+        openForm={props.openForm}
         closeForm={props.closeForm}
         onPageChenged={props.onPageChenged}
         toggleBeForm={props.toggleBeForm}
