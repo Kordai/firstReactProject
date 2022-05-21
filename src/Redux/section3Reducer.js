@@ -120,7 +120,7 @@ const toggleIsFetching = (isFetching) => {
     }
 }
 
-export const toggleBeNameForm = (nameFormAction) => {
+const toggleBeNameForm = (nameFormAction) => {
     return {
         type: TOGGLE_BE_NAME_FORM,
         nameFormAction
@@ -192,7 +192,7 @@ export const onSubmitForm = (formData) => {
     }
 }
 
-export const openForm = () => {
+export const openAddForm = () => {
     return (dispatch) => {
         let initialValues = {
             Id: "",
