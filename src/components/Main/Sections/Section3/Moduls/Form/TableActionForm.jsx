@@ -42,7 +42,7 @@ const TableActionForm = (props) => {
         closeForm={props.closeForm}
         nameAction={props.state.nameFormAction}
         initialValues={props.state.initialValuesPaymentForm}
-        onSubmit={props.onSubmitForm} // прописать условие по обработке данных взависимости от формы name props.onUdatePayment или props.onSubmitForm
+        onSubmit={props.state.nameFormAction === "Add"? props.onSubmitForm : props.onUdatePayment} 
         activeForm={props.state.activeForm}
         formName={props.state.formName}
         inputVal={inputVal}

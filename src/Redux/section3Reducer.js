@@ -208,9 +208,22 @@ export const openAddForm = () => {
     }
 }
 
-export const onUdatePayment = () => {
+export const onUdatePayment = (formData) => {
     return (dispatch) => {
-
+        ConnectToServer.putPayment(formData).then(data => {            
+            if (data.success === 1) {
+                dispatch(getPayments(1, 10))
+            }
+        })
+        let initialValues = {
+            Id: "",
+            Point: "",
+            Customer: "",
+            Payment: "",
+            Date: ""
+        }
+        dispatch(setinitialValues(initialValues))
+        dispatch(toggleBeForm(false))
     }
 }
 
