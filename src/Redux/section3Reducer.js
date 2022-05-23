@@ -174,8 +174,9 @@ export const onSubmitForm = (formData) => {
         }
 
         newPayment = { ...newPayment, ...formData }
-        
+
         ConnectToServer.addNewPayment(newPayment).then(data => {
+
             if (data.success === 1) {
                 dispatch(getPayments(1, 10))
             }
@@ -187,7 +188,7 @@ export const onSubmitForm = (formData) => {
             Payment: "",
             Date: ""
         }
-        dispatch(setinitialValues(initialValues)) 
+        dispatch(setinitialValues(initialValues))
         dispatch(toggleBeForm(false))
     }
 }
@@ -201,7 +202,7 @@ export const openAddForm = () => {
             Payment: "",
             Date: ""
         }
-        dispatch(setinitialValues(initialValues))      
+        dispatch(setinitialValues(initialValues))
         dispatch(toggleBeNameForm("Add"))
         dispatch(toggleBeForm(true))
     }
@@ -214,7 +215,7 @@ export const onUdatePayment = () => {
 }
 
 export const onDeletePayment = (id) => {
-    return (dispatch) => {        
+    return (dispatch) => {
         ConnectToServer.deletePayment(id).then(data => {
             if (data.success === 1) {
                 dispatch(getPayments(initialState.currentPage, initialState.pageSize))
@@ -227,7 +228,7 @@ export const onDeletePayment = (id) => {
             Payment: "",
             Date: ""
         }
-        dispatch(setinitialValues(initialValues)) 
+        dispatch(setinitialValues(initialValues))
         dispatch(toggleBeForm(false))
     }
 }

@@ -15,31 +15,31 @@ class Section3Container extends React.Component {
   onPageChenged = (pageNumber) => {
     this.props.getPayments(pageNumber, this.props.state.pageSize)
   }
- 
+
   closeForm = () => {
     this.props.toggleBeForm(false)
-}
- 
+  }
+
   render() {
     return <>
-    
+
       {this.props.state.isFetching ? <PreLoader /> : null}
-      <Section3        
+      <Section3
         state={this.props.state}
         closeForm={this.closeForm}
         onSubmitForm={this.props.onSubmitForm}
-        openForm = {this.props.openAddForm}
-        onPageChenged={this.onPageChenged}        
+        openForm={this.props.openAddForm}
+        onPageChenged={this.onPageChenged}
         openEditForm={this.props.openEditForm}
         onUdatePayment={this.props.onUdatePayment}
-        onDeletePayment={this.props.onDeletePayment}        
+        onDeletePayment={this.props.onDeletePayment}
       />
     </>
   }
 }
 
 const mapStateToProps = (state) => {
- 
+
   return {
     state: state.section3
   }
@@ -53,7 +53,7 @@ export default connect(mapStateToProps,
     onSubmitForm,
     openAddForm,
     onUdatePayment,
-    onDeletePayment   
-}
-  )(Section3Container);
+    onDeletePayment
+  }
+)(Section3Container);
 

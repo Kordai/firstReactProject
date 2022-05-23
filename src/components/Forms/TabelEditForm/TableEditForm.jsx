@@ -6,7 +6,7 @@ import s from './TableEditForm.module.css';
 
 const TableEditForm = (props) => {
 
-    const name = props.formName;   
+    const name = props.formName;
 
     let inputComponent = props.inputVal.map(
         (val) => {
@@ -19,7 +19,7 @@ const TableEditForm = (props) => {
                 />
             )
         }
-    );    
+    );
 
     return <>
         <form onSubmit={props.handleSubmit} className={props.activeForm ? s.formPopup : null}>
