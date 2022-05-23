@@ -24,7 +24,13 @@ const ConnectToServer = {
           return instance.post('add_payment.php', obj)
           .then(response => response.data)
           .catch(error => console.log(error))
-    }
+    },
+    deletePayment(id) {    
+        return instance.delete('delete_payment.php?id=' + id)
+        .then(response => console.log(response.data))
+        .catch(error => console.log(error))
+  }
+
 }
 
 export default ConnectToServer;

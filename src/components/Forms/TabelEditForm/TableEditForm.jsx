@@ -6,9 +6,7 @@ import s from './TableEditForm.module.css';
 
 const TableEditForm = (props) => {
 
-    const name = props.formName;
-
-    
+    const name = props.formName;   
 
     let inputComponent = props.inputVal.map(
         (val) => {
@@ -29,7 +27,7 @@ const TableEditForm = (props) => {
             <label className={props.nameAction === "Add" ? s.noneLabel : s.activeLabel} >ID: {props.initialValues.Id}</label>
             {inputComponent}
             <button className={s.btn}>{props.nameAction === "Add" ? "Submit" : "Update"}</button>
-            <button onClick={props.onDeletePayment} className={props.nameAction === "Add" ? s.noneLabel : s.deleteButton} type="button">Delete</button>
+            <button onClick={() => props.onDeletePayment(props.initialValues.Id)} className={props.nameAction === "Add" ? s.noneLabel : s.deleteButton} type="button">Delete</button>
             <button onClick={props.closeForm} className={s.cancel} type="button">Close</button>
         </form>
     </>

@@ -213,9 +213,9 @@ export const onUdatePayment = () => {
     }
 }
 
-export const onDeletePayment = () => {
-    return (dispatch) => {
-        
+export const onDeletePayment = (id) => {
+    return (dispatch) => {        
+        ConnectToServer.deletePayment(id)
     }
 }
 
