@@ -27,7 +27,7 @@ const ConnectToServer = {
     },
     deletePayment(id) {    
         return instance.delete('delete_payment.php?id=' + id)
-        .then(response => console.log(response.data))
+        .then(response => response.data)
         .catch(error => console.log(error))
   }
 

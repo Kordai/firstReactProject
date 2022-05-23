@@ -215,7 +215,20 @@ export const onUdatePayment = () => {
 
 export const onDeletePayment = (id) => {
     return (dispatch) => {        
-        ConnectToServer.deletePayment(id)
+        ConnectToServer.deletePayment(id).then(data => {
+            if (data.success === 1) {
+                dispatch(getPayments(initialState.currentPage, initialState.pageSize))
+            }
+        })
+        let initialValues = {
+            Id: "",
+            Point: "",
+            Customer: "",
+            Payment: "",
+            Date: ""
+        }
+        dispatch(setinitialValues(initialValues)) 
+        dispatch(toggleBeForm(false))
     }
 }
 
