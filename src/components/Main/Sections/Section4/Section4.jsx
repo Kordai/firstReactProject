@@ -15,7 +15,8 @@ const Section4 = (props) => {
     <section className={s.u}>
     <span className={s.team}>{props.team}s</span>
       {userPage}
-      <NewUser/>
+      <NewUser 
+      team = {props.team}/>
     </section>  
   );
 }

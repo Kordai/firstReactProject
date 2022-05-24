@@ -3,8 +3,12 @@ import s from './NewUser.module.css';
 
 const NewUser = (props) =>{
 
+    const newUser = () => {
+        alert("NEW USER "+ props.team)
+    }
+
     return <div className={s.noActive}>
-    <div className={s.newUser}>
+    <div onClick={newUser} className={s.newUser}>
         <span className={s.plus}>+</span>
     </div>
     </div>
