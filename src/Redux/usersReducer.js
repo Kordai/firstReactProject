@@ -2,11 +2,13 @@ import ConnectToServer from "../APIConnect/ConnectToServer";
 
 const SET_USERS = 'SET_USERS';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_BE_FORM = 'TOGGLE_BE_FORM';
 
 //Started props
 let initialState = {
     users: [],
-    isFetching: false
+    isFetching: false,
+    activeForm: false
 };
 
 //Reducers functions
@@ -22,7 +24,11 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 isFetching: action.isFetching
             }
-
+        case TOGGLE_BE_FORM:
+            return {
+                ...state,
+                activeForm: action.activeForm
+            }
         default:
             return state;
     }
@@ -40,6 +46,13 @@ const toggleIsFetching = (isFetching) => {
     return {
         type: TOGGLE_IS_FETCHING,
         isFetching
+    }
+}
+
+export const toggleBeForm = (activeForm) => {
+    return {
+        type: TOGGLE_BE_FORM,
+        activeForm
     }
 }
 

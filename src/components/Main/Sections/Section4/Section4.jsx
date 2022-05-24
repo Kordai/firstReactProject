@@ -16,7 +16,8 @@ const Section4 = (props) => {
     <span className={s.team}>{props.team}s</span>
       {userPage}
       <NewUser 
-      team = {props.team}/>
+      team = {props.team} 
+      toggleBeForm={props.toggleBeForm}/>
     </section>  
   );
 }

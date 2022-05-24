@@ -6,7 +6,7 @@ const MainUsers = (props) => {
 
     return (      
       <main className={s.u}>
-        <Section4 state={props.state.users} team="Service" />
+        <Section4 state={props.state.users} toggleBeForm={props.toggleBeForm} team="Service" />
         <Section4 state={props.state.users} team="Meneger" />
         <Section4 state={props.state.users} team="Admin" />
       </main>
