@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './Section4.module.css';
 import User from './Moduls/User'
+import NewUser from './Moduls/NewUser';
 
 const Section4 = (props) => {
 
@@ -10,13 +11,12 @@ const Section4 = (props) => {
     val => <User state={val} key={val.id} />
   );
 
-  return (<>
-    
+  return (    
     <section className={s.u}>
-    <span className={s.team}>{props.team}</span>
+    <span className={s.team}>{props.team}s</span>
       {userPage}
-    </section>
-  </>
+      <NewUser/>
+    </section>  
   );
 }
 
