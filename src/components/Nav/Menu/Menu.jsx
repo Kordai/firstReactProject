@@ -8,7 +8,7 @@ const Menu = () => {
       <NavLink to="/" className={({ isActive }) => isActive ? s.active : s.decarationNone} >Control panel</NavLink>
       <NavLink to="/panelmoney" className={({ isActive }) => isActive ? s.active : s.decarationNone} >Payments</NavLink>
       <NavLink to="/panelapplications" className={({ isActive }) => isActive ? s.active : s.decarationNone} >Applications</NavLink>
-      <NavLink to="/panelpoints" className={({ isActive }) => isActive ? s.active : s.decarationNone} >Points</NavLink>
+      {/* <NavLink to="/panelpoints" className={({ isActive }) => isActive ? s.active : s.decarationNone} >Points</NavLink> */}
       <NavLink to="/panelusers" className={({ isActive }) => isActive ? s.active : s.decarationNone} >Users</NavLink>
     </div>
   );

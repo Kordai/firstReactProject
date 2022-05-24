@@ -11,12 +11,13 @@ justify-content: center; */
 
 .decarationNone:hover {
   color: white;
-  background-color: cornflowerblue;
+  background-color: rgb(12, 34, 236);
 }
 
 a.active {
-  background-color: cornflowerblue;
+  background-color: rgb(12, 34, 236);
   text-decoration: none;
+  color: gold;
 }
 
 .decarationNone {
