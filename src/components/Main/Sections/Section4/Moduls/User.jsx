@@ -8,17 +8,17 @@ const User = (props) => {
       <div className={s.info}>
         <div>
           <h3>{props.state.name}</h3>
-          <h4>{props.state.phone}</h4>
+          <h5>{props.state.phone}</h5>
         </div>
         <img src={userPhoto} alt={props.state.name} className={s.img}></img>
       </div>
       <div className={s.contact}>
-        <h4>{props.state.email}</h4>
-        <h4>{props.state.city}</h4>
+        <h5>{props.state.email}</h5>
+        <h5>{props.state.city}</h5>
       </div>
 
       <div className={s.level}>
-        <h5>Level {props.state.level} </h5>
+        <h6>Level {props.state.level} </h6>
       </div>
     </div>
   );

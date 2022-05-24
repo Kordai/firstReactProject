@@ -10,10 +10,13 @@ const Section4 = (props) => {
     val => <User state={val} key={val.id} />
   );
 
-  return (
+  return (<>
+    
     <section className={s.u}>
+    <span className={s.team}>{props.team}</span>
       {userPage}
     </section>
+  </>
   );
 }
 

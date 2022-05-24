@@ -22,7 +22,7 @@ const TableEditForm = (props) => {
     );
 
     return <>
-        <form onSubmit={props.handleSubmit} className={props.activeForm ? s.formPopup : null}>
+        <form onSubmit={props.handleSubmit} className={props.activeForm ? s.formPopup : s.formPopupNone}>
             <h1>{props.nameAction} {name}</h1>
             <label className={props.nameAction === "Add" ? s.noneLabel : s.activeLabel} name={"Id"} >ID: {props.initialValues.Id}</label>
             {inputComponent}

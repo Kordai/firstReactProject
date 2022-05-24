@@ -13,16 +13,14 @@ function App(props) {
   return (
     <div className="App">
       <Nav />
-      <Header />
-      <div className="app-wrapper-content">
+      <Header />      
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/panelmoney" element={<MainMoney />} />
           <Route path="/panelapplications" element={<MainApplicationsContainer />} />
           <Route path="/panelpoints" element={<MainPoints />} />
           <Route path="/panelusers" element={<MainUsersContainer />} />
-        </Routes>
-      </div>
+        </Routes>   
     </div>
   );
 }

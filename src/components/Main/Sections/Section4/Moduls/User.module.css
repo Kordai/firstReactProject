@@ -1,6 +1,6 @@
 .u {
     background-color: white;
-    width: 250px;
+    width: 245px;
     display: grid;
     grid-template-areas:
       "i i"

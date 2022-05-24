@@ -36,6 +36,22 @@
     padding: 10px;
 }
 
+.formPopupNone {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    z-index: 10;
+    top: 33%;
+    left: 36%;
+    color: #282c34;;
+    width: 500px;
+    height: auto;
+    background-color: #61dafb;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
 .formPopup input {
     width: 90%;
 }
