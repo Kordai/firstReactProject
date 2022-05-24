@@ -7,8 +7,8 @@ const NewUser = (props) =>{
     const newUser = () => {
         props.toggleBeForm(true)
     }
-    const onSubmitForm = () => {
-        alert("form")
+    const onSubmitForm = (formData) => {
+        console.log(formData)
     }
 
     return <div className={s.noActive}>

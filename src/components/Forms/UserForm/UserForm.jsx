@@ -9,10 +9,15 @@ const UserForm = (props) => {
 
     return <>
         <form onSubmit={props.handleSubmit} className={props.state.activeForm ? s.visible : s.invisible}>
-            <Field
-                component="input"
-                placeholder="FORM NEW USER"
-                name="NewUser" />
+            <Field component="label" name="formName">New User</Field>
+            <Field component="input" placeholder="First name" name="firstName" />
+            <Field component="input" placeholder="Last name" name="lastName" />
+            <Field component="input" placeholder="Address" name="address" />
+            <Field component="input" placeholder="City" name="city" />
+            <Field component="input" placeholder="Namber phone" name="phone" />
+            <Field component="input" placeholder="E-mail" name="email" />
+            <Field component="input" placeholder="Login" name="login" />
+            <Field component="input" placeholder="Password" name="password" />
             <button>Submit</button>
             <button onClick={() => props.toggleBeForm(false)} type='button'>Close</button>
         </form>
