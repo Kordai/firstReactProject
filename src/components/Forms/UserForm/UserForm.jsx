@@ -8,7 +8,7 @@ import { Field, reduxForm } from 'redux-form';
 const UserForm = (props) => {
 
     return <>
-        <form onSubmit={props.handleSubmit} className={props.state.activeForm ? s.visible : s.invisible}>
+        <form onSubmit={props.handleSubmit} className={props.state.activeForm ? s.visible : s.invisible}>            
             <Field component="label" name="formName">New User</Field>
             <Field component="input" placeholder="First name" name="firstName" />
             <Field component="input" placeholder="Last name" name="lastName" />
@@ -16,6 +16,12 @@ const UserForm = (props) => {
             <Field component="input" placeholder="City" name="city" />
             <Field component="input" placeholder="Namber phone" name="phone" />
             <Field component="input" placeholder="E-mail" name="email" />
+            <Field component="select" name="team">
+                <option >Select a team</option>
+                <option value="Service">Service</option>
+                <option value="Meneger">Meneger</option>
+                <option value="Admin">Admin</option>
+            </Field>
             <Field component="input" placeholder="Login" name="login" />
             <Field component="input" placeholder="Password" name="password" />
             <button>Submit</button>

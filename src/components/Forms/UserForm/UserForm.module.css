@@ -25,6 +25,11 @@
     margin: 2px;
 }
 
+.visible select {
+    width: 90%;
+    margin: 2px;
+}
+
 .visible label {
     font-size: 25px;
     color: forestgreen;
