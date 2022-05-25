@@ -60,52 +60,20 @@
     background-color: #282c34;
 }
 
-.data {
-    border: 1px solid aqua;
-    width: 80%;
-    height: 50px;
-    margin-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
-    margin-left: 10%;
-    
-}
-
-.tegdata {
-    color: aqua;
-    display: flex;
-    z-index: 5;
-    border: 1px solid aqua;
-    padding: 0px 10px;
-    height: fit-content;
-    width: fit-content;
-    margin-top: -35px;
-    font-size: 14px;
-    margin-left: -10px;
-    background-color: #282c34;
-    margin-bottom: 8px;
-}
-
-.text {
-    color: white;
-}
-
 .login {
     margin-bottom: 50px;
 }
 
-.footer {
-    margin-top: 50px;
-    position: relative;
-    width: 100%;
-}
-.rating {
-    position: absolute;
-    left: 5px;
+.updateBTN {
+    margin: 5px;
+    margin-top: 20px;
+    background-color: forestgreen;
+    width: 80px;
 }
 
-.date {
-    position: absolute;
-    right: 5px;
+.deleteBTN {
+    margin: 5px;
+    margin-top: 20px;
+    background-color: firebrick;
+    width: 80px;
 }
