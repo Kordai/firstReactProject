@@ -21,7 +21,7 @@ function App(props) {
           <Route path="/panelapplications" element={<MainApplicationsContainer />} />
           <Route path="/panelpoints" element={<MainPoints />} />
           <Route path="/panelusers" element={<MainUsersContainer />} />
-          <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/panelusers/userprofile" element={<UserProfile />} />
         </Routes>   
     </div>
   );
