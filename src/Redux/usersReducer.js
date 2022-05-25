@@ -17,7 +17,7 @@ const usersReducer = (state = initialState, action) => {
         case SET_USERS:
             return {
                 ...state,
-                users: [...state.users, ...action.users]
+                users: action.users
             }
         case TOGGLE_IS_FETCHING:
             return {
@@ -67,5 +67,15 @@ export const getUsers = () => {
     }
 }
 
+export const newUser = (user) => {
+    return (dispatch) => {       
+        ConnectToServer.addNewUser(user).then(data => {
+            if (data.success === 1) {
+                dispatch(getUsers())
+                dispatch(toggleBeForm(false))
+            }
+        });
+    }
+}
 
 export default usersReducer;

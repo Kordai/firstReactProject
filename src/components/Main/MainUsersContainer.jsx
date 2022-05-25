@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MainUsers from './MainUsers';
 import PreLoader from './Moduls/PreLoader';
-import {getUsers, toggleBeForm} from '../../Redux/usersReducer';
+import {getUsers, toggleBeForm, newUser} from '../../Redux/usersReducer';
 
 class MainUsersContainer extends React.Component {
 
@@ -17,7 +17,8 @@ class MainUsersContainer extends React.Component {
     return (<>
       {this.props.state.isFetching ? <PreLoader/> : null}
       <MainUsers state={this.props.state}
-      toggleBeForm = {this.props.toggleBeForm}/>
+      toggleBeForm = {this.props.toggleBeForm}
+      newUser = {this.props.newUser}/>
     </>)
   }
 
@@ -29,5 +30,5 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps, {getUsers, toggleBeForm})(MainUsersContainer);
+export default connect(mapStateToProps, {getUsers, toggleBeForm, newUser})(MainUsersContainer);
 

@@ -6,9 +6,9 @@ const MainUsers = (props) => {
 
     return (      
       <main className={s.u}>
-        <Section4 state={props.state.users} toggleBeForm={props.toggleBeForm} team="Service" />
-        <Section4 state={props.state.users} toggleBeForm={props.toggleBeForm} team="Meneger" />
-        <Section4 state={props.state.users} toggleBeForm={props.toggleBeForm} team="Admin" />
+        <Section4 state={props.state.users} toggleBeForm={props.toggleBeForm} newUser = {props.newUser} team="Service" />
+        <Section4 state={props.state.users} toggleBeForm={props.toggleBeForm} newUser = {props.newUser} team="Meneger" />
+        <Section4 state={props.state.users} toggleBeForm={props.toggleBeForm} newUser = {props.newUser} team="Admin" />
       </main>
     )
   }

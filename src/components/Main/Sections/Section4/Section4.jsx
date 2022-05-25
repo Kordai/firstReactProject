@@ -17,7 +17,8 @@ const Section4 = (props) => {
       {userPage}
       <NewUser 
       team = {props.team} 
-      toggleBeForm={props.toggleBeForm}/>
+      toggleBeForm={props.toggleBeForm}
+      newUser = {props.newUser}/>
     </section>  
   );
 }
