@@ -1,0 +1,38 @@
+.profile {
+  background-color: #282c34;
+  min-height: 94vh;
+  color: #61dafb;
+  display: grid;
+  grid-template-areas:
+    "u a a"
+    "u i s";
+
+  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-rows: 1fr 1fr;
+
+}
+
+.user {
+    grid-area: u;
+    border: 2px solid aqua;
+    margin: 10px;
+}
+
+.applications {
+    grid-area: a;
+    border: 2px solid aqua;
+    margin: 10px;
+    
+}
+
+.info {
+    grid-area: i;
+    border: 2px solid aqua;
+    margin: 10px;
+}
+
+.stock {
+    grid-area: s;
+    border: 2px solid aqua;
+    margin: 10px;
+}

@@ -1,6 +1,6 @@
 .u {
     background-color: #282c34;
-    height: 90%;
+    height: 94vh;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 10px;

@@ -8,6 +8,7 @@ import MainMoney from './components/Main/MainMoney';
 import MainApplicationsContainer from './components/Main/MainApplicationsContainer';
 import MainPoints from './components/Main/MainPoints';
 import MainUsersContainer from './components/Main/MainUsersContainer';
+import UserProfile from './components/Main/Sections/Section4/Profile/UserProfile';
 
 function App(props) {
   return (
@@ -20,6 +21,7 @@ function App(props) {
           <Route path="/panelapplications" element={<MainApplicationsContainer />} />
           <Route path="/panelpoints" element={<MainPoints />} />
           <Route path="/panelusers" element={<MainUsersContainer />} />
+          <Route path="/userprofile" element={<UserProfile />} />
         </Routes>   
     </div>
   );
