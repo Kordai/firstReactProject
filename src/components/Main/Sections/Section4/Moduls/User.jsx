@@ -3,8 +3,13 @@ import s from './User.module.css';
 import userPhoto from '../../../../image/user.png'
 
 const User = (props) => {
+
+  const openProfileUser = (id) => {
+    alert(id)
+  }
+
   return (
-    <div className={s.u}>
+    <div onDoubleClick={() => openProfileUser(props.state.id)} className={s.u}>
       <div className={s.info}>
         <div>
           <h3>{props.state.name}</h3>
