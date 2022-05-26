@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PreLoader from '../../../../Moduls/PreLoader';
 import UserInfo from './UserInfo';
+import {getUserProfileInfo} from '../../../../../../Redux/usersReducer';
 
 class UserInfoContainer extends React.Component {
 
     componentDidMount() {
-        
+        this.props.getUserProfileInfo(this.props.userID)
     }
 
     userAttributes =
@@ -24,7 +25,7 @@ class UserInfoContainer extends React.Component {
             {this.props.state.isFetching ? <PreLoader /> : null}
             <UserInfo
                 userAttributes={this.userAttributes}
-                userID={this.props.userID}
+                user={this.props.state.userProfileInfo}
             />
         </>)
     }
@@ -36,4 +37,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {})(UserInfoContainer);
+export default connect(mapStateToProps, {getUserProfileInfo})(UserInfoContainer);

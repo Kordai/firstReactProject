@@ -11,6 +11,9 @@ const ConnectToServer = {
     getUsers() {
         return instance.get("get_users.php").then(response => response.data);
     },
+    getUser(id) {
+        return instance.get("get_user.php?userID=" + id).then(response => response.data);
+    },
     getPayments(currentPage, pageSize) {
         return instance.get(`get_payments.php?page=${currentPage}&count=${pageSize}`)
             .then(response => {
