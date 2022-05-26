@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './UserProfile.module.css';
 import userPhoto from '../../../../image/user.png'
-import ModuleTextLabel from '../Moduls/ModuleTextLabel';
+import ModuleTextLabel from './Moduls/ModuleTextLabel';
 
 const UserProfile = () => {
 
@@ -17,10 +17,10 @@ const UserProfile = () => {
 
     let stockAttributes =
         [
-            "Coffee",
-            "Milk",
-            "Cups",
-            "Sugar"
+            "Coffee ",
+            "Milk ",
+            "Cups ",
+            "Sugar "
         ]
 
     let userInfoModule = userAttributes.map(val => <ModuleTextLabel teg={val} text={val} key={val} />)
@@ -51,7 +51,7 @@ const UserProfile = () => {
                 <div className={s.stockModule}>
                     {stockModule}
                 </div>
-
+                
             </div>
 
 
