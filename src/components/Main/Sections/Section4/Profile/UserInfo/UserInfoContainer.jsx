@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PreLoader from '../../../../Moduls/PreLoader';
 import UserInfo from './UserInfo';
-import {getUserProfileInfo} from '../../../../../../Redux/usersReducer';
+import {getUserProfileInfo, deleteUser} from '../../../../../../Redux/usersReducer';
 
 class UserInfoContainer extends React.Component {
 
@@ -20,12 +20,18 @@ class UserInfoContainer extends React.Component {
             "E-mail"
         ]    
 
+        deleteUser = () => {
+            this.props.deleteUser(this.props.userID)           
+        }
+
     render() {
         return (<>
             {this.props.state.isFetching ? <PreLoader /> : null}
             <UserInfo
                 userAttributes={this.userAttributes}
                 user={this.props.state.userProfileInfo}
+                deleteUser={this.deleteUser}
+
             />
         </>)
     }
@@ -37,4 +43,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {getUserProfileInfo})(UserInfoContainer);
+export default connect(mapStateToProps, {getUserProfileInfo, deleteUser})(UserInfoContainer);

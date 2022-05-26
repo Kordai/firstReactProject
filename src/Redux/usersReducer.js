@@ -104,4 +104,16 @@ export const getUserProfileInfo = (id) => {
     }
 }
 
+export const deleteUser = (id) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true));        
+        ConnectToServer.deleteUser(id).then(data => {
+            if (data.success === 1) {      
+                dispatch(getUsers())           
+                dispatch(toggleIsFetching(false))
+            }
+        });
+    }
+}
+
 export default usersReducer;
