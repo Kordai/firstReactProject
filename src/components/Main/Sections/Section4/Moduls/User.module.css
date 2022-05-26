@@ -1,6 +1,7 @@
 .u {
     background-color: white;
     width: 245px;
+    height: 100%;
     display: grid;
     grid-template-areas:
       "i i"
