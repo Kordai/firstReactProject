@@ -14,11 +14,7 @@ const UserInfo = (props) => {
         props.deleteUser()
         navigate("/panelusers")
     }
-
-    const onSubmitForm = (formData) => {
-        alert("Update")
-    }
-    console.log(props.state.userProfileInfo)
+    
     return <>
         <div className={s.user}>
             <span className={s.teguser}>User info</span>
@@ -33,7 +29,7 @@ const UserInfo = (props) => {
             <button onClick={()=> {navigate("/panelusers")} }  type='button' className={s.backBTN}>Back</button>
         </div>
         <UserForm 
-        onSubmit={onSubmitForm}
+        onSubmit={props.updateUser}
         initialValues={props.state.userProfileInfo} 
         formName = "Update"
          />

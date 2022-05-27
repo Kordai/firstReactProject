@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PreLoader from '../../../../Moduls/PreLoader';
 import UserInfo from './UserInfo';
-import {getUserProfileInfo, deleteUser, toggleBeForm} from '../../../../../../Redux/usersReducer';
+import {getUserProfileInfo, deleteUser, toggleBeForm, updateUser} from '../../../../../../Redux/usersReducer';
 
 class UserInfoContainer extends React.Component {
 
@@ -34,6 +34,7 @@ class UserInfoContainer extends React.Component {
                 deleteUser={this.deleteUser}
                 toggleBeForm = {this.props.toggleBeForm}
                 state = {this.props.state}
+                updateUser = {this.props.updateUser}
             />
         </>)
     }
@@ -45,4 +46,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {getUserProfileInfo, deleteUser, toggleBeForm})(UserInfoContainer);
+export default connect(mapStateToProps, {getUserProfileInfo, deleteUser, toggleBeForm, updateUser})(UserInfoContainer);

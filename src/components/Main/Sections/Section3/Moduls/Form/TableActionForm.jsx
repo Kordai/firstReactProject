@@ -36,8 +36,7 @@ const TableActionForm = (props) => {
         <label className={s.count}>Records count: {props.state.totalPaymentsCount}</label>
       </div>
 
-      <TableEditForm
-        onUdatePayment={props.onUdatePayment}
+      <TableEditForm        
         onDeletePayment={props.onDeletePayment}
         closeForm={props.closeForm}
         nameAction={props.state.nameFormAction}

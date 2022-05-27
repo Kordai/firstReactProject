@@ -104,6 +104,17 @@ export const getUserProfileInfo = (id) => {
     }
 }
 
+export const updateUser = (user) => {
+    return (dispatch) => {
+        ConnectToServer.putUser(user).then(data => {
+            if (data.success === 1) {
+                dispatch(getUserProfileInfo(user.id))
+                dispatch(toggleBeForm(false))
+            }
+        });
+    }
+}
+
 export const deleteUser = (id) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true));        

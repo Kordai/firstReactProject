@@ -43,6 +43,11 @@ const ConnectToServer = {
             .then(response => response.data)
             .catch(error => console.log(error))
     },
+    putUser(obj) {
+        return instance.put('update_user.php', obj)
+            .then(response => response.data)
+            .catch(error => console.log(error))
+    },
     addNewUser(obj) {
         return instance.post('add_user.php', obj)
             .then(response => response.data)
