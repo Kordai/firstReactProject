@@ -15,7 +15,10 @@ const NewUser = (props) =>{
     <div onClick={newUser} className={s.newUser}>
         <span className={s.plus}>+</span>
     </div>
-    <UserForm onSubmit={onSubmitForm}/>
+    <UserForm 
+    onSubmit={onSubmitForm}
+    formName = "New"
+    />
     </div>
 
 }

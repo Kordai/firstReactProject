@@ -10,7 +10,7 @@ const UserForm = (props) => {
     return <>
         <form onSubmit={props.handleSubmit} className={props.state.activeForm ? s.visible : s.invisible}>
             <div>
-                <Field component="label" name="formName">New User</Field>
+                <Field component="label" name="formName">{props.formName} User</Field>
             </div>
             <br />
             <Field component="input" placeholder="First name" name="firstName" />
