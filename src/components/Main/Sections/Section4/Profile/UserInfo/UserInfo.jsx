@@ -24,8 +24,8 @@ const UserInfo = (props) => {
                 <h4>User team: {props.user.team}</h4>
             </div>
             {userInfoModule}
-            <button onClick={() => props.toggleBeForm(true)}  type='button' className={s.updateBTN}>Update</button>
-            <button onClick={del}  type='button' className={s.deleteBTN}>Delete</button>
+            <button onClick={() => props.toggleBeForm(true)}  type='button' className={props.user.team==="Admin"? s.adminBTN:s.updateBTN}>Update</button>
+            <button onClick={del}  type='button' className={props.user.team==="Admin"? s.adminBTN:s.deleteBTN}>Delete</button>
             <button onClick={()=> {navigate("/panelusers")} }  type='button' className={s.backBTN}>Back</button>
         </div>
         <UserForm 
