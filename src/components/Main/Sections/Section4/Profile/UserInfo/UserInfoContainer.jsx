@@ -19,9 +19,9 @@ class UserInfoContainer extends React.Component {
             "Namber phone",
             "E-mail"
         ]    
-
+        
         deleteUser = () => {
-            this.props.deleteUser(this.props.userID)           
+            this.props.deleteUser(this.props.userID)                 
         }
 
     render() {

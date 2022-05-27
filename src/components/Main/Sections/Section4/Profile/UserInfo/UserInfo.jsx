@@ -11,7 +11,7 @@ const UserInfo = (props) => {
     let navigate = useNavigate();
     const del = () => {
         props.deleteUser()
-        navigate("/panelusers")   
+        navigate("/panelusers")
     }
     return <>
         <div className={s.user}>
