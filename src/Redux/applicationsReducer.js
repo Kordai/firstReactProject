@@ -9,15 +9,6 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 let initialState = {
     isFetching: false,
     formName: "Application",
-    inputMark: {
-        Point: "",
-        Coffee: "",
-        Milk: "",
-        Cups: "",
-        Sugar: "",
-        Data: ""
-    },
-    headTable: ["Naber", "Point", "Coffee", "Milk", "Cups", "Sugar", "Data"],
     data: []
 };
 

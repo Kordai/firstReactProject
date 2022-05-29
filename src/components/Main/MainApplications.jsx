@@ -2,11 +2,8 @@ import React from 'react';
 import s from './MainApplications.module.css';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-//import TableEditForm from '../Forms/TabelEditForm/TableEditForm';
 
 const MainApplications = (props) => {
-
-  //let inputVal = props.headTable.filter((f) => { return f !== props.headTable[0] });
 
   const columns = [
     { dataField: "id", text: "Number" },
@@ -25,9 +22,7 @@ const MainApplications = (props) => {
         columns={columns}
         pagination={paginationFactory()}
       />
-      {/* <TableEditForm
-        formName={props.formName}
-        inputVal={inputVal} /> */}
+     
     </main>
   );
 }
