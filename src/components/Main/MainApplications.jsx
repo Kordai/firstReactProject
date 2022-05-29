@@ -12,8 +12,14 @@ const MainApplications = (props) => {
     { dataField: "milk", text: "Milk" },
     { dataField: "caps350", text: "Cups" },
     { dataField: "sugar", text: "Sugar" },
-    { dataField: "date", text: "Date" }
+    { dataField: "date", text: "Date" },
+    { dataField: "id_owner", text: "Сreator" },
+    { dataField: "id_accept", text: "Executor" },
+    { dataField: "accepted", text: "Accepted" },
+    { dataField: "completed", text: "Completed" }
   ]
+
+  console.log(props.state)
   return (
     <main className={s.m}>
       <BootstrapTable
