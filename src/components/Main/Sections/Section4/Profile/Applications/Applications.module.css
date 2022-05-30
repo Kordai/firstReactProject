@@ -3,7 +3,7 @@
     grid-area: a;
     border: 2px solid aqua;
     margin: 10px;
-
+    padding: 5px;
 }
 
 .teguser {
@@ -14,8 +14,32 @@
     padding: 0px 10px;
     height: fit-content;
     width: fit-content;
-    margin-top: -17px;
+    margin-top: -22px;
     font-size: 18px;
     margin-left: 10px;
     background-color: #282c34;
+    margin-bottom: 5px;
+}
+
+.table thead, .table tbody{
+    color: aqua;
+   
+}
+
+.table td, .table th, .table tr{
+    color: white;
+    border: 1px solid aqua;
+    font-size: 14px;
+}
+
+.applications a{
+    color: white;
+    background-color: #282c34;
+    border: 1px solid aqua;
+}
+
+li.page-item.active, a.page-link{
+    color: white;
+    background-color: #27c408;
+    border: 1px solid aqua;
 }

@@ -1,0 +1,6 @@
+
+li.page-item.active .page-link{
+    color: white;
+    background-color: #727e94;
+    border: 1px solid aqua;
+}
