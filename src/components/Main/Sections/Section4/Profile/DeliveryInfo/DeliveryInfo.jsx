@@ -21,11 +21,12 @@ const DeliveryInfo = (props) => {
         ]
 
        
-    props.state.map(val => {
+    props.state.map(val => {  
         value[0] += parseFloat(val.coffee)
         value[1] += parseFloat(val.milk)
         value[2] += parseInt(val.caps350)
         value[3] += parseFloat(val.sugar)
+        return val    
     })
 
     let stockModule = attributes.map((val, i) => <ModuleTextLabel teg={val} text={value[i]} key={val} />)
