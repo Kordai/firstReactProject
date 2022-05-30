@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './UserProfile.module.css';
 import DeliveryInfo from './DeliveryInfo/DeliveryInfo';
-import Stock from './Stock/Stock';
+import StockContainer from './Stock/StockContainer';
 import UserInfoContainer from './UserInfo/UserInfoContainer';
 import { useParams } from 'react-router-dom';
 import ApplicationsContainer from './Applications/ApplicationsContainer';
@@ -12,7 +12,7 @@ const UserProfile = () => {
             <UserInfoContainer userID = {useParams().userID}/>
             <ApplicationsContainer />
             <DeliveryInfo />
-            <Stock />
+            <StockContainer />
         </main>
     </>
 }
