@@ -1,28 +1,20 @@
 import React from 'react';
 import s from './DeliveryInfo.module.css';
 import ModuleTextLabel from '../Moduls/ModuleTextLabel';
-import Chart from "react-google-charts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
+
+const data = [
+    { name: 'Page A', Coffee: 400, pv: 1400, amt: 2400 },
+    { name: 'Page B', Coffee: 300, pv: 1600, amt: 2400 },
+    { name: 'Page C', Coffee: 250, pv: 1800, amt: 2400 },
+    { name: 'Page D', Coffee: 600, pv: 2000, amt: 2400 },
+    { name: 'Page E', Coffee: 550, pv: 2200, amt: 2400 },
+    { name: 'Page F', Coffee: 500, pv: 2400, amt: 2400 }
+];
 
 const DeliveryInfo = (props) => {
 
-    let dataChart = {
-        data: [
-            ["Месяц", "АЗС 1", "АЗС 2", "Вкусмарт1", "Вкусмарт1", "Магазин"],
-            ["Январь", 350, 150, 220, 165, 230],
-            ["Февраль", 320, 170, 225, 180, 250],
-            ["Март", 300, 200, 270, 200, 230],
-            ["Апрель", 250, 220, 291, 240, 270],
-            ["Май", 265, 210, 302, 280, 260],
-            ["Июнь", 320, 150, 320, 295, 310],
-            // ["Июль", 80000, 25000, 75000, 70000, 80000],
-            // ["Август", 80000, 25000, 75000, 70000, 80000],
-            // ["Сентябрь", 80000, 25000, 75000, 70000, 80000],
-            // ["Октябрь", 80000, 25000, 75000, 70000, 80000],
-            // ["Ноябрь", 80000, 25000, 75000, 70000, 80000],
-            // ["Декабрь", 80000, 25000, 75000, 70000, 80000],
-        ]
-    }
-
+    
     let attributes =
         [
             "Coffee ",
@@ -57,36 +49,14 @@ const DeliveryInfo = (props) => {
                 {stockModule}
             </div>
             <div className={s.chart}>
-                <Chart
-                    chartType="Bar"
-                    width="100%"
-                    height="100%"
-                    data={dataChart.data}
-                    // options={window.google.chart.Bar.convertOptions({
-                    //     backgroundColor: "#282c34",
-                    //     chart: {
-                    //       title: "График поставок",
-                    //     },
-                    //     backgroundColor:{"fill":"rgb(83, 92, 96)"},
-                    //     "titleTextStyle":{
-                    //         "color":"#ededed",
-                    //         "marginLeft":"50%"
-                    //     },
-                        
-                    //   })}
-
-                      options={{
-                        chart: {
-                          title: "График поставок"
-                        },
-                        backgroundColor:{fill:"#282c34"},
-                        titleTextStyle:{
-                            color:"#282c34"
-                        }
-                        }
-                      }
-                   
-                />
+                <BarChart width={700} height={300} data={data}>
+                    <XAxis dataKey="name" stroke="#00ffff" />
+                    <YAxis stroke="#00ffff"/>
+                    <Tooltip itemStyle={{ color: '#282c34' }} contentStyle={{ backgroundColor: '#727e94', color: '#282c34' }}  cursor={{fill: '#727e94'}}/>
+                    <Legend width={100} wrapperStyle={{ bottom: 0, right: 250, backgroundColor: '#727e94', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
+                    <CartesianGrid stroke="#00ffff" strokeDasharray="5 5" />
+                    <Bar dataKey="Coffee" fill="#00ffff" barSize={30} />
+                </BarChart>
             </div>
 
         </div>
