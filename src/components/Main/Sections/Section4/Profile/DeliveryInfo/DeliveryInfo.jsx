@@ -4,12 +4,18 @@ import ModuleTextLabel from '../Moduls/ModuleTextLabel';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 
 const data = [
-    { name: 'Page A', Coffee: 400, pv: 1400, amt: 2400 },
-    { name: 'Page B', Coffee: 300, pv: 1600, amt: 2400 },
-    { name: 'Page C', Coffee: 250, pv: 1800, amt: 2400 },
-    { name: 'Page D', Coffee: 600, pv: 2000, amt: 2400 },
-    { name: 'Page E', Coffee: 550, pv: 2200, amt: 2400 },
-    { name: 'Page F', Coffee: 500, pv: 2400, amt: 2400 }
+    { name: 'January', Coffee: 400, Milk: 1400},
+    { name: 'February', Coffee: 300, Milk: 1600 },
+    { name: 'March', Coffee: 250, Milk: 1800 },
+    { name: 'April', Coffee: 600, Milk: 2000 },
+    { name: 'May', Coffee: 550, Milk: 2200 },
+    { name: 'June', Coffee: 500, Milk: 2400 },
+    { name: 'July', Coffee: 400, Milk: 1400},
+    { name: 'August', Coffee: 300, Milk: 1600 },
+    { name: 'September', Coffee: 250, Milk: 1800 },
+    { name: 'October', Coffee: 600, Milk: 2000 },
+    { name: 'November', Coffee: 550, Milk: 2200 },
+    { name: 'December', Coffee: 500, Milk: 2400 }
 ];
 
 const DeliveryInfo = (props) => {
@@ -53,9 +59,10 @@ const DeliveryInfo = (props) => {
                     <XAxis dataKey="name" stroke="#00ffff" />
                     <YAxis stroke="#00ffff"/>
                     <Tooltip itemStyle={{ color: '#282c34' }} contentStyle={{ backgroundColor: '#727e94', color: '#282c34' }}  cursor={{fill: '#727e94'}}/>
-                    <Legend width={100} wrapperStyle={{ bottom: 0, right: 250, backgroundColor: '#727e94', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
+                    <Legend  wrapperStyle={{ bottom: 0, right: 0, backgroundColor: '#727e94', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
                     <CartesianGrid stroke="#00ffff" strokeDasharray="5 5" />
-                    <Bar dataKey="Coffee" fill="#00ffff" barSize={30} />
+                    <Bar dataKey="Coffee" fill="#00ffff" barSize={10} />
+                    <Bar dataKey="Milk" fill="#00ffaa" barSize={10} />
                 </BarChart>
             </div>
 
