@@ -3,21 +3,6 @@ import s from './DeliveryInfo.module.css';
 import ModuleTextLabel from '../Moduls/ModuleTextLabel';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 
-const data = [
-    { name: 'January', Coffee: 400, Milk: 1400, Cups: 400, Sugar: 1400},
-    { name: 'February', Coffee: 300, Milk: 1600, Cups: 400, Sugar: 1400 },
-    { name: 'March', Coffee: 250, Milk: 1800, Cups: 400, Sugar: 1400 },
-    { name: 'April', Coffee: 600, Milk: 2000, Cups: 400, Sugar: 1400 },
-    { name: 'May', Coffee: 550, Milk: 2200, Cups: 400, Sugar: 1400 },
-    { name: 'June', Coffee: 500, Milk: 2400, Cups: 400, Sugar: 1400 },
-    { name: 'July', Coffee: 400, Milk: 1400, Cups: 400, Sugar: 1400},
-    { name: 'August', Coffee: 300, Milk: 1600, Cups: 400, Sugar: 1400 },
-    { name: 'September', Coffee: 250, Milk: 1800, Cups: 400, Sugar: 1400 },
-    { name: 'October', Coffee: 600, Milk: 2000, Cups: 400, Sugar: 1400 },
-    { name: 'November', Coffee: 550, Milk: 2200, Cups: 400, Sugar: 1400 },
-    { name: 'December', Coffee: 500, Milk: 2400, Cups: 400, Sugar: 1400 }
-];
-
 const DeliveryInfo = (props) => {
 
     
@@ -55,7 +40,7 @@ const DeliveryInfo = (props) => {
                 {stockModule}
             </div>
             <div className={s.chart}>
-                <BarChart width={700} height={300} data={data}>
+                <BarChart width={700} height={300} data={props.deliveryInfo}>
                     <XAxis dataKey="name" stroke="#00ffff" />
                     <YAxis stroke="#00ffff"/>
                     <Tooltip itemStyle={{ color: '#282c34' }} contentStyle={{ backgroundColor: '#727e94', color: '#282c34' }}  cursor={{fill: '#727e94'}}/>

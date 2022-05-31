@@ -9,7 +9,8 @@ class DeliveryInfoContainer extends React.Component {
     return (<>
       {this.props.state.isFetching ? <PreLoader/> : null}
       <DeliveryInfo 
-      state={this.props.state.data}/>
+      state={this.props.state.data}
+      deliveryInfo={this.props.state.deliveryInfo}/>
     </>)
   }
 }

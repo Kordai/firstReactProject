@@ -9,7 +9,21 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 let initialState = {
     isFetching: false,
     formName: "Application",
-    data: []
+    data: [],
+    deliveryInfo: [
+        { name: 'January', Coffee: 400, Milk: 1400, Cups: 400, Sugar: 1400},
+        { name: 'February', Coffee: 300, Milk: 1600, Cups: 400, Sugar: 1400 },
+        { name: 'March', Coffee: 250, Milk: 1800, Cups: 400, Sugar: 1400 },
+        { name: 'April', Coffee: 600, Milk: 2000, Cups: 400, Sugar: 1400 },
+        { name: 'May', Coffee: 550, Milk: 2200, Cups: 400, Sugar: 1400 },
+        { name: 'June', Coffee: 500, Milk: 2400, Cups: 400, Sugar: 1400 },
+        { name: 'July', Coffee: 400, Milk: 1400, Cups: 400, Sugar: 1400},
+        { name: 'August', Coffee: 300, Milk: 1600, Cups: 400, Sugar: 1400 },
+        { name: 'September', Coffee: 250, Milk: 1800, Cups: 400, Sugar: 1400 },
+        { name: 'October', Coffee: 600, Milk: 2000, Cups: 400, Sugar: 1400 },
+        { name: 'November', Coffee: 550, Milk: 2200, Cups: 400, Sugar: 1400 },
+        { name: 'December', Coffee: 500, Milk: 2400, Cups: 400, Sugar: 1400 }
+    ]
 };
 
 //Reducers functions
