@@ -32,8 +32,6 @@ const MainApplications = (props) => {
     { dataField: "actions", text: "Actions", isDummyField: true, formatter: linkFollow }
   ]
 
- 
-
   return (
     <main className={s.m}>
       <BootstrapTable
