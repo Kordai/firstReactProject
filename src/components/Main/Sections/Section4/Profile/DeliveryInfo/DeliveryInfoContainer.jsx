@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import PreLoader from '../../../../Moduls/PreLoader';
 
 class DeliveryInfoContainer extends React.Component {
+
+  componentDidMount() {
+    
+  }
   
   render() {
     return (<>
