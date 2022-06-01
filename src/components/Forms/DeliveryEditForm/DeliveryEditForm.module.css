@@ -1,0 +1,76 @@
+.btn {
+    z-index: 5;
+    background-color: forestgreen;
+    color: burlywood;
+    width: 70px;
+}
+
+.deleteButton {    
+    z-index: 5;
+    background-color: red;
+    color: burlywood;
+    width: 70px;
+}
+
+.noneLabel{
+    display: none;
+}
+
+.activeLabel{
+    display: block;
+}
+
+.formPopup {
+    display: block;
+    position: fixed;
+    justify-content: center;
+    z-index: 10;
+    top: 33%;
+    left: 36%;
+    color: #282c34;;
+    width: 500px;
+    height: auto;
+    background-color: #61dafb;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.formPopupNone {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    z-index: 10;
+    top: 33%;
+    left: 36%;
+    color: #282c34;;
+    width: 500px;
+    height: auto;
+    background-color: #61dafb;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.formPopup input {
+    width: 90%;
+}
+
+.formPopup input:focus {
+    background-color: #ddd;
+}
+
+/* .formPopup .btn {
+    background-color: #1976D2;
+    opacity: 0.7;
+} */
+
+.formPopup .cancel {
+    background-color: #448AFF;
+    color: burlywood;
+    width: 70px;
+}
+
+.formPopup .btn:hover, .openButton:hover {
+    opacity: 1;
+}
