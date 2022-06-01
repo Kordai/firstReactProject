@@ -18,7 +18,7 @@ const Applications = (props) => {
 
     return <>
         <div className={s.applications}>
-            <span className={s.teguser}>Applications</span>
+            <span className={s.teguser}>Delivery</span>
             <BootstrapTable
                 keyField='id'
                 data={props.state}
