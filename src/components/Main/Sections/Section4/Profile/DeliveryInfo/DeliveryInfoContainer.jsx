@@ -35,7 +35,7 @@ class DeliveryInfoContainer extends React.Component {
     array.map(val => {
       obj.Coffee += parseFloat(val.coffee)
       obj.Milk += parseFloat(val.milk)
-      obj.Cups += parseInt(val.caps350)
+      obj.Cups += parseInt(val.caps350)/100
       obj.Sugar += parseFloat(val.sugar)
       return val
     })

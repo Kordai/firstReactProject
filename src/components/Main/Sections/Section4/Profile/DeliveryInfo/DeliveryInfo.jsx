@@ -18,7 +18,14 @@ const DeliveryInfo = (props) => {
 
     value = props.mapArray(props.state, "Info")
 
-    let stockModule = attributes.map((val, i) => <ModuleTextLabel teg={val} text={value[val]} key={val} />)
+    const stackCups = (str) => {
+        if (str === "Cups") {
+            return "stack 100 Cups"
+        }
+        return str
+    }
+
+    let stockModule = attributes.map((val, i) => <ModuleTextLabel teg={stackCups(val)} text={value[val]} key={val} />)    
 
     return <>
         <div className={s.info}>
@@ -35,7 +42,7 @@ const DeliveryInfo = (props) => {
                     <CartesianGrid stroke="#00ffff" strokeDasharray="5 5" />
                     <Bar dataKey="Coffee" fill="#00ffff" barSize={7} />
                     <Bar dataKey="Milk" fill="#00ffaa" barSize={7} />
-                    {/* <Bar dataKey="Cups" fill="#f56f6f" barSize={7} /> */}
+                    <Bar dataKey="Cups" fill="#f56f6f" barSize={7} />
                     <Bar dataKey="Sugar" fill="#6fb4f5" barSize={7} />
                 </BarChart>
             </div>
