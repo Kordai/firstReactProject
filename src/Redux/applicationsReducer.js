@@ -137,7 +137,7 @@ const toggleIsFetching = (isFetching) => {
 //Thunk functions
 export const onSubmitForm = (formData) => {
     return (dispatch) => {
-        ConnectToServer.addNewPayment(formData).then(data => {
+        ConnectToServer.addNewDelivery(formData).then(data => {
             if (data.success === 1) {
                 dispatch(getApplications())
             }

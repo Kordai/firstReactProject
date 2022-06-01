@@ -62,6 +62,11 @@ const ConnectToServer = {
         return instance.post('add_user.php', obj)
             .then(response => response.data)
             .catch(error => console.log(error))
+    },
+    addNewDelivery(obj) {
+        return instance.post('add_application.php', obj)
+            .then(response => response.data)
+            .catch(error => console.log(error))
     }
 
 }
