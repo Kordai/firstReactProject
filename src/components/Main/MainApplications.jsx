@@ -2,6 +2,7 @@ import React from 'react';
 import s from './MainApplications.module.css';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
+import DeliveryEditForm from '../Forms/DeliveryEditForm/DeliveryEditForm';
 
 const MainApplications = (props) => {
 
@@ -9,19 +10,13 @@ const MainApplications = (props) => {
     return (<>
       <button className={s.btnNew}
         onClick={() => {
-          console.log(cell)
-          console.log(row)
-          console.log(rowIndex)
-          console.log(formatExtraData)
+          props.openNewForm()
         }}
-      >       
+      >
       </button>
       <button className={s.btnEdit}
         onClick={() => {
-          console.log(cell)
-          console.log(row)
-          console.log(rowIndex)
-          console.log(formatExtraData)
+          props.openEditForm(row)
         }}
       >
       </button>
@@ -34,6 +29,14 @@ const MainApplications = (props) => {
     </>
     );
   };
+
+  let inputVal = [    
+    "point",
+    "coffee",
+    "milk",
+    "caps350",
+    "sugar"
+  ]
 
   const columns = [
     { dataField: "id", text: "Number", sort: true },
@@ -50,11 +53,18 @@ const MainApplications = (props) => {
     <main className={s.m}>
       <BootstrapTable
         keyField='id'
-        data={props.state}
+        data={props.state.data}
         columns={columns}
         pagination={paginationFactory()}
       />
-
+      <DeliveryEditForm
+        closeForm={props.closeForm}
+        nameAction={props.state.nameFormAction}
+        initialValues={props.state.initialValuesForm}
+        // onSubmit={props.state.nameFormAction === "Add" ? props.onSubmitForm : props.onUdatePayment}
+        activeForm={props.state.activeForm}        
+        inputVal={inputVal}        
+        />
     </main>
   );
 }

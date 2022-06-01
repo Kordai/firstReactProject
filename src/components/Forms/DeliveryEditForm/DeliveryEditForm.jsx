@@ -2,11 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { Field, reduxForm } from 'redux-form';
-import s from './TableEditForm.module.css';
+import s from './DeliveryEditForm.module.css';
 
-const TableEditForm = (props) => {
-
-    const name = props.formName;
+const DeliveryEditForm = (props) => {    
 
     let inputComponent = props.inputVal.map(
         (val) => {
@@ -23,11 +21,10 @@ const TableEditForm = (props) => {
 
     return <>
         <form onSubmit={props.handleSubmit} className={props.activeForm ? s.formPopup : s.formPopupNone}>
-            <h1>{props.nameAction} {name}</h1>
-            <label className={props.nameAction === "Add" ? s.noneLabel : s.activeLabel} name={"Id"} >ID: {props.initialValues.Id}</label>
+            <h1>{props.nameAction} delivery</h1>
+            <label className={props.nameAction === "New" ? s.noneLabel : s.activeLabel} name={"Id"} >ID: {props.initialValues.id}</label>
             {inputComponent}
-            <button className={s.btn}>{props.nameAction === "Add" ? "Submit" : "Update"}</button>
-            <button onClick={() => props.onDeletePayment(props.initialValues.Id)} className={props.nameAction === "Add" ? s.noneLabel : s.deleteButton} type="button">Delete</button>
+            <button className={s.btn}>{props.nameAction === "New" ? "Submit" : "Update"}</button>            
             <button onClick={props.closeForm} className={s.cancel} type="button">Close</button>
         </form>
     </>
@@ -35,11 +32,11 @@ const TableEditForm = (props) => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    form: ownProps.formName,
+    form: "Delivery",
     enableReinitialize: true
 });
 
 export default compose(
     connect(mapStateToProps),
     reduxForm(),
-)(TableEditForm);
+)(DeliveryEditForm);

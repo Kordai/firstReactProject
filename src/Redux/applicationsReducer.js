@@ -5,11 +5,16 @@ const UPDATE_APPLICATION_DATA = 'UPDATE_APPLICATION_DATA';
 const SET_APPLICATIONS = 'SET_APPLICATIONS';
 const SET_DELIVERY_INFO = 'SET_DELIVERY_INFO';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_BE_FORM = 'TOGGLE_BE_FORM';
+const SET_INITIAL_VALUES_FORM = 'SET_INITIAL_VALUES_FORM';
+const SET_ACTION_FORM = 'SET_ACTION_FORM';
 
 //Started props
 let initialState = {
     isFetching: false,
-    formName: "Application",
+    initialValuesForm: {},
+    nameFormAction: "",
+    activeForm: false,
     data: [],
     deliveryInfo: [
         { name: 'January', Coffee: 400, Milk: 1400, Cups: 400, Sugar: 1400 },
@@ -60,6 +65,16 @@ const applicationsReducer = (state = initialState, action) => {
                 ...state,
                 data: action.applications
             }
+        case SET_ACTION_FORM:
+            return {
+                ...state,
+                nameFormAction: action.nameFormAction
+            }
+        case TOGGLE_BE_FORM:
+            return {
+                ...state,
+                activeForm: action.activeForm
+            };
         case SET_DELIVERY_INFO:
             return {
                 ...state,
@@ -70,12 +85,32 @@ const applicationsReducer = (state = initialState, action) => {
                 ...state,
                 isFetching: action.isFetching
             }
+        case SET_INITIAL_VALUES_FORM:
+            return {
+                ...state,
+                initialValuesForm: action.initialValuesForm
+            }
         default:
             return state;
     }
 }
 
 //Action Creators functions
+const setinitialValues = (initialValuesForm) => {
+    return { type: SET_INITIAL_VALUES_FORM, initialValuesForm }
+}
+
+const setNameFormAction = (nameFormAction) => {
+    return { type: SET_ACTION_FORM, nameFormAction }
+}
+
+export const toggleBeForm = (activeForm) => {
+    return {
+        type: TOGGLE_BE_FORM,
+        activeForm
+    }
+}
+
 export const addUpdate = (name, value) => {
     return {
         type: UPDATE_APPLICATION,
@@ -100,6 +135,37 @@ const toggleIsFetching = (isFetching) => {
 }
 
 //Thunk functions
+export const openEditForm = (obj) => {
+    return (dispatch) => {
+        // let initialValues = {
+        //     Id: obj[0],
+        //     Point: obj[1],
+        //     Customer: obj[2],
+        //     Payment: obj[3],
+        //     Date: obj[4]
+        // }
+        dispatch(setNameFormAction("Edit"))
+        dispatch(setinitialValues(obj))
+        dispatch(toggleBeForm(true))
+    }
+}
+
+export const openNewForm = () => {
+    return (dispatch) => {
+        let initialValues = {
+            id:"",
+            point:"",
+            coffee:"",
+            milk:"",
+            caps350:"",
+            sugar:""
+        }
+        dispatch(setNameFormAction("New"))
+        dispatch(setinitialValues(initialValues))
+        dispatch(toggleBeForm(true))
+    }
+}
+
 export const getApplications = () => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true));
