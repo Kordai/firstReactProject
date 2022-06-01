@@ -20,7 +20,7 @@ class DeliveryInfoContainer extends React.Component {
       'October',
       'November',
       'December'
-    ].map((val, index) => this.mapArray(this.props.state.data.filter((f) => { console.log(f.month); return parseInt(f.month) === index + 1 }), val))
+    ].map((val, index) => this.mapArray(this.props.state.data.filter((f) => { return parseInt(f.month) === index + 1 }), val))
     this.props.setDeliveryInfo(deliveryInfo)
   }
 
