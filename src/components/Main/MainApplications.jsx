@@ -2,13 +2,21 @@ import React from 'react';
 import s from './MainApplications.module.css';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-import { Button } from "react-bootstrap";
 
 const MainApplications = (props) => {
 
-  const linkFollow = (cell, row, rowIndex, formatExtraData) => {
-    return (      
-      <Button
+  const buttonGroup = (cell, row, rowIndex, formatExtraData) => {
+    return (<>
+      <button className={s.btnNew}
+        onClick={() => {
+          console.log(cell)
+          console.log(row)
+          console.log(rowIndex)
+          console.log(formatExtraData)
+        }}
+      >       
+      </button>
+      <button className={s.btnEdit}
         onClick={() => {
           console.log(cell)
           console.log(row)
@@ -16,8 +24,17 @@ const MainApplications = (props) => {
           console.log(formatExtraData)
         }}
       >
-        Follow
-      </Button>
+      </button>
+      <button className={s.btnDelete}
+        onClick={() => {
+          console.log(cell)
+          console.log(row)
+          console.log(rowIndex)
+          console.log(formatExtraData)
+        }}
+      >
+      </button>
+    </>
     );
   };
 
@@ -29,7 +46,7 @@ const MainApplications = (props) => {
     { dataField: "caps350", text: "Cups", sort: true },
     { dataField: "sugar", text: "Sugar", sort: true },
     { dataField: "date", text: "Date", sort: true },
-    { dataField: "actions", text: "Actions", isDummyField: true, formatter: linkFollow }
+    { dataField: "actions", text: "Actions", isDummyField: true, formatter: buttonGroup }
   ]
 
   return (
@@ -40,7 +57,7 @@ const MainApplications = (props) => {
         columns={columns}
         pagination={paginationFactory()}
       />
-     
+
     </main>
   );
 }

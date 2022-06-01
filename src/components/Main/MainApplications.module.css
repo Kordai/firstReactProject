@@ -1,6 +1,55 @@
 .m {
- background-color: white;
- height: 100%;
- padding: 20px;
+    background-color: white;
+    height: 100%;
+    padding: 20px;
 }
 
+.btnEdit {
+    margin-left: 5px;
+    background-color: cornflowerblue;
+    border-color: cornflowerblue;
+    background-image: url("../../image/icon_btn_edit.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+    border-radius: 5px;
+    height: 30px;
+    width: 30px;
+}
+
+.btnEdit:hover {
+    background-color: rgb(63, 110, 197);
+}
+
+.btnNew {
+    background-color: forestgreen;
+    border-color: forestgreen;
+    background-image: url("../../image/new.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+    border-radius: 5px;
+    height: 30px;
+    width: 30px;
+}
+
+.btnNew:hover {
+    background-color: rgb(26, 102, 26);
+}
+
+.btnDelete {
+    margin-left: 5px;
+    background-color: crimson;
+    border-color: crimson;
+    background-image: url("../../image/delete.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 70% 70%;
+    border-radius: 5px;
+    height: 30px;
+    width: 30px;
+}
+
+.btnDelete:hover {
+    background-color: rgb(179, 15, 48);
+}

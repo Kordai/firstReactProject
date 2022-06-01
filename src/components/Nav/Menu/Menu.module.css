@@ -22,6 +22,7 @@ a.active {
 
 .decarationNone {
   text-decoration: none;
-  background-color: aqua;
+  background-color: #727e94;
+  color: aqua;
   height: 40px;
 }
