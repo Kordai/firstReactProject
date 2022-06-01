@@ -5,33 +5,20 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'rec
 
 const DeliveryInfo = (props) => {
 
-    
+
     let attributes =
         [
-            "Coffee ",
-            "Milk ",
-            "Cups ",
-            "Sugar "
+            "Coffee",
+            "Milk",
+            "Cups",
+            "Sugar"
         ]
 
-    let value =
-        [
-            0,
-            0,
-            0,
-            0
-        ]
+    let value = {}
 
+    value = props.mapArray(props.state, "Info")
 
-    props.state.map(val => {
-        value[0] += parseFloat(val.coffee)
-        value[1] += parseFloat(val.milk)
-        value[2] += parseInt(val.caps350)
-        value[3] += parseFloat(val.sugar)
-        return val
-    })
-
-    let stockModule = attributes.map((val, i) => <ModuleTextLabel teg={val} text={value[i]} key={val} />)
+    let stockModule = attributes.map((val, i) => <ModuleTextLabel teg={val} text={value[val]} key={val} />)
 
     return <>
         <div className={s.info}>
@@ -42,9 +29,9 @@ const DeliveryInfo = (props) => {
             <div className={s.chart}>
                 <BarChart width={700} height={300} data={props.deliveryInfo}>
                     <XAxis dataKey="name" stroke="#00ffff" />
-                    <YAxis stroke="#00ffff"/>
-                    <Tooltip itemStyle={{ color: '#282c34' }} contentStyle={{ backgroundColor: '#727e94', color: '#282c34' }}  cursor={{fill: '#727e94'}}/>
-                    <Legend  wrapperStyle={{ bottom: 0, right: 0, backgroundColor: '#727e94', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
+                    <YAxis stroke="#00ffff" />
+                    <Tooltip itemStyle={{ color: '#282c34' }} contentStyle={{ backgroundColor: '#727e94', color: '#282c34' }} cursor={{ fill: '#727e94' }} />
+                    <Legend wrapperStyle={{ bottom: 0, right: 0, backgroundColor: '#727e94', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
                     <CartesianGrid stroke="#00ffff" strokeDasharray="5 5" />
                     <Bar dataKey="Coffee" fill="#00ffff" barSize={7} />
                     <Bar dataKey="Milk" fill="#00ffaa" barSize={7} />

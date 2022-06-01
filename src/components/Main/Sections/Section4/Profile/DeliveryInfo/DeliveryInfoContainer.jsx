@@ -9,12 +9,32 @@ class DeliveryInfoContainer extends React.Component {
     
   }
   
+  mapArray = (array, name) => {
+    let obj = {
+        name,
+        Coffee: 0,
+        Milk: 0,
+        Cups: 0,
+        Sugar: 0
+    }
+    array.map(val => {
+        obj.Coffee += parseFloat(val.coffee)
+        obj.Milk += parseFloat(val.milk)
+        obj.Cups += parseInt(val.caps350)
+        obj.Sugar += parseFloat(val.sugar)
+        return val
+    })
+
+    return obj
+}
+
   render() {
     return (<>
       {this.props.state.isFetching ? <PreLoader/> : null}
       <DeliveryInfo 
       state={this.props.state.data}
-      deliveryInfo={this.props.state.deliveryInfo}/>
+      deliveryInfo={this.props.state.deliveryInfo}
+      mapArray = {this.mapArray}/>
     </>)
   }
 }
