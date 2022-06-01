@@ -84,8 +84,8 @@ export const addUpdate = (name, value) => {
     }
 }
 
-export const setDeliveryInfo = (deliveryInfo) => {
-    return { type: SET_DELIVERY_INFO,  deliveryInfo}
+const setDeliveryInfo = (deliveryInfo) => {
+    return { type: SET_DELIVERY_INFO, deliveryInfo }
 }
 
 const setApplication = (newApplications) => {
@@ -105,6 +105,50 @@ export const getApplications = () => {
         dispatch(toggleIsFetching(true));
         ConnectToServer.getApplications().then(data => {
             dispatch(setApplication(data.applications))
+            dispatch(toggleIsFetching(false))
+        });
+    }
+}
+
+export const mapArray = (array, name) => {
+    return (dispatch) => {
+        let obj = {
+            name,
+            Coffee: 0,
+            Milk: 0,
+            Cups: 0,
+            Sugar: 0
+        }
+        array.map(val => {
+            obj.Coffee += parseFloat(val.coffee)
+            obj.Milk += parseFloat(val.milk)
+            obj.Cups += parseInt(val.caps350) / 100
+            obj.Sugar += parseFloat(val.sugar)
+            return val
+        })
+        return obj
+    }
+}
+
+export const getDeliveryInfo = () => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true));
+        ConnectToServer.getApplications().then(data => {
+            let deliveryInfo = [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December'
+            ].map((val, index) => dispatch(mapArray(data.applications.filter((f) => { return parseInt(f.month) === index + 1 }), val)))
+            dispatch(setDeliveryInfo(deliveryInfo))
             dispatch(toggleIsFetching(false))
         });
     }

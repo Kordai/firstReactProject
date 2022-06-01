@@ -20,7 +20,7 @@ const DeliveryInfo = (props) => {
 
     const stackCups = (str) => {
         if (str === "Cups") {
-            return "stack 100 Cups"
+            return "Stack 100 Cups"
         }
         return str
     }
