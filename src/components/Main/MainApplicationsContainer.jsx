@@ -1,6 +1,6 @@
 import React from 'react';
 import MainApplications from './MainApplications';
-import { getApplications } from '../../Redux/applicationsReducer';
+import { getApplications, deleteApplications } from '../../Redux/applicationsReducer';
 import { connect } from 'react-redux';
 import PreLoader from './Moduls/PreLoader';
 
@@ -15,7 +15,8 @@ class MainApplicationsContainer extends React.Component {
     return (<>
       {this.props.state.isFetching ? <PreLoader/> : null}
       <MainApplications 
-      state={this.props.state.data}/>
+      state={this.props.state.data}
+      deleteApplications={this.props.deleteApplications}/>
     </>)
   }
 }
@@ -26,4 +27,4 @@ const mapStateToProps = (state) => {
   }
 };
  
-export default connect(mapStateToProps, {getApplications})(MainApplicationsContainer);
+export default connect(mapStateToProps, {getApplications, deleteApplications})(MainApplicationsContainer);

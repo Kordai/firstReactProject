@@ -110,6 +110,18 @@ export const getApplications = () => {
     }
 }
 
+export const deleteApplications = (id) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true));
+        ConnectToServer.deleteApplication(id).then(data => {
+            if (data.success === 1) {
+                dispatch(getApplications())
+                dispatch(toggleIsFetching(false))
+            }
+        });
+    }
+}
+
 export const mapArray = (array, name) => {
     return (dispatch) => {
         let obj = {

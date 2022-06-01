@@ -27,10 +27,7 @@ const MainApplications = (props) => {
       </button>
       <button className={s.btnDelete}
         onClick={() => {
-          console.log(cell)
-          console.log(row)
-          console.log(rowIndex)
-          console.log(formatExtraData)
+          props.deleteApplications(row.id)
         }}
       >
       </button>

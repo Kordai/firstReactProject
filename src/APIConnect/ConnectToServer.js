@@ -33,6 +33,11 @@ const ConnectToServer = {
             .then(response => response.data)
             .catch(error => console.log(error))
     },
+    deleteApplication(id) {
+        return instance.delete('delete_application.php?id=' + id)
+            .then(response => response.data)
+            .catch(error => console.log(error))
+    },
     deleteUser(id) {
         return instance.delete('delete_user.php?id=' + id)
             .then(response => response.data)
