@@ -1,6 +1,6 @@
 import React from 'react';
 import MainApplications from './MainApplications';
-import { getApplications, deleteApplications, openEditForm, toggleBeForm, openNewForm } from '../../Redux/applicationsReducer';
+import { getApplications, deleteApplications, openEditForm, toggleBeForm, openNewForm, onSubmitForm, onUdateDelivery } from '../../Redux/applicationsReducer';
 import { connect } from 'react-redux';
 import PreLoader from './Moduls/PreLoader';
 
@@ -23,7 +23,9 @@ class MainApplicationsContainer extends React.Component {
       deleteApplications={this.props.deleteApplications}
       closeForm={this.closeForm}
       openEditForm={this.props.openEditForm}
-      openNewForm={this.props.openNewForm}/>
+      openNewForm={this.props.openNewForm}
+      onSubmitForm={this.props.onSubmitForm}
+      onUdateDelivery={this.props.onUdateDelivery}/>
     </>)
   }
 }
@@ -34,4 +36,4 @@ const mapStateToProps = (state) => {
   }
 };
  
-export default connect(mapStateToProps, {getApplications, deleteApplications, openEditForm, toggleBeForm, openNewForm})(MainApplicationsContainer);
+export default connect(mapStateToProps, {getApplications, deleteApplications, openEditForm, toggleBeForm, openNewForm, onSubmitForm, onUdateDelivery})(MainApplicationsContainer);

@@ -61,7 +61,7 @@ const MainApplications = (props) => {
         closeForm={props.closeForm}
         nameAction={props.state.nameFormAction}
         initialValues={props.state.initialValuesForm}
-        // onSubmit={props.state.nameFormAction === "Add" ? props.onSubmitForm : props.onUdatePayment}
+        onSubmit={props.state.nameFormAction === "New" ? props.onSubmitForm : props.onUdateDelivery}
         activeForm={props.state.activeForm}        
         inputVal={inputVal}        
         />

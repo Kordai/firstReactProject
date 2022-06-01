@@ -135,15 +135,31 @@ const toggleIsFetching = (isFetching) => {
 }
 
 //Thunk functions
-export const openEditForm = (obj) => {
+export const onSubmitForm = (formData) => {
     return (dispatch) => {
-        // let initialValues = {
-        //     Id: obj[0],
-        //     Point: obj[1],
-        //     Customer: obj[2],
-        //     Payment: obj[3],
-        //     Date: obj[4]
-        // }
+        ConnectToServer.addNewPayment(formData).then(data => {
+            if (data.success === 1) {
+                dispatch(getApplications())
+            }
+        })                
+        dispatch(toggleBeForm(false))
+    }
+}
+
+
+export const onUdateDelivery = (formData) => {
+    return (dispatch) => {
+        ConnectToServer.putApplication(formData).then(data => {            
+            if (data.success === 1) {
+                dispatch(getApplications())
+            }
+        })
+        dispatch(toggleBeForm(false))
+    }
+}
+
+export const openEditForm = (obj) => {
+    return (dispatch) => {        
         dispatch(setNameFormAction("Edit"))
         dispatch(setinitialValues(obj))
         dispatch(toggleBeForm(true))

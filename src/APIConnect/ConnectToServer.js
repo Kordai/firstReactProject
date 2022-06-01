@@ -48,6 +48,11 @@ const ConnectToServer = {
             .then(response => response.data)
             .catch(error => console.log(error))
     },
+    putApplication(obj) {
+        return instance.put('update_application.php', obj)
+            .then(response => response.data)
+            .catch(error => console.log(error))
+    },
     putUser(obj) {
         return instance.put('update_user.php', obj)
             .then(response => response.data)
