@@ -8,29 +8,38 @@ const MainApplications = (props) => {
 
   const buttonGroup = (cell, row, rowIndex, formatExtraData) => {
     return (<>
-      <button className={s.btnNew}
-        onClick={() => {
-          props.openNewForm()
-        }}
-      >
-      </button>
-      <button className={s.btnEdit}
-        onClick={() => {
-          props.openEditForm(row)
-        }}
-      >
-      </button>
-      <button className={s.btnDelete}
-        onClick={() => {
-          props.deleteApplications(row.id)
-        }}
-      >
-      </button>
+      <div className={s.owner}>
+        <button className={s.btnNew}
+          onClick={() => {
+            props.openNewForm()
+          }}
+        >
+        </button>
+        <button className={s.btnEdit}
+          onClick={() => {
+            props.openEditForm(row)
+          }}
+        >
+        </button>
+        <button className={s.btnDelete}
+          onClick={() => {
+            props.deleteApplications(row.id)
+          }}
+        >
+        </button>
+      </div>
+      <div className={s.accept}>
+
+      </div>
+      <div className={s.complet}>
+
+      </div>
+
     </>
     );
   };
 
-  let inputVal = [    
+  let inputVal = [
     "point",
     "coffee",
     "milk",
@@ -62,9 +71,9 @@ const MainApplications = (props) => {
         nameAction={props.state.nameFormAction}
         initialValues={props.state.initialValuesForm}
         onSubmit={props.state.nameFormAction === "New" ? props.onSubmitForm : props.onUdateDelivery}
-        activeForm={props.state.activeForm}        
-        inputVal={inputVal}        
-        />
+        activeForm={props.state.activeForm}
+        inputVal={inputVal}
+      />
     </main>
   );
 }
