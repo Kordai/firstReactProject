@@ -1,0 +1,42 @@
+.visible {
+    display: block;
+    z-index: 10;
+    position: fixed;   
+    z-index: 10;
+    top: 33%;
+    left: 36%;
+    color: #282c34;;
+    width: 500px;
+    height: auto;
+    background-color: #3d4350;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    border: 5px solid aqua;
+}
+
+.invisible {
+    display: none;
+}
+
+.visible input {
+    width: 90%;
+    margin: 2px;
+}
+
+.visible select {
+    width: 90%;
+    margin: 2px;
+}
+
+.visible label {
+    font-size: 25px;
+    color: forestgreen;
+}
+
+.visible button {
+    padding: 5px;
+    margin: 10px;
+    font-size: 15px;
+    width: 100px;
+}
