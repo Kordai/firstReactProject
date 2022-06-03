@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { Field, reduxForm } from 'redux-form';
 import { maxLengthCreator, required } from '../../Component/Validators/Validators';
+import { NewInput } from '../../Component/FormsControls/FormsControls';
 
 const maxLength20 = maxLengthCreator(20);
 
@@ -16,12 +17,12 @@ const LoginForm = (props) => {
             </div>
             <br />
             <Field
-                component="input"
+                component={NewInput}
                 placeholder="Login or e-mail"
                 name="login"
                 validate={[required, maxLength20]} />
             <Field
-                component="input"
+                component={NewInput}
                 placeholder="Password"
                 name="password"
                 type="password"
