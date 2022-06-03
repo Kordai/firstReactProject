@@ -13,16 +13,11 @@
     border: 5px solid aqua;
 }
 
-.invisible {
-    display: none;
+.errorAuth {
+    color: red;
 }
 
 .visible input {
-    width: 90%;
-    margin: 2px;
-}
-
-.visible select {
     width: 90%;
     margin: 2px;
 }
@@ -37,4 +32,5 @@
     margin: 10px;
     font-size: 15px;
     width: 100px;
+    background-color: darkgrey;
 }

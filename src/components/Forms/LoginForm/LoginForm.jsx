@@ -13,7 +13,8 @@ const LoginForm = (props) => {
             </div>
             <br />
             <Field component="input" placeholder="Login or e-mail" name="login" />
-            <Field component="input" placeholder="Password" name="password" type="password" />            
+            <Field component="input" placeholder="Password" name="password" type="password" />
+            <div><span className={s.errorAuth}> {props.errorAuth} </span> </div>
             <button>Login</button>
         </form>
     </>
@@ -26,6 +27,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default compose(
-    connect(mapStateToProps, {  }),
+    connect(mapStateToProps, {}),
     reduxForm(),
 )(LoginForm);

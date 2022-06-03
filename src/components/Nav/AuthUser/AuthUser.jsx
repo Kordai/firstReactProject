@@ -7,10 +7,11 @@ import LoginForm from '../../Forms/LoginForm/LoginForm';
 const AuthUser = (props) => {    
 
     let navigate = useNavigate();
-
+    
     if (props.user.id === null) {
         return <LoginForm
-        onSubmit={props.authUser}/>
+        onSubmit={props.authUser}
+        errorAuth={props.errorAuth}/>
     }
        
     return <>

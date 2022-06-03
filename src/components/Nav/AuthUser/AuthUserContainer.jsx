@@ -25,6 +25,7 @@ class AuthUserContainer extends React.Component {
                 user={this.props.state.user}
                 authUser={this.authUser}
                 logoutUser={this.props.logoutUser}
+                errorAuth={this.props.state.errorAuth}
             />
         </>)
     }

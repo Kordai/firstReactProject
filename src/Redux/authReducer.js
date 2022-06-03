@@ -3,9 +3,11 @@ import ConnectToServer from "../APIConnect/ConnectToServer";
 const SET_USER = 'SET_USER';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const SET_USER_ID = 'SET_USER_ID';
+const SET_ERROR_AUTH = 'SET_ERROR_AUTH';
 
 //Started props
 let initialState = {
+    errorAuth: "",
     userId: null,
     user: {
         id: null,
@@ -35,6 +37,11 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 userId: action.userId
             }
+        case SET_ERROR_AUTH:
+            return {
+                ...state,
+                errorAuth: action.errorAuth
+            }
         default:
             return state;
     }
@@ -45,6 +52,13 @@ const setAuthUser = (data) => {
     return {
         type: SET_USER,
         user: data
+    }
+}
+
+const setErrorAuth = (errorAuth) => {
+    return {
+        type: SET_ERROR_AUTH,
+        errorAuth
     }
 }
 
@@ -80,6 +94,9 @@ export const authUser = (login) => {
             if (data.success === 1) {
                 dispatch(setUserId(data.user.id))
                 dispatch(getAuthUser(data.user.id))
+                dispatch(toggleIsFetching(false))
+            } else {
+                dispatch(setErrorAuth(data.message))
                 dispatch(toggleIsFetching(false))
             }
         });
