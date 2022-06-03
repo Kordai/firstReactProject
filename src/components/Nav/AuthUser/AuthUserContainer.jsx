@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PreLoader from '../../Main/Moduls/PreLoader';
 import AuthUser from './AuthUser';
-import {getAuthUser, authUser} from '../../../Redux/authReducer'
+import {getAuthUser, authUser, logoutUser} from '../../../Redux/authReducer'
 
 class AuthUserContainer extends React.Component {
 
@@ -24,6 +24,7 @@ class AuthUserContainer extends React.Component {
             <AuthUser
                 user={this.props.state.user}
                 authUser={this.authUser}
+                logoutUser={this.props.logoutUser}
             />
         </>)
     }
@@ -35,4 +36,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {getAuthUser, authUser})(AuthUserContainer);
+export default connect(mapStateToProps, {getAuthUser, authUser, logoutUser})(AuthUserContainer);

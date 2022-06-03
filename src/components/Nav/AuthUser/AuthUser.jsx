@@ -21,7 +21,7 @@ const AuthUser = (props) => {
                 <h4>{props.user.lastName}</h4>
             </div>            
             
-            <button onClick={()=> {navigate("/login")} }  type='button' className={s.logout}>Logout</button>
+            <button onClick={()=> {navigate("/login"); props.logoutUser()} }  type='button' className={s.logout}>Logout</button>
         </div>
         
     </>

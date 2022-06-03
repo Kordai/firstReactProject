@@ -35,11 +35,6 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 userId: action.userId
             }
-        // case SET_USER_PROFILE_INFO:
-        //     return {
-        //         ...state,
-        //         userProfileInfo: action.userProfileInfo
-        //     }
         default:
             return state;
     }
@@ -67,13 +62,6 @@ const toggleIsFetching = (isFetching) => {
     }
 }
 
-// export const toggleBeForm = (activeForm) => {
-//     return {
-//         type: TOGGLE_BE_FORM,
-//         activeForm
-//     }
-// }
-
 //Thunk functions
 export const getAuthUser = (id) => {
     return (dispatch) => {
@@ -84,13 +72,12 @@ export const getAuthUser = (id) => {
         });
     }
 }
-//authUser
 
 export const authUser = (login) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true))
-        ConnectToServer.authUser(login).then(data => {            
-            if (data.success === 1) {                
+        ConnectToServer.authUser(login).then(data => {
+            if (data.success === 1) {
                 dispatch(setUserId(data.user.id))
                 dispatch(getAuthUser(data.user.id))
                 dispatch(toggleIsFetching(false))
@@ -99,39 +86,17 @@ export const authUser = (login) => {
     }
 }
 
-// export const getUserProfileInfo = (id) => {
-//     return (dispatch) => {
-//         dispatch(toggleIsFetching(true));        
-//         ConnectToServer.getUser(id).then(data => {
-//             if (data.success === 1) {
-//                 dispatch(setUserProfileInfo(data.user))
-//                 dispatch(toggleIsFetching(false))
-//             }
-//         });
-//     }
-// }
-
-// export const updateUser = (user) => {
-//     return (dispatch) => {
-//         ConnectToServer.putUser(user).then(data => {
-//             if (data.success === 1) {
-//                 dispatch(getUserProfileInfo(user.id))
-//                 dispatch(toggleBeForm(false))
-//             }
-//         });
-//     }
-// }
-
-// export const deleteUser = (id) => {
-//     return (dispatch) => {
-//         dispatch(toggleIsFetching(true));        
-//         ConnectToServer.deleteUser(id).then(data => {
-//             if (data.success === 1) {      
-//                 dispatch(getUsers())           
-//                 dispatch(toggleIsFetching(false))
-//             }
-//         });
-//     }
-// }
+export const logoutUser = () => {
+    return (dispatch) => {
+        dispatch(setUserId(null))
+        dispatch(setAuthUser({
+            id: null,
+            photo: null,
+            login: null,
+            firstName: null,
+            lastName: null
+        }))
+    }
+}
 
 export default authReducer;

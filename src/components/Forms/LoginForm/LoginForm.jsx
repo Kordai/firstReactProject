@@ -13,10 +13,8 @@ const LoginForm = (props) => {
             </div>
             <br />
             <Field component="input" placeholder="Login or e-mail" name="login" />
-            <Field component="input" placeholder="Password" name="password" type="password" />
-            
+            <Field component="input" placeholder="Password" name="password" type="password" />            
             <button>Login</button>
-            <button type='button'>Close</button>
         </form>
     </>
 }
