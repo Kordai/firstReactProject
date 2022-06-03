@@ -2,6 +2,7 @@ import ConnectToServer from "../APIConnect/ConnectToServer";
 
 const SET_USER = 'SET_USER';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const SET_USER_ID = 'SET_USER_ID';
 
 //Started props
 let initialState = {
@@ -30,11 +31,11 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 isFetching: action.isFetching
             }
-        // case TOGGLE_BE_FORM:
-        //     return {
-        //         ...state,
-        //         activeForm: action.activeForm
-        //     }
+        case SET_USER_ID:
+            return {
+                ...state,
+                userId: action.userId
+            }
         // case SET_USER_PROFILE_INFO:
         //     return {
         //         ...state,
@@ -53,12 +54,12 @@ const setAuthUser = (data) => {
     }
 }
 
-// const setUserProfileInfo = (userProfileInfo) => {
-//     return {
-//         type: SET_USER_PROFILE_INFO,
-//         userProfileInfo
-//     }
-// }
+const setUserId = (userId) => {
+    return {
+        type: SET_USER_ID,
+        userId
+    }
+}
 
 const toggleIsFetching = (isFetching) => {
     return {
@@ -75,26 +76,29 @@ const toggleIsFetching = (isFetching) => {
 // }
 
 //Thunk functions
-export const getAuthUser = () => {
+export const getAuthUser = (id) => {
     return (dispatch) => {
-        dispatch(toggleIsFetching(true));
-        ConnectToServer.getUser(initialState.userId).then(data => {
+        dispatch(toggleIsFetching(true))
+        ConnectToServer.getUser(id).then(data => {
             dispatch(setAuthUser(data.user))
             dispatch(toggleIsFetching(false))
         });
     }
 }
+//authUser
 
-// export const newUser = (user) => {
-//     return (dispatch) => {
-//         ConnectToServer.addNewUser(user).then(data => {
-//             if (data.success === 1) {
-//                 dispatch(getUsers())
-//                 dispatch(toggleBeForm(false))
-//             }
-//         });
-//     }
-// }
+export const authUser = (login) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true))
+        ConnectToServer.authUser(login).then(data => {            
+            if (data.success === 1) {                
+                dispatch(setUserId(data.user.id))
+                dispatch(getAuthUser(data.user.id))
+                dispatch(toggleIsFetching(false))
+            }
+        });
+    }
+}
 
 // export const getUserProfileInfo = (id) => {
 //     return (dispatch) => {

@@ -1,8 +1,6 @@
 .visible {
-    display: block;
-    z-index: 10;
+    display: block;   
     position: fixed;   
-    z-index: 10;
     top: 33%;
     left: 36%;
     color: #282c34;;

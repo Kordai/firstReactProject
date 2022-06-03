@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PreLoader from '../../Main/Moduls/PreLoader';
 import AuthUser from './AuthUser';
-import {getAuthUser} from '../../../Redux/authReducer'
+import {getAuthUser, authUser} from '../../../Redux/authReducer'
 
 class AuthUserContainer extends React.Component {
 
@@ -12,16 +12,13 @@ class AuthUserContainer extends React.Component {
             console.log(this.props.state.user.id)
             if (this.props.state.user.id === null) {
                 console.log("Login to server")
-                this.props.getAuthUser()
+                this.props.getAuthUser(this.props.state.userId)
             }
-        } else {
-            alert("Login")
-        }
-
+        } 
     }
 
     authUser = (dataForm) =>{
-        alert("Auth to server")
+       this.props.authUser(dataForm)
     }
 
     render() {
@@ -41,4 +38,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {getAuthUser})(AuthUserContainer);
+export default connect(mapStateToProps, {getAuthUser, authUser})(AuthUserContainer);
