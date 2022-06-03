@@ -18,9 +18,10 @@ const LoginForm = (props) => {
             <br />
             <Field
                 component={NewInput}
+                validate={[required, maxLength20]}
                 placeholder="Login or e-mail"
                 name="login"
-                validate={[required, maxLength20]} />
+                 />
             <Field
                 component={NewInput}
                 placeholder="Password"

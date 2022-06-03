@@ -2,7 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { Field, reduxForm } from 'redux-form';
+import { NewInput } from '../../Component/FormsControls/FormsControls';
+import { maxLengthCreator, required } from '../../Component/Validators/Validators';
 import s from './TableEditForm.module.css';
+
+const maxLength20 = maxLengthCreator(20);
 
 const TableEditForm = (props) => {
 
@@ -12,7 +16,8 @@ const TableEditForm = (props) => {
         (val) => {
             return (
                 <Field
-                    component="input"
+                    component={NewInput}
+                    validate={[required, maxLength20]}
                     placeholder={val}
                     name={val}
                     key={props.inputVal.indexOf(val)}
