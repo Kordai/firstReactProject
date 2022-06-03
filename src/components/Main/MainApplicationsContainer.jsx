@@ -3,6 +3,7 @@ import MainApplications from './MainApplications';
 import { getApplications, deleteApplications, openEditForm, toggleBeForm, openNewForm, onSubmitForm, onUdateDelivery } from '../../Redux/applicationsReducer';
 import { connect } from 'react-redux';
 import PreLoader from './Moduls/PreLoader';
+import { WithAuthRedirect } from '../../Hoc/WithAuthRedirect';
 
 class MainApplicationsContainer extends React.Component {
   componentDidMount() {
@@ -32,8 +33,9 @@ class MainApplicationsContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    state: state.applications
+    state: state.applications,
+    userId:state.auth.userId
   }
 };
  
-export default connect(mapStateToProps, {getApplications, deleteApplications, openEditForm, toggleBeForm, openNewForm, onSubmitForm, onUdateDelivery})(MainApplicationsContainer);
+export default connect(mapStateToProps, {getApplications, deleteApplications, openEditForm, toggleBeForm, openNewForm, onSubmitForm, onUdateDelivery})(WithAuthRedirect(MainApplicationsContainer))

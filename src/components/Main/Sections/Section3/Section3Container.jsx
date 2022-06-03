@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Section3 from './Section3'
 import React from 'react';
 import PreLoader from '../../Moduls/PreLoader';
+import { WithAuthRedirect } from '../../../../Hoc/WithAuthRedirect';
 
 class Section3Container extends React.Component {
 
@@ -41,7 +42,8 @@ class Section3Container extends React.Component {
 const mapStateToProps = (state) => {
 
   return {
-    state: state.section3
+    state: state.section3,
+    userId:state.auth.userId
   }
 };
 
@@ -55,5 +57,5 @@ export default connect(mapStateToProps,
     onUdatePayment,
     onDeletePayment
   }
-)(Section3Container);
+)(WithAuthRedirect(Section3Container));
 

@@ -7,7 +7,6 @@ import {getAuthUser, authUser} from '../../../Redux/authReducer'
 class AuthUserContainer extends React.Component {
 
     componentDidMount() {
-        console.log(this.props.state.userId)
         if (this.props.state.userId !== null) {
             if (this.props.state.user.id === null) {
                 this.props.getAuthUser(this.props.state.userId)
