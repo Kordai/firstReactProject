@@ -14,8 +14,7 @@ let initialState = {
         firstName: null,
         lastName: null
     },
-    isFetching: false,
-    userProfileInfo: {}
+    isFetching: false
 };
 
 //Reducers functions
