@@ -2,10 +2,16 @@ import React from 'react';
 import s from './AuthUser.module.css';
 import userPhoto from '../../image/user.png';
 import { useNavigate } from 'react-router-dom';
+import LoginForm from '../../Forms/LoginForm/LoginForm';
 
 const AuthUser = (props) => {    
 
     let navigate = useNavigate();
+
+    if (props.user.id === null) {
+        return <LoginForm
+        onSubmit={props.authUser}/>
+    }
        
     return <>
         <div className={s.user}>            

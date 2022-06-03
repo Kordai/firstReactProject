@@ -7,7 +7,7 @@ import { Field, reduxForm } from 'redux-form';
 const LoginForm = (props) => {
 
     return <>
-        <form onSubmit={props.handleSubmit} className={props.state.activeForm ? s.visible : s.invisible}>
+        <form onSubmit={props.handleSubmit} className={s.visible}>
             <div>
                 <Field component="label" name="formName">Login</Field>
             </div>
