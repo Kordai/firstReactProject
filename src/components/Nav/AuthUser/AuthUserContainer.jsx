@@ -9,9 +9,7 @@ class AuthUserContainer extends React.Component {
     componentDidMount() {
         console.log(this.props.state.userId)
         if (this.props.state.userId !== null) {
-            console.log(this.props.state.user.id)
             if (this.props.state.user.id === null) {
-                console.log("Login to server")
                 this.props.getAuthUser(this.props.state.userId)
             }
         } 
