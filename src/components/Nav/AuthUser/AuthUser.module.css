@@ -1,0 +1,24 @@
+.img {
+    height: 150px;
+    width: 150px;
+}
+
+.user {
+    display: grid;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    border: 2px solid aqua;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 15px;
+}
+
+.logout{
+    margin-top: 50px;    
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #727e94;
+    color: #282c34;
+}

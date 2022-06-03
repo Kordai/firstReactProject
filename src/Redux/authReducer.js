@@ -8,12 +8,12 @@ import ConnectToServer from "../APIConnect/ConnectToServer";
 //Started props
 let initialState = {
     user: {
-        id: null,
+        id: 1,
         photo: null,
-        login: null,
-        password: null,
-        firstName: null,
-        lastName: null
+        login: "Kordai",
+        password: 123,
+        firstName: "Alexandr",
+        lastName: "Nazarov"
     },
     isFetching: false,
     activeForm: false,
