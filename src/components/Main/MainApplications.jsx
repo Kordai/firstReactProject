@@ -22,19 +22,19 @@ const MainApplications = (props) => {
     } else {
       return (<>
         <div >
-          <button className={s.btnNew}
+          <button className={row.accepted==="false"? s.btnNew:s.notVisible}
             onClick={() => {
               props.openNewForm()
             }}
           >
           </button>
-          <button className={s.btnEdit}
+          <button className={row.accepted==="false"? s.btnEdit:s.notVisible}
             onClick={() => {
               props.openEditForm(row)
             }}
           >
           </button>
-          <button className={s.btnDelete}
+          <button className={row.accepted==="false"? s.btnDelete:s.notVisible}
             onClick={() => {
               props.deleteApplications(row.id)
             }}
