@@ -51,7 +51,8 @@ const MainApplications = (props) => {
     "coffee",
     "milk",
     "caps350",
-    "sugar"
+    "sugar",
+    "id_accept"
   ]
 
   const columns = [
