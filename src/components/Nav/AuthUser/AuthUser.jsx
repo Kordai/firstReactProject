@@ -13,6 +13,8 @@ const AuthUser = (props) => {
         onSubmit={props.authUser}
         errorAuth={props.errorAuth}/>
     }
+
+    console.log(props.user.team)
        
     return <>
         <div className={s.user}>            

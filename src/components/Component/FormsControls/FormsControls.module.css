@@ -1,5 +1,6 @@
 .error input {
     border: solid red 6px;
+    z-index: 10;
 }
 
 .spanerror {
