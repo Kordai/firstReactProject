@@ -34,6 +34,7 @@ class Section3Container extends React.Component {
         openEditForm={this.props.openEditForm}
         onUdatePayment={this.props.onUdatePayment}
         onDeletePayment={this.props.onDeletePayment}
+        team={this.props.team}
       />
     </>
   }
@@ -43,7 +44,8 @@ const mapStateToProps = (state) => {
 
   return {
     state: state.section3,
-    userId:state.auth.userId
+    userId:state.auth.userId,
+    team: state.auth.user.team
   }
 };
 

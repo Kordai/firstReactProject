@@ -7,6 +7,12 @@ import TableActionForm from './Moduls/Form/TableActionForm';
 
 const Section3 = (props) => {
 
+  if (props.team === "Service") {
+    return <div> 
+      <span className={s.spanService}> Access is limited </span>
+    </div>
+  }
+
   return (
     <section className={s.s3} >
       <Table
