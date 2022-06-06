@@ -14,8 +14,6 @@ const AuthUser = (props) => {
         errorAuth={props.errorAuth}/>
     }
 
-    console.log(props.user.team)
-       
     return <>
         <div className={s.user}>            
             <img src={userPhoto} alt="User" className={s.img}></img>

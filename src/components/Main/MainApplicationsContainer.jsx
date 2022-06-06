@@ -26,7 +26,8 @@ class MainApplicationsContainer extends React.Component {
       openEditForm={this.props.openEditForm}
       openNewForm={this.props.openNewForm}
       onSubmitForm={this.props.onSubmitForm}
-      onUdateDelivery={this.props.onUdateDelivery}/>
+      onUdateDelivery={this.props.onUdateDelivery}
+      team={this.props.team}/>
     </>)
   }
 }
@@ -34,7 +35,8 @@ class MainApplicationsContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     state: state.applications,
-    userId:state.auth.userId
+    userId:state.auth.userId,
+    team: state.auth.user.team
   }
 };
  

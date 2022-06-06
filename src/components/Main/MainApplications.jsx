@@ -7,36 +7,43 @@ import DeliveryEditForm from '../Forms/DeliveryEditForm/DeliveryEditForm';
 const MainApplications = (props) => {
 
   const buttonGroup = (cell, row, rowIndex, formatExtraData) => {
-    return (<>
-      <div className={s.owner}>
-        <button className={s.btnNew}
-          onClick={() => {
-            props.openNewForm()
-          }}
-        >
-        </button>
-        <button className={s.btnEdit}
-          onClick={() => {
-            props.openEditForm(row)
-          }}
-        >
-        </button>
-        <button className={s.btnDelete}
-          onClick={() => {
-            props.deleteApplications(row.id)
-          }}
-        >
-        </button>
-      </div>
-      <div className={s.accept}>
-
-      </div>
-      <div className={s.complet}>
-
-      </div>
-
-    </>
-    );
+    if (props.team === "Service") {
+      return (<>
+        <div >
+          <button className={row.accepted==="false"? s.accept:s.notVisible}>
+          Accept
+          </button>
+          <button className={row.accepted==="true"&&row.completed==="false"? s.accept:s.notVisible}>
+          Delivery
+          </button>
+        </div>
+      </>
+      )
+    } else {
+      return (<>
+        <div >
+          <button className={s.btnNew}
+            onClick={() => {
+              props.openNewForm()
+            }}
+          >
+          </button>
+          <button className={s.btnEdit}
+            onClick={() => {
+              props.openEditForm(row)
+            }}
+          >
+          </button>
+          <button className={s.btnDelete}
+            onClick={() => {
+              props.deleteApplications(row.id)
+            }}
+          >
+          </button>
+        </div>
+      </>
+      )
+    }
   };
 
   let inputVal = [
