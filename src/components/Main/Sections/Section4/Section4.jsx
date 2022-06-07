@@ -15,10 +15,11 @@ const Section4 = (props) => {
     <section className={s.u}>
     <span className={s.team}>{props.team}s</span>
       {userPage}
-      <NewUser 
+      {props.activTeam !== "Service"? <NewUser 
       team = {props.team} 
       toggleBeForm={props.toggleBeForm}
-      newUser = {props.newUser}/>
+      newUser = {props.newUser}/>: null }
+      
     </section>  
   );
 }

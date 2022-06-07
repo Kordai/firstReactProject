@@ -19,7 +19,8 @@ class MainUsersContainer extends React.Component {
       {this.props.state.isFetching ? <PreLoader/> : null}
       <MainUsers state={this.props.state}
       toggleBeForm = {this.props.toggleBeForm}
-      newUser = {this.props.newUser}/>
+      newUser = {this.props.newUser}
+      team = {this.props.team}/>
     </>)
   }
 
@@ -28,7 +29,8 @@ class MainUsersContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     state: state.users,
-    userId:state.auth.userId
+    userId:state.auth.userId,
+    team: state.auth.user.team
   }
 };
 
