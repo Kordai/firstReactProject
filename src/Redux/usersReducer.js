@@ -71,7 +71,7 @@ export const toggleBeForm = (activeForm) => {
 }
 
 //Thunk functions
-export const getUsers = () => {
+export const getUsersRequst = () => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true));
         ConnectToServer.getUsers().then(data => {
@@ -85,7 +85,7 @@ export const newUser = (user) => {
     return (dispatch) => {
         ConnectToServer.addNewUser(user).then(data => {
             if (data.success === 1) {
-                dispatch(getUsers())
+                dispatch(getUsersRequst())
                 dispatch(toggleBeForm(false))
             }
         });
@@ -120,7 +120,7 @@ export const deleteUser = (id) => {
         dispatch(toggleIsFetching(true));        
         ConnectToServer.deleteUser(id).then(data => {
             if (data.success === 1) {      
-                dispatch(getUsers())           
+                dispatch(getUsersRequst())           
                 dispatch(toggleIsFetching(false))
             }
         });
