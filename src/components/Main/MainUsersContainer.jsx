@@ -4,6 +4,7 @@ import MainUsers from './MainUsers';
 import PreLoader from './Moduls/PreLoader';
 import {getUsers, toggleBeForm, newUser} from '../../Redux/usersReducer';
 import { WithAuthRedirect } from '../../Hoc/WithAuthRedirect';
+import { getAuthUserId, getAuthUserTeam } from '../../Redux/authSelectors';
 
 class MainUsersContainer extends React.Component {
 
@@ -29,8 +30,8 @@ class MainUsersContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     state: state.users,
-    userId:state.auth.userId,
-    team: state.auth.user.team
+    userId:getAuthUserId(state),
+    team: getAuthUserTeam(state)
   }
 };
 
