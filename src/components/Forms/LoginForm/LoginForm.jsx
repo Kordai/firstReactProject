@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import { Field, reduxForm } from 'redux-form';
 import { maxLengthCreator, required } from '../../Component/Validators/Validators';
 import { NewInput } from '../../Component/FormsControls/FormsControls';
+import { getAuthState } from '../../../Redux/authSelectors';
 
 const maxLength20 = maxLengthCreator(20);
 
@@ -36,7 +37,7 @@ const LoginForm = (props) => {
 //
 const mapStateToProps = (state) => ({
     form: "LoginForm",
-    state: state.auth,
+    state: getAuthState(state),
     enableReinitialize: true
 });
 

@@ -1,0 +1,1 @@
+export const getSection3Data = state => state.section3

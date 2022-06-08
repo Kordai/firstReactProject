@@ -6,6 +6,7 @@ import { compose } from 'redux';
 import { Field, reduxForm } from 'redux-form';
 import { NewInput } from '../../Component/FormsControls/FormsControls';
 import { maxLengthCreator, required } from '../../Component/Validators/Validators';
+import { getUsers } from '../../../Redux/usersSelectors';
 
 const maxLength20 = maxLengthCreator(20);
 
@@ -73,7 +74,7 @@ const UserForm = (props) => {
 //
 const mapStateToProps = (state) => ({
     form: "UserForm",
-    state: state.users,
+    state: getUsers(state),
     enableReinitialize: true
 });
 

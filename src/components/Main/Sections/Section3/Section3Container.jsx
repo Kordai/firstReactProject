@@ -4,6 +4,8 @@ import Section3 from './Section3'
 import React from 'react';
 import PreLoader from '../../Moduls/PreLoader';
 import { WithAuthRedirect } from '../../../../Hoc/WithAuthRedirect';
+import { getAuthUserId, getAuthUserTeam } from '../../../../Redux/authSelectors';
+import { getSection3Data } from '../../../../Redux/section3Selectors';
 
 class Section3Container extends React.Component {
 
@@ -43,9 +45,9 @@ class Section3Container extends React.Component {
 const mapStateToProps = (state) => {
 
   return {
-    state: state.section3,
-    userId:state.auth.userId,
-    team: state.auth.user.team
+    state: getSection3Data(state),
+    userId: getAuthUserId(state),
+    team: getAuthUserTeam(state)
   }
 };
 

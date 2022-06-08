@@ -2,6 +2,7 @@ import React from 'react';
 import Stock from './Stock';
 import { connect } from 'react-redux';
 import PreLoader from '../../../../Moduls/PreLoader';
+import { getApplications } from '../../../../../../Redux/applicationsSelectors';
 
 class StockContainer extends React.Component {
   
@@ -16,7 +17,7 @@ class StockContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    state: state.applications
+    state: getApplications(state)
   }
 };
  
