@@ -158,6 +158,17 @@ export const onUdateDelivery = (formData) => {
     }
 }
 
+export const onUdateDeliveryAction = (formData) => {
+    return (dispatch) => {
+        ConnectToServer.putApplicationAction(formData).then(data => {            
+            if (data.success === 1) {
+                dispatch(getApplications())
+            }
+        })
+        dispatch(toggleBeForm(false))
+    }
+}
+
 export const openEditForm = (obj) => {
     return (dispatch) => {        
         dispatch(setNameFormAction("Edit"))

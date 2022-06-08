@@ -10,11 +10,29 @@ const MainApplications = (props) => {
     if (props.team === "Service") {
       return (<>
         <div >
-          <button className={row.accepted==="false"? s.accept:s.notVisible}>
-          Accept
+          <button className={row.accepted === "false" ? s.accept : s.notVisible}
+            onClick={() => {
+              let formData = {
+                id: row.id,
+                accepted: "true",
+                completed: "false"
+              }
+              props.onUdateDeliveryAction(formData)
+            }}
+          >
+            Accept
           </button>
-          <button className={row.accepted==="true"&&row.completed==="false"? s.accept:s.notVisible}>
-          Delivery
+          <button className={row.accepted === "true" && row.completed === "false" ? s.accept : s.notVisible}
+            onClick={() => {
+              let formData = {
+                id: row.id,
+                accepted: "true",
+                completed: "true"
+              }
+              props.onUdateDeliveryAction(formData)
+            }}
+          >
+            Delivery
           </button>
         </div>
       </>
@@ -22,19 +40,19 @@ const MainApplications = (props) => {
     } else {
       return (<>
         <div >
-          <button className={row.accepted==="false"? s.btnNew:s.notVisible}
+          <button className={row.accepted === "false" ? s.btnNew : s.notVisible}
             onClick={() => {
               props.openNewForm()
             }}
           >
           </button>
-          <button className={row.accepted==="false"? s.btnEdit:s.notVisible}
+          <button className={row.accepted === "false" ? s.btnEdit : s.notVisible}
             onClick={() => {
               props.openEditForm(row)
             }}
           >
           </button>
-          <button className={row.accepted==="false"? s.btnDelete:s.notVisible}
+          <button className={row.accepted === "false" ? s.btnDelete : s.notVisible}
             onClick={() => {
               props.deleteApplications(row.id)
             }}
