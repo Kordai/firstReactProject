@@ -2,7 +2,8 @@ import React from 'react';
 import DeliveryInfo from './DeliveryInfo';
 import { connect } from 'react-redux';
 import PreLoader from '../../../../Moduls/PreLoader';
-import { getApplications, mapArray, getDeliveryInfo } from '../../../../../../Redux/applicationsReducer'
+import { mapArray, getDeliveryInfo } from '../../../../../../Redux/applicationsReducer'
+import { getApplications } from '../../../../../../Redux/applicationsSelectors';
 
 class DeliveryInfoContainer extends React.Component {
 
@@ -23,8 +24,8 @@ class DeliveryInfoContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    state: state.applications
+    state: getApplications(state)
   }
 };
 
-export default connect(mapStateToProps, { getApplications, mapArray, getDeliveryInfo })(DeliveryInfoContainer);
+export default connect(mapStateToProps, { mapArray, getDeliveryInfo })(DeliveryInfoContainer);

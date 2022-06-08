@@ -1,14 +1,16 @@
 import React from 'react';
 import MainApplications from './MainApplications';
-import { getApplications, deleteApplications, openEditForm, toggleBeForm, openNewForm, onSubmitForm, onUdateDelivery, onUdateDeliveryAction } from '../../Redux/applicationsReducer';
+import { getApplicationsRequest, deleteApplications, openEditForm, toggleBeForm, openNewForm, onSubmitForm, onUdateDelivery, onUdateDeliveryAction } from '../../Redux/applicationsReducer';
 import { connect } from 'react-redux';
 import PreLoader from './Moduls/PreLoader';
 import { WithAuthRedirect } from '../../Hoc/WithAuthRedirect';
+import { getAuthUserId, getAuthUserTeam } from '../../Redux/authSelectors';
+import { getApplications } from '../../Redux/applicationsSelectors';
 
 class MainApplicationsContainer extends React.Component {
   componentDidMount() {
     if (this.props.state.data.length === 0) {
-      this.props.getApplications();    
+      this.props.getApplicationsRequest();    
     } 
   }
 
@@ -35,10 +37,10 @@ class MainApplicationsContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    state: state.applications,
-    userId:state.auth.userId,
-    team: state.auth.user.team
+    state: getApplications(state),
+    userId:getAuthUserId(state),
+    team: getAuthUserTeam(state)
   }
 };
  
-export default connect(mapStateToProps, {getApplications, deleteApplications, openEditForm, toggleBeForm, openNewForm, onSubmitForm, onUdateDelivery, onUdateDeliveryAction})(WithAuthRedirect(MainApplicationsContainer))
+export default connect(mapStateToProps, {getApplicationsRequest, deleteApplications, openEditForm, toggleBeForm, openNewForm, onSubmitForm, onUdateDelivery, onUdateDeliveryAction})(WithAuthRedirect(MainApplicationsContainer))

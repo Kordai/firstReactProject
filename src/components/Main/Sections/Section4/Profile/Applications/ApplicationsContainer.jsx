@@ -1,13 +1,14 @@
 import React from 'react';
 import Applications from './Applications';
-import { getApplications } from '../../../../../../Redux/applicationsReducer';
+import { getApplicationsRequest } from '../../../../../../Redux/applicationsReducer';
 import { connect } from 'react-redux';
 import PreLoader from '../../../../Moduls/PreLoader';
+import { getApplications } from '../../../../../../Redux/applicationsSelectors';
 
 class ApplicationsContainer extends React.Component {
   componentDidMount() {
     if (this.props.state.data.length === 0) {
-      this.props.getApplications();    
+      this.props.getApplicationsRequest();    
     } 
   }
 
@@ -22,8 +23,8 @@ class ApplicationsContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    state: state.applications
+    state: getApplications(state)
   }
 };
  
-export default connect(mapStateToProps, {getApplications})(ApplicationsContainer);
+export default connect(mapStateToProps, {getApplicationsRequest})(ApplicationsContainer);

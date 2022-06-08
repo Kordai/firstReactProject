@@ -139,7 +139,7 @@ export const onSubmitForm = (formData) => {
     return (dispatch) => {
         ConnectToServer.addNewDelivery(formData).then(data => {
             if (data.success === 1) {
-                dispatch(getApplications())
+                dispatch(getApplicationsRequest())
             }
         })                
         dispatch(toggleBeForm(false))
@@ -151,7 +151,7 @@ export const onUdateDelivery = (formData) => {
     return (dispatch) => {
         ConnectToServer.putApplication(formData).then(data => {            
             if (data.success === 1) {
-                dispatch(getApplications())
+                dispatch(getApplicationsRequest())
             }
         })
         dispatch(toggleBeForm(false))
@@ -162,7 +162,7 @@ export const onUdateDeliveryAction = (formData) => {
     return (dispatch) => {
         ConnectToServer.putApplicationAction(formData).then(data => {            
             if (data.success === 1) {
-                dispatch(getApplications())
+                dispatch(getApplicationsRequest())
             }
         })
         dispatch(toggleBeForm(false))
@@ -193,7 +193,7 @@ export const openNewForm = () => {
     }
 }
 
-export const getApplications = () => {
+export const getApplicationsRequest = () => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true));
         ConnectToServer.getApplications().then(data => {
@@ -208,7 +208,7 @@ export const deleteApplications = (id) => {
         dispatch(toggleIsFetching(true));
         ConnectToServer.deleteApplication(id).then(data => {
             if (data.success === 1) {
-                dispatch(getApplications())
+                dispatch(getApplicationsRequest())
                 dispatch(toggleIsFetching(false))
             }
         });

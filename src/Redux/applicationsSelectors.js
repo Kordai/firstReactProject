@@ -1,0 +1,1 @@
+export const getApplications = state => state.applications
