@@ -5,15 +5,9 @@ import { NavLink } from 'react-router-dom';
 
 const User = (props) => {
 
-  const openProfileUser = (id) => {
-
-    console.log(id)
-
-  }
-
   return (
     <NavLink className={s.noDecoration} to={"/panelusers/userprofile/" + props.state.id}>
-      <div onDoubleClick={() => openProfileUser(props.state)} className={s.u}>
+      <div className={s.u}>
         <div className={s.info}>
           <div>
             <h3>{props.state.firstName}</h3>
