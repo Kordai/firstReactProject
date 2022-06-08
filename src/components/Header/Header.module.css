@@ -2,7 +2,7 @@
   grid-area: h;
   font-size: 20px;
   height: 100%;
-  background-color: blueviolet;
+  background-color:#282c34;
   display: grid;
   text-align: center;
   grid-template-columns: 1fr 1fr 1fr;
