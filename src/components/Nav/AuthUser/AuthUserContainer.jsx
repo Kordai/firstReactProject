@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PreLoader from '../../Main/Moduls/PreLoader';
 import AuthUser from './AuthUser';
 import {getAuthUser, authUser, logoutUser} from '../../../Redux/authReducer'
+import { getAuthState } from '../../../Redux/authSelectors';
 
 class AuthUserContainer extends React.Component {
 
@@ -33,7 +34,7 @@ class AuthUserContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        state: state.auth
+        state: getAuthState(state)
     }
 };
 
