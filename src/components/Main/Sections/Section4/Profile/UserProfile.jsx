@@ -6,7 +6,7 @@ import UserInfoContainer from './UserInfo/UserInfoContainer';
 import { useParams } from 'react-router-dom';
 import ApplicationsContainer from './Applications/ApplicationsContainer';
 
-const UserProfile = () => {
+const UserProfile = () => {    
     return <>
         <main className={s.profile}>
             <UserInfoContainer userID = {useParams().userID}/>

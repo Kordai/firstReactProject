@@ -7,7 +7,7 @@ const User = (props) => {
 
   return (
     <NavLink className={s.noDecoration} to={"/panelusers/userprofile/" + props.state.id}>
-      <div className={s.u}>
+      <div  className={s.u}>
         <div className={s.info}>
           <div>
             <h3>{props.state.firstName}</h3>

@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import PreLoader from '../../../../Moduls/PreLoader';
 import UserInfo from './UserInfo';
 import {getUserProfileInfo, deleteUser, toggleBeForm, updateUser} from '../../../../../../Redux/usersReducer';
-import { getUsers } from '../../../../../../Redux/usersSelectors';
+import { getUsersState } from '../../../../../../Redux/usersSelectors';
 
 class UserInfoContainer extends React.Component {
 
-    componentDidMount() {
+    componentDidMount() {        
         this.props.getUserProfileInfo(this.props.userID)
-      
     }
 
     userAttributes =
@@ -43,7 +42,7 @@ class UserInfoContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        state: getUsers(state)
+        state: getUsersState(state)
     }
 };
 

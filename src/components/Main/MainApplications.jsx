@@ -88,7 +88,7 @@ const MainApplications = (props) => {
     <main className={s.m}>
       <BootstrapTable
         keyField='id'
-        data={props.state.data}
+        data={props.data}
         columns={columns}
         pagination={paginationFactory()}
       />

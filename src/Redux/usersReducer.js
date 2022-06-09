@@ -94,7 +94,7 @@ export const newUser = (user) => {
 
 export const getUserProfileInfo = (id) => {
     return (dispatch) => {
-        dispatch(toggleIsFetching(true));        
+        dispatch(toggleIsFetching(true));   
         ConnectToServer.getUser(id).then(data => {
             if (data.success === 1) {
                 dispatch(setUserProfileInfo(data.user))

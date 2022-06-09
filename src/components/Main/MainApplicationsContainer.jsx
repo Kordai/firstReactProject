@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PreLoader from './Moduls/PreLoader';
 import { WithAuthRedirect } from '../../Hoc/WithAuthRedirect';
 import { getAuthUserId, getAuthUserTeam } from '../../Redux/authSelectors';
-import { getApplications } from '../../Redux/applicationsSelectors';
+import { getApplications, getDelideryActiveUser } from '../../Redux/applicationsSelectors';
 
 class MainApplicationsContainer extends React.Component {
   componentDidMount() {
@@ -30,6 +30,7 @@ class MainApplicationsContainer extends React.Component {
       onSubmitForm={this.props.onSubmitForm}
       onUdateDelivery={this.props.onUdateDelivery}
       team={this.props.team}
+      data={this.props.data}
       onUdateDeliveryAction={this.props.onUdateDeliveryAction}/>
     </>)
   }
@@ -38,6 +39,7 @@ class MainApplicationsContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     state: getApplications(state),
+    data: getDelideryActiveUser(state),
     userId:getAuthUserId(state),
     team: getAuthUserTeam(state)
   }
