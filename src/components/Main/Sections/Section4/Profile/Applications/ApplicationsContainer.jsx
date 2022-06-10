@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PreLoader from '../../../../Moduls/PreLoader';
 import { getApplications } from '../../../../../../Redux/applicationsSelectors';
 
-class ApplicationsContainer extends React.Component {
+class ApplicationsContainer extends React.PureComponent {
   componentDidMount() {
     if (this.props.state.data.length === 0) {
       this.props.getApplicationsRequest();    

@@ -5,7 +5,7 @@ import PreLoader from '../../../../Moduls/PreLoader';
 import { mapArray, getDeliveryInfo } from '../../../../../../Redux/applicationsReducer'
 import { getApplications } from '../../../../../../Redux/applicationsSelectors';
 
-class DeliveryInfoContainer extends React.Component {
+class DeliveryInfoContainer extends React.PureComponent {
 
   componentDidMount() {
     this.props.getDeliveryInfo();

@@ -7,7 +7,7 @@ import { WithAuthRedirect } from '../../../../Hoc/WithAuthRedirect';
 import { getAuthUserId, getAuthUserTeam } from '../../../../Redux/authSelectors';
 import { getSection3Data } from '../../../../Redux/section3Selectors';
 
-class Section3Container extends React.Component {
+class Section3Container extends React.PureComponent {
 
   componentDidMount() {
     if (this.props.state.data.length === 0) {

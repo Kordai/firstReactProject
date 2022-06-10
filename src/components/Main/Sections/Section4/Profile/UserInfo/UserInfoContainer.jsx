@@ -5,7 +5,7 @@ import UserInfo from './UserInfo';
 import {getUserProfileInfo, deleteUser, toggleBeForm, updateUser} from '../../../../../../Redux/usersReducer';
 import { getUsersState } from '../../../../../../Redux/usersSelectors';
 
-class UserInfoContainer extends React.Component {
+class UserInfoContainer extends React.PureComponent {
 
     componentDidMount() {        
         this.props.getUserProfileInfo(this.props.userID)

@@ -5,7 +5,7 @@ import AuthUser from './AuthUser';
 import {getAuthUser, authUser, logoutUser} from '../../../Redux/authReducer'
 import { getAuthState } from '../../../Redux/authSelectors';
 
-class AuthUserContainer extends React.Component {
+class AuthUserContainer extends React.PureComponent {
 
     componentDidMount() {
         if (this.props.state.userId !== null) {

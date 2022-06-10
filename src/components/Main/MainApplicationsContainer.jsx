@@ -7,7 +7,7 @@ import { WithAuthRedirect } from '../../Hoc/WithAuthRedirect';
 import { getAuthUserId, getAuthUserTeam } from '../../Redux/authSelectors';
 import { getApplications, getDelideryActiveUser } from '../../Redux/applicationsSelectors';
 
-class MainApplicationsContainer extends React.Component {
+class MainApplicationsContainer extends React.PureComponent {
   componentDidMount() {
     if (this.props.state.data.length === 0) {
       this.props.getApplicationsRequest();    

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PreLoader from '../../../../Moduls/PreLoader';
 import { getApplications } from '../../../../../../Redux/applicationsSelectors';
 
-class StockContainer extends React.Component {
+class StockContainer extends React.PureComponent {
   
   render() {
     return (<>

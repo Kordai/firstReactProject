@@ -7,7 +7,7 @@ import { WithAuthRedirect } from '../../Hoc/WithAuthRedirect';
 import { getAuthUserId, getAuthUserTeam } from '../../Redux/authSelectors';
 import { getUsers } from '../../Redux/usersSelectors';
 
-class MainUsersContainer extends React.Component {
+class MainUsersContainer extends React.PureComponent {
 
   componentDidMount() {
 
