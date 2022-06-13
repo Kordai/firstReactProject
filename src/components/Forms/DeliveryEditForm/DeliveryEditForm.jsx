@@ -8,9 +8,9 @@ import s from './DeliveryEditForm.module.css';
 
 const maxLength20 = maxLengthCreator(20);
 
-const DeliveryEditForm = (props) => {
+const DeliveryEditForm = ({inputVal, handleSubmit, activeForm, nameAction, initialValues, closeForm}) => {
 
-    let inputComponent = props.inputVal.map(
+    let inputComponent = inputVal.map(
         (val) => {
             return (
                 <Field
@@ -18,19 +18,19 @@ const DeliveryEditForm = (props) => {
                     validate={[required, maxLength20]}
                     placeholder={val}
                     name={val}
-                    key={props.inputVal.indexOf(val)}
+                    key={inputVal.indexOf(val)}
                 />
             )
         }
     );
 
     return <>
-        <form onSubmit={props.handleSubmit} className={props.activeForm ? s.formPopup : s.formPopupNone}>
-            <h1>{props.nameAction} delivery</h1>
-            <label className={props.nameAction === "New" ? s.noneLabel : s.activeLabel} name={"Id"} >ID: {props.initialValues.id}</label>
+        <form onSubmit={handleSubmit} className={activeForm ? s.formPopup : s.formPopupNone}>
+            <h1>{nameAction} delivery</h1>
+            <label className={nameAction === "New" ? s.noneLabel : s.activeLabel} name={"Id"} >ID: {initialValues.id}</label>
             {inputComponent}
-            <button className={s.btn}>{props.nameAction === "New" ? "Submit" : "Update"}</button>
-            <button onClick={props.closeForm} className={s.cancel} type="button">Close</button>
+            <button className={s.btn}>{nameAction === "New" ? "Submit" : "Update"}</button>
+            <button onClick={closeForm} className={s.cancel} type="button">Close</button>
         </form>
     </>
 

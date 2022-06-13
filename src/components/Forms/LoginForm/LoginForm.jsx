@@ -9,10 +9,10 @@ import { getAuthState } from '../../../Redux/authSelectors';
 
 const maxLength20 = maxLengthCreator(20);
 
-const LoginForm = (props) => {   
+const LoginForm = ({handleSubmit, errorAuth}) => {   
 
     return <>
-        <form onSubmit={props.handleSubmit} className={s.visible}>
+        <form onSubmit={handleSubmit} className={s.visible}>
             <div>
                 <Field component="label" name="formName">Login</Field>
             </div>
@@ -29,7 +29,7 @@ const LoginForm = (props) => {
                 name="password"
                 type="password"
                 validate={[required, maxLength20]} />
-            <div><span className={s.errorAuth}> {props.errorAuth} </span> </div>
+            <div><span className={s.errorAuth}> {errorAuth} </span> </div>
             <button>Login</button>
         </form>
     </>
