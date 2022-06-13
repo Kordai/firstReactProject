@@ -1,9 +1,10 @@
 import ConnectToServer from "../APIConnect/ConnectToServer";
 
-const SET_USER = 'SET_USER';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-const SET_USER_ID = 'SET_USER_ID';
-const SET_ERROR_AUTH = 'SET_ERROR_AUTH';
+//Action type
+const SET_USER = 'AUTH/SET_USER';
+const TOGGLE_IS_FETCHING = 'AUTH/TOGGLE_IS_FETCHING';
+const SET_USER_ID = 'AUTH/SET_USER_ID';
+const SET_ERROR_AUTH = 'AUTH/SET_ERROR_AUTH';
 
 //Started props
 let initialState = {
@@ -49,57 +50,43 @@ const authReducer = (state = initialState, action) => {
 
 //Action Creators functions
 const setAuthUser = (data) => {
-    return {
-        type: SET_USER,
-        user: data
-    }
+    return { type: SET_USER, user: data }
 }
 
 const setErrorAuth = (errorAuth) => {
-    return {
-        type: SET_ERROR_AUTH,
-        errorAuth
-    }
+    return { type: SET_ERROR_AUTH, errorAuth }
 }
 
 const setUserId = (userId) => {
-    return {
-        type: SET_USER_ID,
-        userId
-    }
+    return { type: SET_USER_ID, userId }
 }
 
 const toggleIsFetching = (isFetching) => {
-    return {
-        type: TOGGLE_IS_FETCHING,
-        isFetching
-    }
+    return { type: TOGGLE_IS_FETCHING, isFetching }
 }
 
 //Thunk functions
 export const getAuthUser = (id) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFetching(true))
-        ConnectToServer.getUser(id).then(data => {
-            dispatch(setAuthUser(data.user))
-            dispatch(toggleIsFetching(false))
-        });
+        const data = await ConnectToServer.getUser(id)
+        dispatch(setAuthUser(data.user))
+        dispatch(toggleIsFetching(false))
     }
 }
 
 export const authUser = (login) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFetching(true))
-        ConnectToServer.authUser(login).then(data => {
-            if (data.success === 1) {
-                dispatch(setUserId(data.user.id))
-                dispatch(getAuthUser(data.user.id))
-                dispatch(toggleIsFetching(false))
-            } else {
-                dispatch(setErrorAuth(data.message))
-                dispatch(toggleIsFetching(false))
-            }
-        });
+        const data = await ConnectToServer.authUser(login)
+        if (data.success === 1) {
+            dispatch(setUserId(data.user.id))
+            dispatch(getAuthUser(data.user.id))
+            dispatch(toggleIsFetching(false))
+        } else {
+            dispatch(setErrorAuth(data.message))
+            dispatch(toggleIsFetching(false))
+        }
     }
 }
 
