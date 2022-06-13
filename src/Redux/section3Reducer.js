@@ -1,12 +1,13 @@
 import ConnectToServer from "../APIConnect/ConnectToServer";
 
-const SET_PAYMENT = 'SET_PAYMENT';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const SET_TOTAL_PAYMENTS_COUNT = 'SET_TOTAL_PAYMENTS_COUNT';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-const TOGGLE_BE_FORM = 'TOGGLE_BE_FORM';
-const TOGGLE_BE_NAME_FORM = 'TOGGLE_BE_NAME_FORM';
-const SET_INITIAL_VALUES_PAYMENT_FORM = 'SET_INITIAL_VALUES_PAYMENT_FORM';
+//Action type
+const SET_PAYMENT = 'SECTION3/SET_PAYMENT';
+const SET_CURRENT_PAGE = 'SECTION3/SET_CURRENT_PAGE';
+const SET_TOTAL_PAYMENTS_COUNT = 'SECTION3/SET_TOTAL_PAYMENTS_COUNT';
+const TOGGLE_IS_FETCHING = 'SECTION3/TOGGLE_IS_FETCHING';
+const TOGGLE_BE_FORM = 'SECTION3/TOGGLE_BE_FORM';
+const TOGGLE_BE_NAME_FORM = 'SECTION3/TOGGLE_BE_NAME_FORM';
+const SET_INITIAL_VALUES_PAYMENT_FORM = 'SECTION3/SET_INITIAL_VALUES_PAYMENT_FORM';
 
 //Started props
 let initialState = {
@@ -137,15 +138,13 @@ export const toggleBeForm = (activeForm) => {
 
 //Thunk functions
 export const getPayments = (currentPage, pageSize) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFetching(true))
         dispatch(setCurrentPage(currentPage))
-        ConnectToServer.getPayments(currentPage, pageSize)
-            .then(data => {
-                dispatch(setPayments(data.payments));
-                dispatch(setTotalPaymentsCount(data.total));
-                dispatch(toggleIsFetching(false));
-            });
+        const data = await ConnectToServer.getPayments(currentPage, pageSize)
+        dispatch(setPayments(data.payments));
+        dispatch(setTotalPaymentsCount(data.total));
+        dispatch(toggleIsFetching(false));
     }
 }
 
@@ -165,22 +164,18 @@ export const openEditForm = (obj) => {
 }
 
 export const onSubmitForm = (formData) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         let newPayment = {
             Customer: "0",
             Date: "0",
             Payment: 0,
             Point: "0"
         }
-
         newPayment = { ...newPayment, ...formData }
-
-        ConnectToServer.addNewPayment(newPayment).then(data => {
-
-            if (data.success === 1) {
-                dispatch(getPayments(1, 10))
-            }
-        })
+        const data = await ConnectToServer.addNewPayment(newPayment)
+        if (data.success === 1) {
+            dispatch(getPayments(1, 10))
+        }
         let initialValues = {
             Id: "",
             Point: "",
@@ -209,12 +204,11 @@ export const openAddForm = () => {
 }
 
 export const onUdatePayment = (formData) => {
-    return (dispatch) => {
-        ConnectToServer.putPayment(formData).then(data => {            
-            if (data.success === 1) {
-                dispatch(getPayments(1, 10))
-            }
-        })
+    return async (dispatch) => {
+        const data = await ConnectToServer.putPayment(formData)
+        if (data.success === 1) {
+            dispatch(getPayments(1, 10))
+        }
         let initialValues = {
             Id: "",
             Point: "",
@@ -228,12 +222,11 @@ export const onUdatePayment = (formData) => {
 }
 
 export const onDeletePayment = (id) => {
-    return (dispatch) => {
-        ConnectToServer.deletePayment(id).then(data => {
-            if (data.success === 1) {
-                dispatch(getPayments(initialState.currentPage, initialState.pageSize))
-            }
-        })
+    return async (dispatch) => {
+        const data = await ConnectToServer.deletePayment(id)
+        if (data.success === 1) {
+            dispatch(getPayments(initialState.currentPage, initialState.pageSize))
+        }
         let initialValues = {
             Id: "",
             Point: "",
