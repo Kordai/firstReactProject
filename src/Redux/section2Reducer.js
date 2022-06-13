@@ -1,4 +1,4 @@
-const SET_SEC2 = 'SET_SEC2';
+const SET_SEC2 = 'SECTION2/SET_SEC2';
 
 let initialState = [];
 
@@ -9,17 +9,13 @@ const section2Reducer = (state = initialState, action) => {
                 ...state, 
                 ...action.newSec2
             ]
-
         default:
             return state;
     } 
 }
 
 export const setSec2 = (newSec) => {
-    return { 
-        type: SET_SEC2, 
-        newSec2: newSec 
-    }
+    return { type: SET_SEC2, newSec2: newSec }
 }
 
 export default section2Reducer;
