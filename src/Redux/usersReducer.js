@@ -94,6 +94,7 @@ export const updateUser = (user) => {
     return async (dispatch) => {
         const data = await ConnectToServer.putUser(user)
         if (data.success === 1) {
+            dispatch(getUsersRequst())
             dispatch(getUserProfileInfo(user.id))
             dispatch(toggleBeForm(false))
         }
