@@ -16,9 +16,8 @@ const ConnectToServer = {
     },
     getPayments(currentPage, pageSize) {
         return instance.get(`get_payments.php?page=${currentPage}&count=${pageSize}`)
-            .then(response => {
-                return response?.data; //if return Empty element, this functions return null
-            });
+            .then(response => response?.data) //if return empty Element, return null
+            .catch(error => console.log(error))
     },
     getApplications() {
         return instance.get("get_applications.php").then(response => response.data);

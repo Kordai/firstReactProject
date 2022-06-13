@@ -1,13 +1,14 @@
 import ConnectToServer from "../APIConnect/ConnectToServer";
 
-const UPDATE_APPLICATION = 'UPDATE_APPLICATION';
-const UPDATE_APPLICATION_DATA = 'UPDATE_APPLICATION_DATA';
-const SET_APPLICATIONS = 'SET_APPLICATIONS';
-const SET_DELIVERY_INFO = 'SET_DELIVERY_INFO';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-const TOGGLE_BE_FORM = 'TOGGLE_BE_FORM';
-const SET_INITIAL_VALUES_FORM = 'SET_INITIAL_VALUES_FORM';
-const SET_ACTION_FORM = 'SET_ACTION_FORM';
+//Action type
+const UPDATE_APPLICATION = 'DELIVERY/UPDATE_APPLICATION';
+const UPDATE_APPLICATION_DATA = 'DELIVERY/UPDATE_APPLICATION_DATA';
+const SET_APPLICATIONS = 'DELIVERY/SET_APPLICATIONS';
+const SET_DELIVERY_INFO = 'DELIVERY/SET_DELIVERY_INFO';
+const TOGGLE_IS_FETCHING = 'DELIVERY/TOGGLE_IS_FETCHING';
+const TOGGLE_BE_FORM = 'DELIVERY/TOGGLE_BE_FORM';
+const SET_INITIAL_VALUES_FORM = 'DELIVERY/SET_INITIAL_VALUES_FORM';
+const SET_ACTION_FORM = 'DELIVERY/SET_ACTION_FORM';
 
 //Started props
 let initialState = {
@@ -123,54 +124,48 @@ const setDeliveryInfo = (deliveryInfo) => {
     return { type: SET_DELIVERY_INFO, deliveryInfo }
 }
 
-const setApplication = (newApplications) => {
-    return { type: SET_APPLICATIONS, applications: newApplications }
+const setApplication = (applications) => {
+    return { type: SET_APPLICATIONS, applications }
 }
 
 const toggleIsFetching = (isFetching) => {
-    return {
-        type: TOGGLE_IS_FETCHING,
-        isFetching
-    }
+    return { type: TOGGLE_IS_FETCHING, isFetching }
 }
 
 //Thunk functions
 export const onSubmitForm = (formData) => {
-    return (dispatch) => {
-        ConnectToServer.addNewDelivery(formData).then(data => {
-            if (data.success === 1) {
-                dispatch(getApplicationsRequest())
-            }
-        })                
+    return async (dispatch) => {
+        const data = await ConnectToServer.addNewDelivery(formData)
+        if (data.success === 1) {
+            dispatch(getApplicationsRequest())
+        }
         dispatch(toggleBeForm(false))
     }
 }
 
 
 export const onUdateDelivery = (formData) => {
-    return (dispatch) => {
-        ConnectToServer.putApplication(formData).then(data => {            
-            if (data.success === 1) {
-                dispatch(getApplicationsRequest())
-            }
-        })
+    return async (dispatch) => {
+        const data = await ConnectToServer.putApplication(formData)
+        if (data.success === 1) {
+            dispatch(getApplicationsRequest())
+        }
         dispatch(toggleBeForm(false))
     }
 }
 
 export const onUdateDeliveryAction = (formData) => {
-    return (dispatch) => {
-        ConnectToServer.putApplicationAction(formData).then(data => {            
-            if (data.success === 1) {
-                dispatch(getApplicationsRequest())
-            }
-        })
+    return async (dispatch) => {
+        const data = await ConnectToServer.putApplicationAction(formData)
+        if (data.success === 1) {
+            dispatch(getApplicationsRequest())
+        }
         dispatch(toggleBeForm(false))
     }
 }
 
 export const openEditForm = (obj) => {
-    return (dispatch) => {        
+    return (dispatch) => {
         dispatch(setNameFormAction("Edit"))
         dispatch(setinitialValues(obj))
         dispatch(toggleBeForm(true))
@@ -180,12 +175,12 @@ export const openEditForm = (obj) => {
 export const openNewForm = () => {
     return (dispatch) => {
         let initialValues = {
-            id:"",
-            point:"",
-            coffee:"",
-            milk:"",
-            caps350:"",
-            sugar:""
+            id: "",
+            point: "",
+            coffee: "",
+            milk: "",
+            caps350: "",
+            sugar: ""
         }
         dispatch(setNameFormAction("New"))
         dispatch(setinitialValues(initialValues))
@@ -194,24 +189,22 @@ export const openNewForm = () => {
 }
 
 export const getApplicationsRequest = () => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFetching(true));
-        ConnectToServer.getApplications().then(data => {
-            dispatch(setApplication(data.applications))
-            dispatch(toggleIsFetching(false))
-        });
+        const data = await ConnectToServer.getApplications()
+        dispatch(setApplication(data.applications))
+        dispatch(toggleIsFetching(false))
     }
 }
 
 export const deleteApplications = (id) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFetching(true));
-        ConnectToServer.deleteApplication(id).then(data => {
-            if (data.success === 1) {
-                dispatch(getApplicationsRequest())
-                dispatch(toggleIsFetching(false))
-            }
-        });
+        const data = await ConnectToServer.deleteApplication(id)
+        if (data.success === 1) {
+            dispatch(getApplicationsRequest())
+        }
+        dispatch(toggleIsFetching(false))
     }
 }
 
@@ -236,26 +229,25 @@ export const mapArray = (array, name) => {
 }
 
 export const getDeliveryInfo = () => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFetching(true));
-        ConnectToServer.getApplications().then(data => {
-            let deliveryInfo = [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
-                'August',
-                'September',
-                'October',
-                'November',
-                'December'
-            ].map((val, index) => dispatch(mapArray(data.applications.filter((f) => { return parseInt(f.month) === index + 1 }), val)))
-            dispatch(setDeliveryInfo(deliveryInfo))
-            dispatch(toggleIsFetching(false))
-        });
+        const data = await ConnectToServer.getApplications()
+        let deliveryInfo = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December'
+        ].map((val, index) => dispatch(mapArray(data.applications.filter((f) => { return parseInt(f.month) === index + 1 }), val)))
+        dispatch(setDeliveryInfo(deliveryInfo))
+        dispatch(toggleIsFetching(false))
     }
 }
 
