@@ -2,9 +2,9 @@ import React from 'react';
 import s from './Section2.module.css';
 import Module2 from './Moduls/Module2/Module2'
 
-const Section2 = (props) => {
-  if (props.state.length === 0) {
-    props.setSec2([
+const Section2 = ({state, setSec2}) => {
+  if (state.length === 0) {
+    setSec2([
       {
         id: 0,
         data: [
@@ -55,7 +55,7 @@ const Section2 = (props) => {
       }
     ])
   }
-  let dataOptions = props.state.map(
+  let dataOptions = state.map(
     val => <Module2 key={val.id} state={val} />
   );
 

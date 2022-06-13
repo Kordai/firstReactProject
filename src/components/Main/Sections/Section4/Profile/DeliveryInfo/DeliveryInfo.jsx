@@ -3,7 +3,7 @@ import s from './DeliveryInfo.module.css';
 import ModuleTextLabel from '../Moduls/ModuleTextLabel';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 
-const DeliveryInfo = (props) => {
+const DeliveryInfo = ({state, mapArray, deliveryInfo}) => {
 
 
     let attributes =
@@ -16,7 +16,7 @@ const DeliveryInfo = (props) => {
 
     let value = {}
 
-    value = props.mapArray(props.state, "Info")
+    value = mapArray(state, "Info")
 
     const stackCups = (str) => {
         if (str === "Cups") {
@@ -34,7 +34,7 @@ const DeliveryInfo = (props) => {
                 {stockModule}
             </div>
             <div className={s.chart}>
-                <BarChart width={700} height={300} data={props.deliveryInfo}>
+                <BarChart width={700} height={300} data={deliveryInfo}>
                     
                     <Tooltip itemStyle={{ color: '#282c34' }} contentStyle={{ backgroundColor: '#727e94', color: '#282c34' }} cursor={{ fill: '#727e94' }} />
                     <Legend wrapperStyle={{ bottom: 0, right: 0, backgroundColor: '#727e94', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />

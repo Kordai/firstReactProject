@@ -5,9 +5,9 @@ import Table from './Moduls/Tabel/Table';
 import TableActionForm from './Moduls/Form/TableActionForm';
 
 
-const Section3 = (props) => {
+const Section3 = ({team, state, openEditForm, onUdatePayment, onDeletePayment, onSubmitForm, openForm, closeForm, onPageChenged, toggleBeForm, toggleBeNameForm}) => {
 
-  if (props.team === "Service") {
+  if (team === "Service") {
     return <div> 
       <span className={s.spanService}> Access is limited </span>
     </div>
@@ -16,20 +16,20 @@ const Section3 = (props) => {
   return (
     <section className={s.s3} >
       <Table
-        state={props.state}
-        openEditForm={props.openEditForm} />
+        state={state}
+        openEditForm={openEditForm} />
 
       <TableActionForm
-        onUdatePayment={props.onUdatePayment}
-        onDeletePayment={props.onDeletePayment}
-        state={props.state}
-        onSubmitForm={props.onSubmitForm}
-        openForm={props.openForm}
-        closeForm={props.closeForm}
-        onPageChenged={props.onPageChenged}
-        toggleBeForm={props.toggleBeForm}
-        toggleBeNameForm={props.toggleBeNameForm} />
-      <Module state={props.state} />
+        onUdatePayment={onUdatePayment}
+        onDeletePayment={onDeletePayment}
+        state={state}
+        onSubmitForm={onSubmitForm}
+        openForm={openForm}
+        closeForm={closeForm}
+        onPageChenged={onPageChenged}
+        toggleBeForm={toggleBeForm}
+        toggleBeNameForm={toggleBeNameForm} />
+      <Module state={state} />
     </section>
   )
 }

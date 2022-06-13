@@ -2,17 +2,17 @@ import React from 'react';
 import UserForm from '../../../../Forms/UserForm/UserForm';
 import s from './NewUser.module.css';
 
-const NewUser = (props) =>{
+const NewUser = ({toggleBeForm, newUser}) =>{
 
-    const newUser = () => {
-        props.toggleBeForm(true)
+    const newUserForm = () => {
+        toggleBeForm(true)
     }
     const onSubmitForm = (formData) => {
-        props.newUser(formData)
+        newUser(formData)
     }
 
     return <div className={s.noActive}>
-    <div onClick={newUser} className={s.newUser}>
+    <div onClick={newUserForm} className={s.newUser}>
         <span className={s.plus}>+</span>
     </div>
     <UserForm 

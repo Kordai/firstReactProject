@@ -2,18 +2,18 @@ import React from 'react';
 import './TableRow.css';
 import TableCell from './TableCell'
 
-const TableRow = (props) => {
+const TableRow = ({state, openEditForm}) => {
 
-  let thTable = props.state.headTable.map(
-    val => <th key={props.state.headTable.indexOf(val)}>{val}</th>
+  let thTable = state.headTable.map(
+    val => <th key={state.headTable.indexOf(val)}>{val}</th>
   );
 
-  let tableCell = props.state.data.map(
+  let tableCell = state.data.map(
     val => <TableCell
       state={val}
       key={val[0]}
       cellKey={val[0]}       
-      openEditForm={props.openEditForm}/>
+      openEditForm={openEditForm}/>
   );
 
   return (

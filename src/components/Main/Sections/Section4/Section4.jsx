@@ -3,9 +3,9 @@ import s from './Section4.module.css';
 import User from './Moduls/User'
 import NewUser from './Moduls/NewUser';
 
-const Section4 = (props) => {
+const Section4 = ({state, team, activTeam, toggleBeForm, newUser}) => {
 
-  const qqq = props.state.filter((f) => { return f.team === props.team });
+  const qqq = state.filter((f) => { return f.team === team });
 
   let userPage = qqq.map(
     val => <User state={val} key={val.id} />
@@ -13,12 +13,12 @@ const Section4 = (props) => {
 
   return (    
     <section className={s.u}>
-    <span className={s.team}>{props.team}s</span>
+    <span className={s.team}>{team}s</span>
       {userPage}
-      {props.activTeam !== "Service"? <NewUser 
-      team = {props.team} 
-      toggleBeForm={props.toggleBeForm}
-      newUser = {props.newUser}/>: null }
+      {activTeam !== "Service"? <NewUser 
+      team = {team} 
+      toggleBeForm={toggleBeForm}
+      newUser = {newUser}/>: null }
       
     </section>  
   );

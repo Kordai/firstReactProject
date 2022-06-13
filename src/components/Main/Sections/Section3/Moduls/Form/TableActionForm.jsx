@@ -2,12 +2,12 @@ import React from 'react';
 import TableEditForm from '../../../../../Forms/TabelEditForm/TableEditForm';
 import s from './TableActionForm.module.css';
 
-const TableActionForm = (props) => {
+const TableActionForm = ({state, openForm, onPageChenged, onDeletePayment, closeForm, onSubmitForm, onUdatePayment, toggleBeForm}) => {
 
-  let inputVal = props.state.headTable.filter((f) => { return f !== props.state.headTable[0] });
+  let inputVal = state.headTable.filter((f) => { return f !== state.headTable[0] });
 
   //count pages
-  let pageCount = Math.ceil(props.state.totalPaymentsCount / props.state.pageSize);
+  let pageCount = Math.ceil(state.totalPaymentsCount / state.pageSize);
 
   let pages = [];
   for (let i = 1; i <= pageCount; i++) {
@@ -18,34 +18,34 @@ const TableActionForm = (props) => {
   return (
     <div>
       <div className={s.controlPanel}>
-        <button onClick={props.openForm} className={s.openButton}>Add {props.state.formName}</button>
+        <button onClick={openForm} className={s.openButton}>Add {state.formName}</button>
 
         <div className={s.paginationPanel}>
           <span className={s.page}>&lt;PAGE</span>
 
           {pages.map(p => {
             return <span
-              onClick={() => { props.onPageChenged(p) }}
-              className={props.state.currentPage === p ? s.active : null}
+              onClick={() => { onPageChenged(p) }}
+              className={state.currentPage === p ? s.active : null}
               key={p}>{p}</span>
           })}
 
           <span className={s.page}>PAGE&gt;</span>
         </div>
 
-        <label className={s.count}>Records count: {props.state.totalPaymentsCount}</label>
+        <label className={s.count}>Records count: {state.totalPaymentsCount}</label>
       </div>
 
       <TableEditForm        
-        onDeletePayment={props.onDeletePayment}
-        closeForm={props.closeForm}
-        nameAction={props.state.nameFormAction}
-        initialValues={props.state.initialValuesPaymentForm}
-        onSubmit={props.state.nameFormAction === "Add"? props.onSubmitForm : props.onUdatePayment} 
-        activeForm={props.state.activeForm}
-        formName={props.state.formName}
+        onDeletePayment={onDeletePayment}
+        closeForm={closeForm}
+        nameAction={state.nameFormAction}
+        initialValues={state.initialValuesPaymentForm}
+        onSubmit={state.nameFormAction === "Add"? onSubmitForm : onUdatePayment} 
+        activeForm={state.activeForm}
+        formName={state.formName}
         inputVal={inputVal}
-        toggleBeForm={props.toggleBeForm} />
+        toggleBeForm={toggleBeForm} />
 
     </div>
   );

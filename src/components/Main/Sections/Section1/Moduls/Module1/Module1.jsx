@@ -2,13 +2,13 @@ import React from 'react';
 import s from './Module1.module.css';
 import { Chart } from "react-google-charts";
 
-const Module1 = (props) => {
+const Module1 = ({data, options}) => {
   return (
     <section className={s.m1}>
       <Chart 
       chartType="PieChart"
-      data={props.data}
-      options={props.options}
+      data={data}
+      options={options}
       width={"100%"}
       height={"90%"}      
     />

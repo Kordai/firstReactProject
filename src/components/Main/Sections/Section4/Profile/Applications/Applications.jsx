@@ -4,7 +4,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import "./styles.css";
 
-const Applications = (props) => {
+const Applications = ({state}) => {
 
     const columns = [
         { dataField: "id", text: "Number", sort: true },
@@ -21,7 +21,7 @@ const Applications = (props) => {
             <span className={s.teguser}>Delivery</span>
             <BootstrapTable
                 keyField='id'
-                data={props.state}
+                data={state}
                 columns={columns}
                 pagination={paginationFactory()}
                 classes={s.table + " table-sm"}

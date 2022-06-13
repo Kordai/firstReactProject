@@ -1,10 +1,10 @@
 import React from 'react';
 import s from './ModuleTextLabel.module.css';
 
-const ModuleTextLabel = (props) => {
+const ModuleTextLabel = ({teg, text}) => {
     return <div className={s.data}>
-    <span className={s.tegdata}>{props.teg}</span>
-    <span className={s.text}> {props.text}</span>    
+    <span className={s.tegdata}>{teg}</span>
+    <span className={s.text}> {text}</span>    
 </div>
 }
 

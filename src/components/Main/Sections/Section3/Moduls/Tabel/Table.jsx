@@ -2,12 +2,12 @@ import React from 'react';
 import TableRow from './TableRow'
 import s from './Table.module.css';
 
-const Table = (props) => {
+const Table = ({state, openEditForm}) => {
       return (
             <div className={s.t}>
                   <TableRow
-                        state={props.state}
-                        openEditForm={props.openEditForm} />
+                        state={state}
+                        openEditForm={openEditForm} />
             </div>
       )
 }

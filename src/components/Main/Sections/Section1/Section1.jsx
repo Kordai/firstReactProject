@@ -2,9 +2,9 @@ import React from 'react';
 import s from './Section1.module.css';
 import Module1 from './Moduls/Module1/Module1'
 
-const Section1 = (props) => {
-  if (props.state.length === 0) {    
-    props.setSec1(
+const Section1 = ({state, setSec1}) => {
+  if (state.length === 0) {    
+    setSec1(
       [
         {
           id:0,
@@ -58,12 +58,11 @@ const Section1 = (props) => {
     )
   }
 
-  let dataOptions = props.state.map(
+  let dataOptions = state.map(
     val => ({
       options: {
         title: val.titleCharts,
         is3D: true,
-        // colors: ['#FB7A21'],
         fontSize: '17',
         legend:{position: 'bottom', textStyle: {color: 'blue', fontSize: 15}}
       },
